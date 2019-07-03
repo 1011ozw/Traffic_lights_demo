@@ -43,13 +43,6 @@ public class TestWindowBuilder {
 		
 		initialize();
 		
-		
-		
-		
-		
-		
-		
-		
 	}
 
 	
@@ -64,30 +57,51 @@ public class TestWindowBuilder {
 		frame.getContentPane().setLayout(null);		
 		
 		
+		//汽车属性设置
 		JLabel car1 = new JLabel("");
 		car1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/tao.png")));
-		car1.setBounds(0, 366, 70, 30);
+		car1.setBounds(0, 334, 70, 30);
 		frame.getContentPane().add(car1);
 		
+		//设置共有多线程函数goStraight
+		goStraight gostraight = new goStraight(car1,"car1");
 		
 		//开始运行按钮
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
 		START.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				goStraight gostraight = new goStraight(car1);
-				gostraight.start();
-//				while(car1.getBounds().x<=600) {
-//					START.doClick();
-//				}
 				
-				
+			
+				gostraight.start();				
 				
 			}
 		});
-		START.setBounds(507, 577, 93, 23);
+		START.setBounds(507, 544, 93, 23);
 		frame.getContentPane().add(START);
 		
 		
+		//停止运行按钮
+		JButton STOP = new JButton("\u505C\u6B62\u8FD0\u884C");
+		STOP.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					Thread.sleep(10000);
+				} catch (InterruptedException e) {
+					// TODO 自动生成的 catch 块
+					e.printStackTrace();
+				}
+		
+				
+			}
+		});
+		STOP.setBounds(507, 577, 93, 23);
+		frame.getContentPane().add(STOP);
+		
+		
+		
+		
+		//十字路口地图
 		JLabel MAP = new JLabel("");
 		MAP.setBounds(0, 0, 600, 600);
 		frame.getContentPane().add(MAP);

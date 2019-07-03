@@ -61,7 +61,7 @@ public class TestWindowBuilder {
 		
 		//������������
 		JLabel car1 = new JLabel("");
-		car1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/tao.png")));
+		car1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car1.png")));
 		car1.setBounds(0, 334, 70, 30);
 		frame.getContentPane().add(car1);
 		
@@ -70,8 +70,28 @@ public class TestWindowBuilder {
 		car2.setBounds(20, 300, 70, 30);
 		frame.getContentPane().add(car2);
 		
-		//set car
+		car2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
+		car2.setBounds(0, 364, 70, 38);
+		frame.getContentPane().add(car2);
+		
+		JLabel car_s2 = new JLabel("");
+		car_s2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
+		car_s2.setBounds(460, 233, 70, 38);
+		frame.getContentPane().add(car_s2);
+		
+		JLabel car_r2 = new JLabel("");
+		car_r2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
+		car_r2.setBounds(460, 198, 70, 38);
+		frame.getContentPane().add(car_r2);
+		
+		//���ù��ж��̺߳���
 		goStraight gostraight = new goStraight(car1,"car1");
+		goRight goright = new goRight(car2, "car2");
+		
+		goStraight2 gostraight2 = new goStraight2(car_s2,"car_s2");
+		goRight2 goright2 = new goRight2(car_r2, "car_r2");
+		
+		//set car
 		goLeft goleft= new goLeft(car2, "car2");
 		//��ʼ���а�ť
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
@@ -80,15 +100,18 @@ public class TestWindowBuilder {
 				
 				gostraight.start();	
 				goleft.start();
+				goright.start();
+				
+				gostraight2.start();
+				goright2.start();
 			}
 		});
 		START.setBounds(499, 491, 93, 23);
+		
+		
+		START.setBounds(507, 544, 93, 23);
 		frame.getContentPane().add(START);
 		
-		
-		
-		
-		//ֹͣ���а�ť
 		JButton STOP = new JButton("\u505C\u6B62\u8FD0\u884C");
 		STOP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -96,7 +119,8 @@ public class TestWindowBuilder {
 				state = !state;
 				gostraight.runCar(state);
 				goleft.runCar(state);
-	
+				goright.runCar(state);
+
 			}
 		});
 		STOP.setBounds(499, 535, 93, 23);

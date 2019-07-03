@@ -17,6 +17,8 @@ import javax.swing.SwingConstants;
 public class TestWindowBuilder {
 
 	private JFrame frame;
+	
+	private boolean state = true;
 
 	/**
 	 * Launch the application.
@@ -71,8 +73,7 @@ public class TestWindowBuilder {
 		START.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-			
-				gostraight.start();				
+				gostraight.start();	
 				
 			}
 		});
@@ -80,19 +81,16 @@ public class TestWindowBuilder {
 		frame.getContentPane().add(START);
 		
 		
+		
+		
 		//停止运行按钮
 		JButton STOP = new JButton("\u505C\u6B62\u8FD0\u884C");
 		STOP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				try {
-					Thread.sleep(10000);
-				} catch (InterruptedException e) {
-					// TODO 自动生成的 catch 块
-					e.printStackTrace();
-				}
-		
-				
+				state = !state;
+				gostraight.runCar(state);
+	
 			}
 		});
 		STOP.setBounds(507, 577, 93, 23);

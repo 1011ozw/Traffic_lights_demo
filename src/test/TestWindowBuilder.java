@@ -1,5 +1,5 @@
 package test;
-
+//fuzhenggang 2019/7/3
 import java.awt.EventQueue;
 import test.goStraight;
 
@@ -70,7 +70,7 @@ public class TestWindowBuilder {
 		car2.setBounds(20, 300, 70, 30);
 		frame.getContentPane().add(car2);
 		
-		//���ù��ж��̺߳���goStraight
+		//set car
 		goStraight gostraight = new goStraight(car1,"car1");
 		goLeft goleft= new goLeft(car2, "car2");
 		//��ʼ���а�ť

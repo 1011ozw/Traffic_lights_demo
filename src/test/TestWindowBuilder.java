@@ -1,4 +1,5 @@
 package test;
+import img.*;
 //fuzhenggang 2019/7/3
 import java.awt.EventQueue;
 import test.goStraight;
@@ -66,13 +67,14 @@ public class TestWindowBuilder {
 		frame.getContentPane().add(car1);
 		
 		JLabel car2 = new JLabel("");
-		car2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/tao.png")));
-		car2.setBounds(20, 300, 70, 30);
-		frame.getContentPane().add(car2);
-		
 		car2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
 		car2.setBounds(0, 364, 70, 38);
 		frame.getContentPane().add(car2);
+		
+		JLabel car3 = new JLabel("");
+		car3.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
+		car3.setBounds(0, 298, 70, 38);
+		frame.getContentPane().add(car3);
 		
 		JLabel car_s2 = new JLabel("");
 		car_s2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
@@ -85,14 +87,11 @@ public class TestWindowBuilder {
 		frame.getContentPane().add(car_r2);
 		
 		//���ù��ж��̺߳���
-		goStraight gostraight = new goStraight(car1,"car1");
-		goRight goright = new goRight(car2, "car2");
-		
-		goStraight2 gostraight2 = new goStraight2(car_s2,"car_s2");
-		goRight2 goright2 = new goRight2(car_r2, "car_r2");
-		
-		//set car
-		goLeft goleft= new goLeft(car2, "car2");
+		goStraight gostraight = new goStraight(car1,"car1",10);
+		goRight goright = new goRight(car2, "car2",25);
+		goStraight2 gostraight2 = new goStraight2(car_s2,"car_s2",25);
+		goRight2 goright2 = new goRight2(car_r2, "car_r2",30);
+		goLeft goleft= new goLeft(car3, "car3",15);
 		//��ʼ���а�ť
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
 		START.addActionListener(new ActionListener() {
@@ -120,6 +119,8 @@ public class TestWindowBuilder {
 				gostraight.runCar(state);
 				goleft.runCar(state);
 				goright.runCar(state);
+				gostraight2.runCar(state);
+				goright2.runCar(state);
 
 			}
 		});

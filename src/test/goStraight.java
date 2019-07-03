@@ -3,7 +3,7 @@ package test;
 import javax.swing.JLabel;
 
 public class goStraight extends Thread {
-	
+	private int speed=50;
 	private JLabel car2;
 	private boolean run;
 	private String threadName;
@@ -11,12 +11,13 @@ public class goStraight extends Thread {
 	private boolean cargo;
 	//private Thread t;
 	
-	public goStraight(JLabel car, String name) {
+	public goStraight(JLabel car, String name,int sp) {
+		
 		car2 = car;
 		threadName = name;
 		run = false;
 		cargo = true;
-	
+		speed=sp;
 	}
 
 	public void setRun(boolean run) {
@@ -36,7 +37,7 @@ public class goStraight extends Thread {
 			
 			synchronized(this) {
 				try {
-					wait(50);
+					wait(speed);
 				} catch(Exception e) {
 					e.printStackTrace();
 				}

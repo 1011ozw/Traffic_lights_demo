@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class goRight extends Thread {
+	private int speed=50;
 	private JLabel car_right;
 	private boolean run;
 	private String threadName;
@@ -11,11 +12,12 @@ public class goRight extends Thread {
 	private boolean cargo;
 	//private Thread t;
 	
-	public goRight(JLabel car, String name) {
+	public goRight(JLabel car, String name, int sp) {
 		car_right = car;
 		threadName = name;
 		run = false;
 		cargo = true;
+		speed=sp;
 	
 	}
 
@@ -48,7 +50,7 @@ public class goRight extends Thread {
 			
 			synchronized(this) {
 				try {
-					wait(50);
+					wait(speed);
 				} catch(Exception e) {
 					e.printStackTrace();
 				}

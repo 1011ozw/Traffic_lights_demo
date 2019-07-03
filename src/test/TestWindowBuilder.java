@@ -67,14 +67,25 @@ public class TestWindowBuilder {
 		
 		JLabel car2 = new JLabel("");
 		car2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
-		car2.setBounds(10, 364, 70, 38);
+		car2.setBounds(0, 364, 70, 38);
 		frame.getContentPane().add(car2);
 		
+		JLabel car_s2 = new JLabel("");
+		car_s2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
+		car_s2.setBounds(460, 233, 70, 38);
+		frame.getContentPane().add(car_s2);
+		
+		JLabel car_r2 = new JLabel("");
+		car_r2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
+		car_r2.setBounds(460, 198, 70, 38);
+		frame.getContentPane().add(car_r2);
 		
 		//设置共有多线程函数
 		goStraight gostraight = new goStraight(car1,"car1");
 		goRight goright = new goRight(car2, "car2");
 		
+		goStraight2 gostraight2 = new goStraight2(car_s2,"car_s2");
+		goRight2 goright2 = new goRight2(car_r2, "car_r2");
 		
 		//开始运行按钮
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
@@ -84,8 +95,12 @@ public class TestWindowBuilder {
 				gostraight.start();	
 				goright.start();
 				
+				gostraight2.start();
+				goright2.start();
 			}
 		});
+		
+		
 		START.setBounds(507, 544, 93, 23);
 		frame.getContentPane().add(START);
 		

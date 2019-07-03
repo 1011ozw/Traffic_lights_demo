@@ -40,6 +40,10 @@ public class goRight2 extends Thread{
 				}
 				else {
 					car_right.setIcon(icon);
+					
+					if(car_right.getBounds().y == 198) {
+						car_right.setBounds(car_right.getBounds().x,car_right.getBounds().y-35,38,70); 
+					}
 					car_right.setBounds(car_right.getBounds().x,car_right.getBounds().y,38,70); 
 					car_right.setLocation((car_right.getBounds().x), car_right.getBounds().y-1);
 				}

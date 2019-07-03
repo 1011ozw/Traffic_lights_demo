@@ -60,7 +60,7 @@ public class TestWindowBuilder {
 		frame.getContentPane().setLayout(null);		
 		
 		
-		//������������
+		//initialize car Label
 		JLabel car1 = new JLabel("");
 		car1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car1.png")));
 		car1.setBounds(0, 334, 70, 30);
@@ -72,8 +72,8 @@ public class TestWindowBuilder {
 		frame.getContentPane().add(car2);
 		
 		JLabel car3 = new JLabel("");
-		car3.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
-		car3.setBounds(0, 298, 70, 38);
+		car3.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
+		car3.setBounds(0, 295, 70, 38);
 		frame.getContentPane().add(car3);
 		
 		JLabel car_s2 = new JLabel("");
@@ -86,13 +86,15 @@ public class TestWindowBuilder {
 		car_r2.setBounds(460, 198, 70, 38);
 		frame.getContentPane().add(car_r2);
 		
-		//���ù��ж��̺߳���
+		//set public driving class
 		goStraight gostraight = new goStraight(car1,"car1",10);
 		goRight goright = new goRight(car2, "car2",25);
+		goLeft goleft= new goLeft(car3, "car3",15);
+		
 		goStraight2 gostraight2 = new goStraight2(car_s2,"car_s2",25);
 		goRight2 goright2 = new goRight2(car_r2, "car_r2",30);
-		goLeft goleft= new goLeft(car3, "car3",15);
-		//��ʼ���а�ť
+		
+		//Start button
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
 		START.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -106,11 +108,9 @@ public class TestWindowBuilder {
 			}
 		});
 		START.setBounds(499, 491, 93, 23);
-		
-		
-		START.setBounds(507, 544, 93, 23);
 		frame.getContentPane().add(START);
 		
+		//change status button
 		JButton STOP = new JButton("\u505C\u6B62\u8FD0\u884C");
 		STOP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -119,6 +119,7 @@ public class TestWindowBuilder {
 				gostraight.runCar(state);
 				goleft.runCar(state);
 				goright.runCar(state);
+				
 				gostraight2.runCar(state);
 				goright2.runCar(state);
 
@@ -130,7 +131,7 @@ public class TestWindowBuilder {
 		
 		
 		
-		//ʮ��·�ڵ�ͼ
+		//Map background
 		JLabel MAP = new JLabel("");
 		MAP.setBounds(0, 0, 600, 600);
 		frame.getContentPane().add(MAP);

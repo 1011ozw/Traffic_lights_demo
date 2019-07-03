@@ -77,12 +77,12 @@ public class TestWindowBuilder {
 		frame.getContentPane().add(car3);
 		
 		JLabel car_s2 = new JLabel("");
-		car_s2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
-		car_s2.setBounds(460, 233, 70, 38);
+		car_s2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3_R_road.png")));
+		car_s2.setBounds(460, 237, 70, 38);
 		frame.getContentPane().add(car_s2);
 		
 		JLabel car_r2 = new JLabel("");
-		car_r2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
+		car_r2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3_R_road.png")));
 		car_r2.setBounds(460, 198, 70, 38);
 		frame.getContentPane().add(car_r2);
 		

@@ -59,47 +59,53 @@ public class TestWindowBuilder {
 		frame.getContentPane().setLayout(null);		
 		
 		
-		//Æû³µÊôÐÔÉèÖÃ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		JLabel car1 = new JLabel("");
 		car1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/tao.png")));
 		car1.setBounds(0, 334, 70, 30);
 		frame.getContentPane().add(car1);
 		
-		//ÉèÖÃ¹²ÓÐ¶àÏß³Ìº¯ÊýgoStraight
-		goStraight gostraight = new goStraight(car1,"car1");
+		JLabel car2 = new JLabel("");
+		car2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/tao.png")));
+		car2.setBounds(20, 300, 70, 30);
+		frame.getContentPane().add(car2);
 		
-		//¿ªÊ¼ÔËÐÐ°´Å¥
+		//ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½Ð¶ï¿½ï¿½ß³Ìºï¿½ï¿½ï¿½goStraight
+		goStraight gostraight = new goStraight(car1,"car1");
+		goLeft goleft= new goLeft(car2, "car2");
+		//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ð°ï¿½Å¥
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
 		START.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				gostraight.start();	
-				
+				goleft.start();
 			}
 		});
-		START.setBounds(507, 544, 93, 23);
+		START.setBounds(499, 491, 93, 23);
 		frame.getContentPane().add(START);
 		
 		
 		
 		
-		//Í£Ö¹ÔËÐÐ°´Å¥
+		//Í£Ö¹ï¿½ï¿½ï¿½Ð°ï¿½Å¥
 		JButton STOP = new JButton("\u505C\u6B62\u8FD0\u884C");
 		STOP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				state = !state;
 				gostraight.runCar(state);
+				goleft.runCar(state);
 	
 			}
 		});
-		STOP.setBounds(507, 577, 93, 23);
+		STOP.setBounds(499, 535, 93, 23);
 		frame.getContentPane().add(STOP);
 		
 		
 		
 		
-		//Ê®×ÖÂ·¿ÚµØÍ¼
+		//Ê®ï¿½ï¿½Â·ï¿½Úµï¿½Í¼
 		JLabel MAP = new JLabel("");
 		MAP.setBounds(0, 0, 600, 600);
 		frame.getContentPane().add(MAP);

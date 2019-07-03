@@ -4,7 +4,7 @@ import javax.swing.JLabel;
 
 public class goStraight extends Thread {
 	
-	private JLabel car1;
+	private JLabel car2;
 	private boolean run;
 	private String threadName;
 	
@@ -12,7 +12,7 @@ public class goStraight extends Thread {
 	//private Thread t;
 	
 	public goStraight(JLabel car, String name) {
-		car1 = car;
+		car2 = car;
 		threadName = name;
 		run = false;
 		cargo = true;
@@ -32,7 +32,7 @@ public class goStraight extends Thread {
 		while(run) {
 			
 			if(cargo) 
-				car1.setLocation((car1.getBounds().x+1), car1.getBounds().y);
+				car2.setLocation((car2.getBounds().x+1), car2.getBounds().y);
 			
 			
 			synchronized(this) {

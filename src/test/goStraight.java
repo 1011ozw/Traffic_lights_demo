@@ -34,7 +34,6 @@ public class goStraight extends Thread {
 			if(cargo) 
 				car1.setLocation((car1.getBounds().x+1), car1.getBounds().y);
 			
-			
 			synchronized(this) {
 				try {
 					wait(50);

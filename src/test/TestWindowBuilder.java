@@ -61,12 +61,20 @@ public class TestWindowBuilder {
 		
 		//汽车属性设置
 		JLabel car1 = new JLabel("");
-		car1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/tao.png")));
+		car1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car1.png")));
 		car1.setBounds(0, 334, 70, 30);
 		frame.getContentPane().add(car1);
 		
-		//设置共有多线程函数goStraight
+		JLabel car2 = new JLabel("");
+		car2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
+		car2.setBounds(10, 364, 70, 38);
+		frame.getContentPane().add(car2);
+		
+		
+		//设置共有多线程函数
 		goStraight gostraight = new goStraight(car1,"car1");
+		goRight goright = new goRight(car2, "car2");
+		
 		
 		//开始运行按钮
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
@@ -74,13 +82,12 @@ public class TestWindowBuilder {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				gostraight.start();	
+				goright.start();
 				
 			}
 		});
 		START.setBounds(507, 544, 93, 23);
 		frame.getContentPane().add(START);
-		
-		
 		
 		
 		//停止运行按钮
@@ -90,6 +97,7 @@ public class TestWindowBuilder {
 				
 				state = !state;
 				gostraight.runCar(state);
+				goright.runCar(state);
 	
 			}
 		});

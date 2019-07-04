@@ -34,14 +34,14 @@ public class T_goLeft extends Thread {
 		while(run) {
 			
 			if(cargo) 
-				if(car_down1.getBounds().y>=179) {
+				if(car_down1.getBounds().y>=200) {
 				car_down1.setLocation(car_down1.getBounds().x, (car_down1.getBounds().y-1));
 				}
 				else {
 					car_down1.setIcon(icon);
 				
 					if(car_down1.getBounds().x==473)
-						car_down1.setBounds(car_down1.getBounds().x,(car_down1.getBounds().y),70,38); 
+						car_down1.setBounds(car_down1.getBounds().x,(car_down1.getBounds().y)+20,70,38); 
 					
 					
 					car_down1.setLocation((car_down1.getBounds().x-1), car_down1.getBounds().y);	

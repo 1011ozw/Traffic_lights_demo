@@ -15,6 +15,8 @@ public class Car extends Thread{
 		this.name=name;
 		this.lighter=lighter;
 	}
+	
+	
 	public void run() {
 		if (lighter.state.equals("red")) {
 			System.out.println(this.name+":µÈ´ýÖÐ");

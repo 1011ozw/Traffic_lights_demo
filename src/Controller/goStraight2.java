@@ -1,23 +1,23 @@
-package test;
+package Controller;
 
 import javax.swing.JLabel;
 
-public class goStraight extends Thread {
+public class goStraight2 extends Thread{
 	private int speed=50;
-	private JLabel car2;
+	private JLabel car_s2;
 	private boolean run;
 	private String threadName;
 	
 	private boolean cargo;
 	//private Thread t;
 	
-	public goStraight(JLabel car, String name,int sp) {
-		
-		car2 = car;
+	public goStraight2(JLabel car, String name,int sp) {
+		car_s2 = car;
 		threadName = name;
 		run = false;
 		cargo = true;
 		speed=sp;
+	
 	}
 
 	public void setRun(boolean run) {
@@ -33,7 +33,7 @@ public class goStraight extends Thread {
 		while(run) {
 			
 			if(cargo) 
-				car2.setLocation((car2.getBounds().x+1), car2.getBounds().y);
+				car_s2.setLocation((car_s2.getBounds().x-1), car_s2.getBounds().y);
 			
 			synchronized(this) {
 				try {
@@ -51,5 +51,4 @@ public class goStraight extends Thread {
 		cargo = state;
 	}
 	
-
 }

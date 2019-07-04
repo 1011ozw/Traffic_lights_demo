@@ -113,6 +113,7 @@ public class T_road {
 		T_goStraight2 tgoStraight2=new T_goStraight2(car_r2, "car_r2", 5);
 		T_goRight  tgoRight=new T_goRight(car2, "car2", 5);
 		T_goRight2 tgoRight2 = new T_goRight2(car_down2, "car_down2", 5);
+		T_turn tturn=new T_turn(car3,"car3",5);
 		//Start button
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
 		START.addActionListener(new ActionListener() {
@@ -128,6 +129,7 @@ public class T_road {
 				tgoStraight2.start();
 				tgoRight.start();
 				tgoRight2.start();
+				tturn.start();
 //				gostraight2.start();
 //				goright2.start();
 			}
@@ -153,6 +155,7 @@ public class T_road {
 				tgoStraight2.runCar(state);
 				tgoRight.runCar(state);
 				tgoRight2.runCar(state);
+				tturn.runCar(state);
 //				gostraight2.runCar(state);
 //				goright2.runCar(state);
 

@@ -16,7 +16,7 @@ public class T_goLeft extends Thread {
 		car_down1 = car;
 		threadName = name;
 		run = false;
-		cargo = true;
+		cargo = true;  //判断车能否前行
 		speed=sp;
 	}
 
@@ -34,7 +34,7 @@ public class T_goLeft extends Thread {
 		while(run) {
 			
 			if(cargo) 
-				if(car_down1.getBounds().y>=179) {
+				if(car_down1.getBounds().y>=200) {
 				car_down1.setLocation(car_down1.getBounds().x, (car_down1.getBounds().y-1));
 				}
 				else {

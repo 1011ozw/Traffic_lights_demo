@@ -21,6 +21,7 @@ public class T_road {
 	private JFrame frame;
 	
 	private boolean state = true;
+	private JLabel car_down2;
 
 	/**
 	 * Launch the application.
@@ -92,7 +93,7 @@ public class T_road {
 		car_down1.setBounds(473, 583, 38, 70);
 		frame.getContentPane().add(car_down1);
 		
-		JLabel car_down2 = new JLabel("");
+		car_down2 = new JLabel("");
 		car_down2.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_up.png")));
 		car_down2.setBounds(556, 583, 38, 70);
 		frame.getContentPane().add(car_down2);
@@ -105,7 +106,13 @@ public class T_road {
 //		goStraight2 gostraight2 = new goStraight2(car_s2,"car_s2",25);
 //		goRight2 goright2 = new goRight2(car_r2, "car_r2",30);
 		
+		//调用函数类
 		T_goLeft tgoleft=new T_goLeft(car_down1,"car_down1",5);
+		T_goLeft2 tgoLeft2 = new T_goLeft2(car_s2, "car_s2", 5);
+		T_goStraight tgoStraight=new T_goStraight(car1, "car1", 5);
+		T_goStraight2 tgoStraight2=new T_goStraight2(car_r2, "car_r2", 5);
+		T_goRight  tgoRight=new T_goRight(car2, "car2", 5);
+		T_goRight2 tgoRight2 = new T_goRight2(car_down2, "car_down2", 5);
 		//Start button
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
 		START.addActionListener(new ActionListener() {
@@ -116,6 +123,11 @@ public class T_road {
 //				goright.start();
 				
 				tgoleft.start();
+				tgoLeft2.start();
+				tgoStraight.start();
+				tgoStraight2.start();
+				tgoRight.start();
+				tgoRight2.start();
 //				gostraight2.start();
 //				goright2.start();
 			}
@@ -136,6 +148,11 @@ public class T_road {
 //				goright.runCar(state);
 				
 				tgoleft.runCar(state);
+				tgoleft.runCar(state);
+				tgoStraight.runCar(state);
+				tgoStraight2.runCar(state);
+				tgoRight.runCar(state);
+				tgoRight2.runCar(state);
 //				gostraight2.runCar(state);
 //				goright2.runCar(state);
 
@@ -153,5 +170,9 @@ public class T_road {
 		frame.getContentPane().add(MAP);
 		MAP.setHorizontalAlignment(SwingConstants.CENTER);
 		MAP.setIcon(new ImageIcon(T_road.class.getResource("/img/troad.png")));
+		
+		JLabel label = new JLabel("");
+		label.setBounds(379, 567, 70, 38);
+		frame.getContentPane().add(label);
 	}
 }

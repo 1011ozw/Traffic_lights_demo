@@ -61,6 +61,7 @@ public class TestWindowBuilder {
 		frame.getContentPane().setLayout(null);		
 		
 		//initialize car Label
+		//car left lane
 		JLabel car_L_s1 = new JLabel("");
 		car_L_s1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car1.png")));
 		car_L_s1.setBounds(142, 488, 70, 30);
@@ -93,6 +94,7 @@ public class TestWindowBuilder {
 		car_R_s1.setBounds(691, 339, 70, 38);
 		frame.getContentPane().add(car_R_s1);
 		
+		//car right lane
 		JLabel car_R_s2 = new JLabel("");
 		car_R_s2.setBounds(779, 339, 70, 38);
 		frame.getContentPane().add(car_R_s2);
@@ -101,28 +103,6 @@ public class TestWindowBuilder {
 		car_R_r1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3_R_road.png")));
 		car_R_r1.setBounds(691, 295, 70, 38);
 		frame.getContentPane().add(car_R_r1);
-		
-		//set public driving class
-		goStraight gostraight = new goStraight(car_L_s1,"car1",10);
-		goRight goright = new goRight(car_L_r1, "car2",25);
-		goLeft goleft= new goLeft(car_L_l1, "car3",15);
-		
-		goStraight2 gostraight2 = new goStraight2(car_R_s1,"car_s2",25);
-		goRight2 goright2 = new goRight2(car_R_r1, "car_r2",30);
-		
-		//Start button
-		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
-		START.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				gostraight.start();	
-				goleft.start();
-				goright.start();
-				
-				gostraight2.start();
-				goright2.start();
-			}
-		});
 		
 		JLabel car_R_r2 = new JLabel("");
 		car_R_r2.setBounds(779, 295, 70, 38);
@@ -136,6 +116,7 @@ public class TestWindowBuilder {
 		car_R_l2.setBounds(779, 386, 70, 38);
 		frame.getContentPane().add(car_R_l2);
 		
+		//car up lane
 		JLabel car_U_r1 = new JLabel("");
 		car_U_r1.setBounds(320, 105, 38, 70);
 		frame.getContentPane().add(car_U_r1);
@@ -160,6 +141,7 @@ public class TestWindowBuilder {
 		car_U_l2.setBounds(418, 35, 38, 70);
 		frame.getContentPane().add(car_U_l2);
 		
+		//car down lane
 		JLabel car_D_l1 = new JLabel("");
 		car_D_l1.setBounds(465, 690, 38, 70);
 		frame.getContentPane().add(car_D_l1);
@@ -183,11 +165,50 @@ public class TestWindowBuilder {
 		JLabel car_D_r2 = new JLabel("");
 		car_D_r2.setBounds(562, 768, 38, 70);
 		frame.getContentPane().add(car_D_r2);
+		
+		//initialize light Label
+		JLabel Light_L = new JLabel("");
+		Light_L.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/light.png")));
+		Light_L.setBounds(305, 430, 54, 137);
+		frame.getContentPane().add(Light_L);
+		
+		//set public driving class
+		goStraight gostraight = new goStraight(car_L_s1,"car1",10);
+		goRight goright = new goRight(car_L_r1, "car2",25);
+		goLeft goleft= new goLeft(car_L_l1, "car3",15);
+		
+		goStraight2 gostraight2 = new goStraight2(car_R_s1,"car_s2",25);
+		goRight2 goright2 = new goRight2(car_R_r1, "car_r2",30);
+		
+		//set public light class
+		LightController_L lightC_l = new LightController_L(Light_L);
+		
+		//Start button
+		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
+		START.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				gostraight.start();	
+				goleft.start();
+				goright.start();
+				
+				gostraight2.start();
+				goright2.start();
+				
+				lightC_l.start();
+				
+			}
+		});
 		START.setBounds(684, 707, 93, 23);
 		frame.getContentPane().add(START);
 		
+
+		
+
+		
+		
 		//change status button
-		JButton STOP = new JButton("\u505C\u6B62\u8FD0\u884C");
+		JButton STOP = new JButton("\u6682\u505C/\u542F\u52A8");
 		STOP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				

@@ -2,6 +2,7 @@ package Controller;
 
 import javax.swing.JLabel;
 
+
 public class goStraight extends Thread {
 	private int speed=50;
 	private JLabel car2;

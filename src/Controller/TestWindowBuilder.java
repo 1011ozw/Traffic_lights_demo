@@ -59,7 +59,7 @@ public class TestWindowBuilder {
 	 */
 	private void initialize() throws InterruptedException {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 896, 909);
+		frame.setBounds(100, 100, 896, 889);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);		
 
@@ -148,6 +148,7 @@ public class TestWindowBuilder {
 		frame.getContentPane().add(car_R_r2);
 		
 		JLabel car_R_l1 = new JLabel("");
+		car_R_l1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car4_R_s.png")));
 		car_R_l1.setBounds(691, 386, 70, 38);
 		frame.getContentPane().add(car_R_l1);
 		
@@ -211,16 +212,23 @@ public class TestWindowBuilder {
 		Light_L.setBounds(305, 430, 54, 137);
 		frame.getContentPane().add(Light_L);
 		
+		JLabel Light_R = new JLabel("");
+		Light_R.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/light_R.png")));
+		Light_R.setBounds(557, 287, 54, 137);
+		frame.getContentPane().add(Light_R);
+		
 		//set public driving class
 		goStraight gostraight = new goStraight(car_L_s1,"car1",10);
 		goRight goright = new goRight(car_L_r1, "car2",25);
-		goLeft goleft= new goLeft(car_L_l1, "car3",15);
+		goLeft goleft= new goLeft(car_L_l1, "car3",13);
 		
 		goStraight2 gostraight2 = new goStraight2(car_R_s1,"car_s2",25);
 		goRight2 goright2 = new goRight2(car_R_r1, "car_r2",30);
+		goLeft2 goleft2 = new goLeft2(car_R_l1,"car_R_l1",15);
 		
 		//set public light class
 		LightController_L lightC_l = new LightController_L(Light_L);
+		LightController_R lightC_r = new LightController_R(Light_R);
 		
 		//Start button
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
@@ -233,11 +241,15 @@ public class TestWindowBuilder {
 				
 				gostraight2.start();
 				goright2.start();
+				goleft2.start();
 				
 				lightC_l.start();
+				lightC_r.start();
 				
 			}
 		});
+		
+		
 		START.setBounds(684, 707, 93, 23);
 		frame.getContentPane().add(START);
 		
@@ -258,6 +270,8 @@ public class TestWindowBuilder {
 				
 				gostraight2.runCar(state);
 				goright2.runCar(state);
+				goleft2.runCar(state);
+				
 
 			}
 		});

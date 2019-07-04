@@ -1,7 +1,6 @@
 package Controller;
 import img.*;
 import java.awt.EventQueue;
-import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -63,11 +62,10 @@ public class TestWindowBuilder {
 		frame.setBounds(100, 100, 896, 909);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);		
-		
+
 		JMenuBar menuBar=new JMenuBar();
 		menuBar.setLocation(0, 0);
 		menuBar.setSize(600, 23);
-		menuBar.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 15));
 		menuBar.setBackground(Color.WHITE);
 		JMenu menu1=new JMenu("бнЪО");
 		menu1.setBackground(Color.LIGHT_GRAY);
@@ -101,8 +99,6 @@ public class TestWindowBuilder {
 		menuBar.add(menu2);
 		frame.getContentPane().add(menuBar);
 		
-		
-		 
 		//initialize car Label
 		//car left lane
 		JLabel car_L_s1 = new JLabel("");

@@ -87,6 +87,12 @@ public class TestWindowBuilder {
 		car_r2.setBounds(691, 295, 70, 38);
 		frame.getContentPane().add(car_r2);
 		
+		//initialize light Label
+		JLabel Light_L = new JLabel("");
+		Light_L.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/light.png")));
+		Light_L.setBounds(305, 430, 54, 137);
+		frame.getContentPane().add(Light_L);
+		
 		//set public driving class
 		goStraight gostraight = new goStraight(car1,"car1",10);
 		goRight goright = new goRight(car2, "car2",25);
@@ -94,6 +100,9 @@ public class TestWindowBuilder {
 		
 		goStraight2 gostraight2 = new goStraight2(car_s2,"car_s2",25);
 		goRight2 goright2 = new goRight2(car_r2, "car_r2",30);
+		
+		//set public light class
+		LightController_L lightC_l = new LightController_L(Light_L);
 		
 		//Start button
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
@@ -106,13 +115,18 @@ public class TestWindowBuilder {
 				
 				gostraight2.start();
 				goright2.start();
+				
+				lightC_l.start();
+				
 			}
 		});
+		
+		
 		START.setBounds(684, 707, 93, 23);
 		frame.getContentPane().add(START);
 		
 		//change status button
-		JButton STOP = new JButton("\u505C\u6B62\u8FD0\u884C");
+		JButton STOP = new JButton("\u6682\u505C/\u542F\u52A8");
 		STOP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				

@@ -8,12 +8,12 @@ public class LightController_L extends Thread{
 	private JLabel lighticon;
 	private boolean status;
 	private boolean go_l;
-	private boolean go_s_r;
+	private static boolean go_s_r;
 	
 	public LightController_L(JLabel light) {
 		status = true;
-		go_l = false;
-		go_s_r = true;
+		go_l = true;
+		go_s_r = false;
 		
 		lighticon = light;
 	}
@@ -22,8 +22,8 @@ public class LightController_L extends Thread{
 		return go_l;
 	}
 	
-	public boolean getLight_rs() {
-		return go_s_r;
+	public static boolean getLight_rs() {
+		return !go_s_r;
 	}
 	
 	@Override

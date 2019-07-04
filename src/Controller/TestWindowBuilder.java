@@ -1,6 +1,5 @@
 package Controller;
 import img.*;
-//fuzhenggang 2019/7/3
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -120,8 +119,6 @@ public class TestWindowBuilder {
 				
 			}
 		});
-		
-		
 		START.setBounds(684, 707, 93, 23);
 		frame.getContentPane().add(START);
 		

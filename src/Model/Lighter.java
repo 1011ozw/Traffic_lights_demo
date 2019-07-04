@@ -12,17 +12,7 @@ public class Lighter extends Thread{
 	private String down_straight;	//代表下车道直行灯
 	private String left_left;		//代表左车道左向灯
 	private String left_straight;	//代表左车道直行灯
-//	public Lighter(String top_left,String top_straghter,String right_left,String right_straight,String down_left,String down_straight,String left_left,String left_straight) 
-//	{
-//		this.top_left=top_left;
-//		this.top_straghter=top_straghter;
-//		this.right_left=right_left;
-//		this.right_straight=right_straight;
-//		this.down_left=down_left;
-//		this.down_straight=down_straight;
-//		this.left_left=left_left;
-//		this.left_straight=left_straight;
-//	}
+
 	public void run() {
 		while(true) {
 			try {

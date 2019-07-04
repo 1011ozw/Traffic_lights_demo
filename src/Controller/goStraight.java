@@ -1,6 +1,7 @@
 package Controller;
 
 import javax.swing.JLabel;
+import Controller.LightController_L;
 
 public class goStraight extends Thread {
 	private int speed=50;
@@ -32,8 +33,14 @@ public class goStraight extends Thread {
 		
 		while(run) {
 			
-			if(cargo) 
-				car2.setLocation((car2.getBounds().x+1), car2.getBounds().y);
+			if(cargo) {
+				
+				if(LightController_L.getLight_rs()) {
+					car2.setLocation((car2.getBounds().x+1), car2.getBounds().y);
+				}
+				
+			}
+				
 			
 			synchronized(this) {
 				try {

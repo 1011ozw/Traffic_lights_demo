@@ -3,17 +3,17 @@ package Controller;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class goLeft extends Thread {
+public class T_goLeft extends Thread {
 	private int speed=50;
-	private JLabel car1;
+	private JLabel car_down1;
 	private boolean run;
 	private String threadName;
 	
 	private boolean cargo;
 	//private Thread t;
 	
-	public goLeft(JLabel car, String name,int sp) {
-		car1 = car;
+	public T_goLeft(JLabel car, String name,int sp) {
+		car_down1 = car;
 		threadName = name;
 		run = false;
 		cargo = true;
@@ -26,7 +26,7 @@ public class goLeft extends Thread {
 	
 	@Override
 	public void run()  {
-		ImageIcon icon=new ImageIcon(goRight.class.getResource("/img/car3_up.png"));
+		ImageIcon icon=new ImageIcon(goRight.class.getResource("/img/car3_R_road.png"));
 		System.out.print(getName());
 		
 		this.run = true;
@@ -34,17 +34,17 @@ public class goLeft extends Thread {
 		while(run) {
 			
 			if(cargo) 
-				if(car1.getBounds().x<=465) {
-				car1.setLocation((car1.getBounds().x+1), car1.getBounds().y);
+				if(car_down1.getBounds().y>=179) {
+				car_down1.setLocation(car_down1.getBounds().x, (car_down1.getBounds().y-1));
 				}
 				else {
-					car1.setIcon(icon);
+					car_down1.setIcon(icon);
+				
+					if(car_down1.getBounds().x==473)
+						car_down1.setBounds(car_down1.getBounds().x,(car_down1.getBounds().y),70,38); 
 					
-					if(car1.getBounds().y == 429) {
-						car1.setBounds(car1.getBounds().x,car1.getBounds().y-35,38,70); 
-					}
 					
-					car1.setLocation((car1.getBounds().x-1), car1.getBounds().y);	
+					car_down1.setLocation((car_down1.getBounds().x-1), car_down1.getBounds().y);	
 				}
 			
 			synchronized(this) {

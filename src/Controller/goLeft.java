@@ -1,4 +1,4 @@
-package test;
+package Controller;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -34,13 +34,13 @@ public class goLeft extends Thread {
 		while(run) {
 			
 			if(cargo) 
-				if(car1.getBounds().x<=300) {
+				if(car1.getBounds().x<=465) {
 				car1.setLocation((car1.getBounds().x+1), car1.getBounds().y);
 				}
 				else {
 					car1.setIcon(icon);
 					
-					if(car1.getBounds().y == 295) {
+					if(car1.getBounds().y == 429) {
 						car1.setBounds(car1.getBounds().x,car1.getBounds().y-35,38,70); 
 					}
 					

@@ -1,8 +1,7 @@
-package test;
+package Controller;
 import img.*;
 //fuzhenggang 2019/7/3
 import java.awt.EventQueue;
-import test.goStraight;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,6 +13,8 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+
+import Controller.goStraight;
 
 public class TestWindowBuilder {
 
@@ -55,7 +56,7 @@ public class TestWindowBuilder {
 	 */
 	private void initialize() throws InterruptedException {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 618, 647);
+		frame.setBounds(100, 100, 896, 896);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);		
 		
@@ -63,27 +64,27 @@ public class TestWindowBuilder {
 		//initialize car Label
 		JLabel car1 = new JLabel("");
 		car1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car1.png")));
-		car1.setBounds(0, 334, 70, 30);
+		car1.setBounds(142, 488, 70, 30);
 		frame.getContentPane().add(car1);
 		
 		JLabel car2 = new JLabel("");
 		car2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
-		car2.setBounds(0, 364, 70, 38);
+		car2.setBounds(142, 528, 70, 38);
 		frame.getContentPane().add(car2);
 		
 		JLabel car3 = new JLabel("");
 		car3.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
-		car3.setBounds(0, 295, 70, 38);
+		car3.setBounds(142, 429, 70, 38);
 		frame.getContentPane().add(car3);
 		
 		JLabel car_s2 = new JLabel("");
 		car_s2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3_R_road.png")));
-		car_s2.setBounds(460, 237, 70, 38);
+		car_s2.setBounds(691, 339, 70, 38);
 		frame.getContentPane().add(car_s2);
 		
 		JLabel car_r2 = new JLabel("");
 		car_r2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3_R_road.png")));
-		car_r2.setBounds(460, 198, 70, 38);
+		car_r2.setBounds(691, 295, 70, 38);
 		frame.getContentPane().add(car_r2);
 		
 		//set public driving class
@@ -107,7 +108,7 @@ public class TestWindowBuilder {
 				goright2.start();
 			}
 		});
-		START.setBounds(499, 491, 93, 23);
+		START.setBounds(684, 707, 93, 23);
 		frame.getContentPane().add(START);
 		
 		//change status button
@@ -125,7 +126,7 @@ public class TestWindowBuilder {
 
 			}
 		});
-		STOP.setBounds(499, 535, 93, 23);
+		STOP.setBounds(684, 771, 93, 23);
 		frame.getContentPane().add(STOP);
 		
 		
@@ -133,7 +134,7 @@ public class TestWindowBuilder {
 		
 		//Map background
 		JLabel MAP = new JLabel("");
-		MAP.setBounds(0, 0, 600, 600);
+		MAP.setBounds(0, 0, 896, 857);
 		frame.getContentPane().add(MAP);
 		MAP.setHorizontalAlignment(SwingConstants.CENTER);
 		MAP.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/road1.jpg")));

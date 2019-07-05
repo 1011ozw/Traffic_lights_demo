@@ -130,6 +130,8 @@ public class T_road {
 		T_turn tturn=new T_turn(car3,"car3",5);
 		//红绿灯调用
 		T_LightController_D tld = new T_LightController_D(Light_D); //下方红绿灯
+		T_LightController_L tll = new T_LightController_L(Light_L); //左方红绿灯
+		T_LightController_R tlr = new T_LightController_R(Light_R); //右方红绿灯
 		//Start button
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
 		START.addActionListener(new ActionListener() {
@@ -145,6 +147,8 @@ public class T_road {
 				tturn.start();
 				//红绿灯线程启动
                 tld.start();
+                tll.start();
+                tlr.start();
 			}
 		});
 		

@@ -1,7 +1,9 @@
-package Controller;
+package Controller_T;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import Controller.goRight;
 
 public class T_goLeft2 extends Thread{
 	private int speed=50;
@@ -33,7 +35,7 @@ public class T_goLeft2 extends Thread{
 		
 		while(run) {
 			
-			if(cargo) 
+			if(T_LightController_R.judge_r&&cargo) {
 				if(car_s2.getBounds().x>=379) {
 					car_s2.setLocation(car_s2.getBounds().x-1, (car_s2.getBounds().y));
 				}
@@ -46,7 +48,7 @@ public class T_goLeft2 extends Thread{
 					
 					car_s2.setLocation((car_s2.getBounds().x), car_s2.getBounds().y+1);	
 				}
-			
+			}
 			synchronized(this) {
 				try {
 					wait(speed);

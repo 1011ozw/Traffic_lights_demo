@@ -38,7 +38,7 @@ public class goStraight extends Thread {
 				if(car2.getBounds().x<=300) {
 					if(LightController_L.getLight_rs()) {
 						car2.setLocation((car2.getBounds().x+1), car2.getBounds().y);
-					}
+					}	
 				}
 				else {
 					car2.setLocation((car2.getBounds().x+1), car2.getBounds().y);

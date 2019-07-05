@@ -166,6 +166,7 @@ public class TestWindowBuilder {
 		frame.getContentPane().add(car_U_r2);
 		
 		JLabel car_U_s1 = new JLabel("");
+		car_U_s1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car4_R_d.png")));
 		car_U_s1.setBounds(367, 105, 38, 70);
 		frame.getContentPane().add(car_U_s1);
 		
@@ -220,11 +221,11 @@ public class TestWindowBuilder {
 		//set public driving class
 		goStraight gostraight = new goStraight(car_L_s1,"car1",10);
 		goRight goright = new goRight(car_L_r1, "car2",25);
-		goLeft goleft= new goLeft(car_L_l1, "car3",13);
+		goLeft goleft= new goLeft(car_L_l1, "car3",11);
 		
 		goStraight2 gostraight2 = new goStraight2(car_R_s1,"car_s2",25);
 		goRight2 goright2 = new goRight2(car_R_r1, "car_r2",30);
-		goLeft2 goleft2 = new goLeft2(car_R_l1,"car_R_l1",15);
+		goLeft2 goleft2 = new goLeft2(car_R_l1,"car_R_l1",17);
 		
 		//set public light class
 		LightController_L lightC_l = new LightController_L(Light_L);

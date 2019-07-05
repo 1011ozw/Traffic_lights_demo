@@ -23,7 +23,9 @@ public class T_LightController_D extends Thread {
 	while(status) {
 		if(stage==0)
 			{lighticon.setIcon(tlight_pass);
-		judge_d=true;}
+		judge_d=true;
+		T_goLeft.already_pass=true;
+			}
 			else
 				{lighticon.setIcon(tlight_off);
 		judge_d=false;}

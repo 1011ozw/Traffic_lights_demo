@@ -1,5 +1,5 @@
 package Controller_T;
-
+//从右车道直行
 import javax.swing.JLabel;
 
 public class T_goStraight2 extends Thread{

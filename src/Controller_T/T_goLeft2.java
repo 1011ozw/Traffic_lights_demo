@@ -1,5 +1,5 @@
 package Controller_T;
-
+//车辆从右车道左转
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -10,6 +10,7 @@ public class T_goLeft2 extends Thread{
 	private JLabel car_s2;
 	private boolean run;
 	private String threadName;
+	static boolean already_pass=false;
 	
 	private boolean cargo;
 	//private Thread t;
@@ -35,7 +36,9 @@ public class T_goLeft2 extends Thread{
 		
 		while(run) {
 			
-			if(T_LightController_R.judge_r&&cargo) {
+			if(cargo) {
+				if(already_pass)T_LightController_R.judge_r=true;
+				if(T_LightController_R.judge_r&&already_pass){
 				if(car_s2.getBounds().x>=379) {
 					car_s2.setLocation(car_s2.getBounds().x-1, (car_s2.getBounds().y));
 				}
@@ -47,6 +50,7 @@ public class T_goLeft2 extends Thread{
 					
 					
 					car_s2.setLocation((car_s2.getBounds().x), car_s2.getBounds().y+1);	
+				}
 				}
 			}
 			synchronized(this) {

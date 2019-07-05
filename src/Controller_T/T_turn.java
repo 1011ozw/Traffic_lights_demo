@@ -1,5 +1,5 @@
 package Controller_T;
-
+//从左车道掉头
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -10,7 +10,7 @@ public class T_turn extends Thread {
 	private JLabel car3;
 	private boolean run;
 	private String threadName;
-	
+	static boolean already_pass=false;
 	private boolean cargo;
 	//private Thread t;
 	
@@ -36,7 +36,9 @@ public class T_turn extends Thread {
 		
 		while(run) {
 			
-			if(T_LightController_L.judge_l&&cargo){ 
+			if(cargo){ 
+				if(already_pass)T_LightController_L.judge_l=true;
+				if(T_LightController_L.judge_l&&already_pass){
 				if(car3.getBounds().x<=296&&car3.getBounds().y==277) {
 				car3.setLocation(car3.getBounds().x+1, (car3.getBounds().y));
 			
@@ -62,6 +64,7 @@ public class T_turn extends Thread {
 					
 					car3.setLocation((car3.getBounds().x-1), car3.getBounds().y);	
 					
+				}
 				}
 			}
 			synchronized(this) {

@@ -1,28 +1,13 @@
 package Controller_T;
 import img.*;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import java.awt.BorderLayout;
-
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.JLabel;
-
-import java.awt.Color;
 import java.io.IOException;
-
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
-
 import Controller.TestWindowBuilder;
 import Controller.goStraight;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class T_road {
 
@@ -30,7 +15,6 @@ public class T_road {
 	
 	private boolean state = true;
 	private JLabel car_down2;
-
 	/**
 	 * Launch the application.
 	 */
@@ -120,6 +104,21 @@ public class T_road {
 		Light_D.setIcon(new ImageIcon(T_road.class.getResource("/img/tlight_D.png")));
 		Light_D.setBounds(497, 415, 93, 51);
 		frame.getContentPane().add(Light_D);
+	
+
+		JButton addcar_lu = new JButton("+");
+		addcar_lu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car4 = new JLabel("");
+				car4.setIcon(new ImageIcon(T_road.class.getResource("/img/car3.png")));
+				car4.setBounds(66, 277, 70, 38);
+				frame.getLayeredPane().add(car4,new Integer(80));
+				frame.validate();
+				T_turn tturn2=new T_turn(car4,"car4",5);
+				tturn2.start();
+			}
+		});
 		
 		//调用函数类
 		T_goLeft tgoleft=new T_goLeft(car_down1,"car_down1",5);
@@ -153,6 +152,11 @@ public class T_road {
 			}
 		});
 		
+	
+		addcar_lu.setFont(new Font("宋体", Font.BOLD, 26));
+		addcar_lu.setBounds(15, 289, 60, 29);
+		frame.getContentPane().add(addcar_lu);
+		
 		
 		
 		
@@ -166,7 +170,7 @@ public class T_road {
 				
 				state = !state;			
 				tgoleft.runCar(state);
-				tgoleft.runCar(state);
+				tgoLeft2.runCar(state);
 				tgoStraight.runCar(state);
 				tgoStraight2.runCar(state);
 				tgoRight.runCar(state);
@@ -188,5 +192,6 @@ public class T_road {
 		frame.getContentPane().add(MAP);
 		MAP.setHorizontalAlignment(SwingConstants.CENTER);
 		MAP.setIcon(new ImageIcon(T_road.class.getResource("/img/troad.png")));
+		
 	}
 }

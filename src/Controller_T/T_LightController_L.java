@@ -29,7 +29,8 @@ public class T_LightController_L extends Thread {
 			}
 			else{
 				lighticon.setIcon(tlight_off);
-		judge_l=false;}
+		judge_l=false;
+	}
 		synchronized(this) {
 			try {
 				stage++;

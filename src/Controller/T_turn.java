@@ -77,15 +77,5 @@ public class T_turn extends Thread {
 		cargo = state;
 	}
 	
-	/*
-	public void start () {
-		/*
-	      if (t == null) {
-	         t = new Thread (this, threadName);
-	         t.start ();
-	      }
-	      
-	   }
-	*/
 
 }

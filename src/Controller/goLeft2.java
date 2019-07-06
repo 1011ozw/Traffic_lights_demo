@@ -1,11 +1,10 @@
 package Controller;
 
 import javax.swing.ImageIcon;
-import Controller.LightController_L;
-
 import javax.swing.JLabel;
 
-public class goLeft extends Thread {
+public class goLeft2 extends Thread{
+	
 	private int speed=50;
 	private JLabel car1;
 	private boolean run;
@@ -14,7 +13,7 @@ public class goLeft extends Thread {
 	private boolean cargo;
 	//private Thread t;
 	
-	public goLeft(JLabel car, String name,int sp) {
+	public goLeft2(JLabel car, String name,int sp) {
 		car1 = car;
 		threadName = name;
 		run = false;
@@ -28,7 +27,7 @@ public class goLeft extends Thread {
 	
 	@Override
 	public void run()  {
-		ImageIcon icon=new ImageIcon(goRight.class.getResource("/img/car3_up.png"));
+		ImageIcon icon=new ImageIcon(goRight.class.getResource("/img/car4_R_d.png"));
 		System.out.print(getName());
 		
 		this.run = true;
@@ -36,29 +35,30 @@ public class goLeft extends Thread {
 		while(run) {
 			
 			if(cargo) 
-				if(car1.getBounds().x<=465) {
+				if(car1.getBounds().x>=410) {
 					
 					//judge traffic light is red or not before crossing
-					if(car1.getBounds().x<=300) {
+					if(car1.getBounds().x>=615) {
 						
 						if(LightController_L.getLight_l()) {
-							car1.setLocation((car1.getBounds().x+1), car1.getBounds().y);
+							car1.setLocation((car1.getBounds().x-1), car1.getBounds().y);
 						}
 						
 					}
+					
 					else {
-						car1.setLocation((car1.getBounds().x+1), car1.getBounds().y);
+						car1.setLocation((car1.getBounds().x-1), car1.getBounds().y);
 					}
 				
 				}
 				else {
 					car1.setIcon(icon);
 					
-					if(car1.getBounds().y == 429) {
-						car1.setBounds(car1.getBounds().x,car1.getBounds().y-35,38,70); 
+					if(car1.getBounds().y == 386) {
+						car1.setBounds(car1.getBounds().x,car1.getBounds().y,38,70); 
 					}
 					
-					car1.setLocation((car1.getBounds().x-1), car1.getBounds().y);	
+					car1.setLocation((car1.getBounds().x), car1.getBounds().y+1);	
 				}
 			
 			synchronized(this) {
@@ -76,5 +76,4 @@ public class goLeft extends Thread {
 
 		cargo = state;
 	}
-
 }

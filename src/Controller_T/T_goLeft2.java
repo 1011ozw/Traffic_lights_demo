@@ -38,7 +38,7 @@ public class T_goLeft2 extends Thread{
 			
 			if(cargo) {
 				if(already_pass)T_LightController_R.judge_r=true;
-				if(T_LightController_R.judge_r&&already_pass){
+				if(T_LightController_R.judge_r||car_s2.getBounds().x<717){
 				if(car_s2.getBounds().x>=379) {
 					car_s2.setLocation(car_s2.getBounds().x-1, (car_s2.getBounds().y));
 				}

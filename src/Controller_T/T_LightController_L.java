@@ -24,8 +24,6 @@ public class T_LightController_L extends Thread {
 		if(stage==1)
 			{lighticon.setIcon(tlight_pass);
 			judge_l=true;
-			T_turn.already_pass=true;
-			T_goStraight.already_pass=true;
 			}
 			else{
 				lighticon.setIcon(tlight_off);

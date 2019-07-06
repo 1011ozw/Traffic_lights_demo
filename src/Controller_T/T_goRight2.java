@@ -1,5 +1,5 @@
 package Controller_T;
-
+//обЁ╣срв╙
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 

@@ -10,7 +10,6 @@ public class T_goLeft extends Thread {
 	private JLabel car_down1;
 	private boolean run;
 	private String threadName;
-	static boolean already_pass=false;
 	
 	private boolean cargo;
 	//private Thread t;
@@ -37,8 +36,7 @@ public class T_goLeft extends Thread {
 		while(run) {
 			
 			if(cargo){ 
-				if(already_pass)T_LightController_D.judge_d=true;  //一旦可以通行，则默认一直可以通行（对它来说红绿灯一直是绿灯）
-				if(T_LightController_D.judge_d&&already_pass){
+				if(T_LightController_D.judge_d||car_down1.getBounds().y<583){
 				if(car_down1.getBounds().y>=200) {
 				car_down1.setLocation(car_down1.getBounds().x, (car_down1.getBounds().y-1));
 				}

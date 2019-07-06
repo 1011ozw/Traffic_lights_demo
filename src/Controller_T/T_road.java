@@ -2,11 +2,13 @@ package Controller_T;
 import img.*;
 
 import java.io.IOException;
+
 import Controller.TestWindowBuilder;
 import Controller.goStraight;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
 public class T_road {
@@ -106,17 +108,23 @@ public class T_road {
 		frame.getContentPane().add(Light_D);
 	
 
-		JButton addcar_lu = new JButton("+");
-		addcar_lu.addActionListener(new ActionListener() {
+		JButton addcar_ll = new JButton("");
+		addcar_ll.setForeground(Color.WHITE);
+		addcar_ll.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
+		addcar_ll.setSelectedIcon(null);
+		addcar_ll.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				JLabel car4 = new JLabel("");
 				car4.setIcon(new ImageIcon(T_road.class.getResource("/img/car3.png")));
-				car4.setBounds(66, 277, 70, 38);
+				car4.setBounds(142, 277, 70, 38);
 				frame.getLayeredPane().add(car4,new Integer(80));
 				frame.validate();
 				T_turn tturn2=new T_turn(car4,"car4",5);
+				System.out.println("左边红绿灯的判断"+T_LightController_L.judge_l);
 				tturn2.start();
+			
+				
 			}
 		});
 		
@@ -153,9 +161,118 @@ public class T_road {
 		});
 		
 	
-		addcar_lu.setFont(new Font("宋体", Font.BOLD, 26));
-		addcar_lu.setBounds(15, 289, 60, 29);
-		frame.getContentPane().add(addcar_lu);
+		addcar_ll.setFont(new Font("宋体", Font.BOLD, 26));
+		addcar_ll.setBounds(40, 277, 50, 50);
+		frame.getContentPane().add(addcar_ll);
+		
+		JButton addcar_ls = new JButton("");
+		addcar_ls.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JLabel car5 = new JLabel("");
+				car5.setIcon(new ImageIcon(T_road.class.getResource("/img/car1.png")));
+				car5.setBounds(142, 342, 70, 38);
+				frame.getLayeredPane().add(car5,new Integer(80));
+				frame.validate();
+				T_goStraight tgs=new T_goStraight(car5,"car5",5);
+				tgs.start();
+				
+			}
+		});
+		addcar_ls.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
+		addcar_ls.setForeground(Color.WHITE);
+		addcar_ls.setFont(new Font("宋体", Font.BOLD, 26));
+		addcar_ls.setBounds(40, 334, 50, 50);
+		frame.getContentPane().add(addcar_ls);
+		
+		JButton addcar_lr = new JButton("");
+		addcar_lr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JLabel car6 = new JLabel("");
+				car6.setIcon(new ImageIcon(T_road.class.getResource("/img/car2.png")));
+				car6.setBounds(142, 402, 70, 38);
+				frame.getLayeredPane().add(car6,new Integer(80));
+				frame.validate();
+				T_goRight tgr=new T_goRight(car6,"car6",5);
+				tgr.start();
+			}
+		});
+		addcar_lr.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
+		addcar_lr.setForeground(Color.WHITE);
+		addcar_lr.setFont(new Font("宋体", Font.BOLD, 26));
+		addcar_lr.setBounds(40, 394, 50, 50);
+		frame.getContentPane().add(addcar_lr);
+		
+		JButton addcar_rs = new JButton("");
+		addcar_rs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JLabel car7 = new JLabel("");
+				car7.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_R_road.png")));
+				car7.setBounds(717, 128, 70, 38);
+				frame.getLayeredPane().add(car7,new Integer(80));
+				frame.validate();
+				T_goStraight2 tgs2=new T_goStraight2(car7,"car7",5);
+				tgs2.start();
+			}
+		});
+		addcar_rs.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
+		addcar_rs.setForeground(Color.WHITE);
+		addcar_rs.setFont(new Font("宋体", Font.BOLD, 26));
+		addcar_rs.setBounds(809, 116, 50, 50);
+		frame.getContentPane().add(addcar_rs);
+		
+		JButton addcar_rl = new JButton("");
+		addcar_rl.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JLabel car8 = new JLabel("");
+				car8.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_R_road.png")));
+				car8.setBounds(717, 214, 70, 38);
+				frame.getLayeredPane().add(car8,new Integer(80));
+				frame.validate();
+				T_goLeft2 tgl2=new T_goLeft2(car8,"car8",5);
+				tgl2.start();
+			}
+		});
+		addcar_rl.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
+		addcar_rl.setForeground(Color.WHITE);
+		addcar_rl.setFont(new Font("宋体", Font.BOLD, 26));
+		addcar_rl.setBounds(809, 202, 50, 50);
+		frame.getContentPane().add(addcar_rl);
+		
+		JButton addcar_dl = new JButton("");
+		addcar_dl.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JLabel car9 = new JLabel("");
+				car9.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_up.png")));
+				car9.setBounds(473, 583, 38, 70);
+				frame.getLayeredPane().add(car9,new Integer(80));
+				frame.validate();
+				T_goLeft tgl=new T_goLeft(car9,"car9",5);
+				tgl.start();
+			}
+		});
+		addcar_dl.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
+		addcar_dl.setForeground(Color.WHITE);
+		addcar_dl.setFont(new Font("宋体", Font.BOLD, 26));
+		addcar_dl.setBounds(473, 718, 50, 50);
+		frame.getContentPane().add(addcar_dl);
+		
+		JButton addcar_dr = new JButton("");
+		addcar_dr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JLabel car10 = new JLabel("");
+				car10.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_up.png")));
+				car10.setBounds(556, 583, 38, 70);
+				frame.getLayeredPane().add(car10,new Integer(80));
+				frame.validate();
+			    T_goRight2 tgr2=new T_goRight2(car10,"car10",5);
+				tgr2.start();
+			}
+		});
+		addcar_dr.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
+		addcar_dr.setForeground(Color.WHITE);
+		addcar_dr.setFont(new Font("宋体", Font.BOLD, 26));
+		addcar_dr.setBounds(556, 718, 50, 50);
+		frame.getContentPane().add(addcar_dr);
 		
 		
 		
@@ -176,7 +293,7 @@ public class T_road {
 				tgoRight.runCar(state);
 				tgoRight2.runCar(state);
 				tturn.runCar(state);
-
+				
 
 			}
 		});

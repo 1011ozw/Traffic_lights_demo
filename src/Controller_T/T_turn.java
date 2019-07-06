@@ -10,7 +10,6 @@ public class T_turn extends Thread {
 	private JLabel car3;
 	private boolean run;
 	private String threadName;
-	static boolean already_pass=false;
 	private boolean cargo;
 	//private Thread t;
 	
@@ -37,8 +36,8 @@ public class T_turn extends Thread {
 		while(run) {
 			
 			if(cargo){ 
-				if(already_pass)T_LightController_L.judge_l=true;
-				if(T_LightController_L.judge_l&&already_pass){
+				
+				if(T_LightController_L.judge_l||(car3.getBounds().x>142||(car3.getBounds().x<=142&&car3.getBounds().y==200))){
 				if(car3.getBounds().x<=296&&car3.getBounds().y==277) {
 				car3.setLocation(car3.getBounds().x+1, (car3.getBounds().y));
 			
@@ -62,7 +61,8 @@ public class T_turn extends Thread {
 						car3.setBounds(car3.getBounds().x,(car3.getBounds().y),70,38); 
 					
 					
-					car3.setLocation((car3.getBounds().x-1), car3.getBounds().y);	
+					car3.setLocation((car3.getBounds().x-1), car3.getBounds().y);
+				
 					
 				}
 				}

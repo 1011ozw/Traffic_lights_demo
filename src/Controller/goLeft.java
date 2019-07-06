@@ -53,12 +53,7 @@ public class goLeft extends Thread {
 				}
 				else {
 					car1.setIcon(icon);
-					
-					if(car1.getBounds().y == 429) {
-						car1.setBounds(car1.getBounds().x,car1.getBounds().y-35,38,70); 
-					}
-					
-					car1.setLocation((car1.getBounds().x-1), car1.getBounds().y);	
+					car1.setLocation((car1.getBounds().x), car1.getBounds().y-1);	
 				}
 			
 			synchronized(this) {

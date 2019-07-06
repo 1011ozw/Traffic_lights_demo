@@ -18,6 +18,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
 import Controller.goStraight;
+import Controller_T.T_goStraight;
+import Controller_T.T_road;
 
 public class TestWindowBuilder {
 
@@ -86,6 +88,8 @@ public class TestWindowBuilder {
 		menu4.add(addcar_L_l);
 		menu4.add(addcar_L_s);
 		menu4.add(addcar_L_r);
+		
+		
 		JMenuItem addcar_R_l=new JMenuItem("左转");
 		JMenuItem addcar_R_s=new JMenuItem("直行");
 		JMenuItem addcar_R_r=new JMenuItem("右转");
@@ -260,6 +264,46 @@ public class TestWindowBuilder {
 		goStraight2 gostraight2 = new goStraight2(car_R_s1,"car_s2",25);
 		goRight2 goright2 = new goRight2(car_R_r1, "car_r2",30);
 		goLeft2 goleft2 = new goLeft2(car_R_l1,"car_R_l1",15);
+		
+		//menu function
+		menu4.add(addcar_L_l);
+		addcar_L_l.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				car_L_l2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
+				car_L_l2.setBounds(65, 429, 70, 30);
+				frame.getLayeredPane().add(car_L_l2,new Integer(80));
+				frame.validate();
+				goLeft gl=new goLeft(car_L_l2,"car_L_l",15);
+				gl.start();
+				
+			}
+		});
+		menu4.add(addcar_L_s);
+		addcar_L_s.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				car_L_s2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car1.png")));
+				car_L_s2.setBounds(65, 488, 70, 30);
+				frame.getLayeredPane().add(car_L_s2,new Integer(80));
+				frame.validate();
+				goStraight gs=new goStraight(car_L_s2,"car_L_s",25);
+				gs.start();
+				
+			}
+		});
+		menu4.add(addcar_L_r);
+		addcar_L_r.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				car_L_r2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
+				frame.getLayeredPane().add(car_L_r2,new Integer(80));
+				frame.validate();
+				goRight gr=new goRight(car_L_r2,"car_L_r",25);
+				gr.start();
+				
+			}
+		});
 		
 		//set public light class
 		LightController_L lightC_l = new LightController_L(Light_L);

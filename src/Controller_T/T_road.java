@@ -121,7 +121,9 @@ public class T_road {
 				frame.getLayeredPane().add(car4,new Integer(80));
 				frame.validate();
 				T_turn tturn2=new T_turn(car4,"car4",5);
+				
 				System.out.println("×ó±ßºìÂÌµÆµÄÅĞ¶Ï"+T_LightController_L.judge_l);
+				
 				tturn2.start();
 			
 				

@@ -363,13 +363,41 @@ public class TestWindowBuilder {
 			}
 		});
 		
+		JButton Add_L_r = new JButton("");
+		Add_L_r.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
+		Add_L_r.setBounds(0, 528, 50, 50);
+		frame.getContentPane().add(Add_L_r);
+		
+		JButton Add_L_s = new JButton("");
+		Add_L_s.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
+		Add_L_s.setBounds(0, 477, 50, 50);
+		frame.getContentPane().add(Add_L_s);
+		
+		JButton Add_L_l = new JButton("");
+		Add_L_l.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car_L_l_add = new JLabel("");
+				car_L_l_add.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
+				car_L_l_add.setBounds(65, 429, 70, 38);
+				frame.getLayeredPane().add(car_L_l_add,new Integer(80));
+				frame.validate();
+				
+				goLeft goleft_add= new goLeft(car_L_l_add, "car_L_l_add",15);
+				goleft_add.start();
+				
+			}
+		});
+		Add_L_l.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
+		Add_L_l.setBounds(0, 426, 50, 50);
+		frame.getContentPane().add(Add_L_l);
 		
 		
 		
+		//StartBTN setting, other insert btn will automatically insert above these codes¡ý
 		START.setBounds(684, 707, 93, 23);
 		frame.getContentPane().add(START);
 		
-
 		
 		//change status button
 		JButton STOP = new JButton("\u6682\u505C/\u542F\u52A8");

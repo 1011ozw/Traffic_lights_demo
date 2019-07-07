@@ -28,20 +28,20 @@ public class goLeft extends Thread {
 	
 	@Override
 	public void run()  {
-		ImageIcon icon=new ImageIcon(goRight.class.getResource("/img/car3_up.png"));
-		System.out.print(getName());
+		ImageIcon icon=new ImageIcon(goLeft.class.getResource("/img/car3_up.png"));
+		//System.out.print(getName());
 		
 		this.run = true;
 		
 		while(run) {
 			
-			if(cargo) 
+			if(cargo) {
 				if(car1.getBounds().x<=465) {
 					
 					//judge traffic light is red or not before crossing
 					if(car1.getBounds().x<=300) {
 						
-						if(LightController_L.getLight_l()) {
+						if(LightController_L.getLight_l() && !LightController_L.getLight_others()) {
 							car1.setLocation((car1.getBounds().x+1), car1.getBounds().y);
 						}
 						
@@ -60,15 +60,15 @@ public class goLeft extends Thread {
 					
 					car1.setLocation((car1.getBounds().x), car1.getBounds().y-1);	
 				}
-			
+			}
 			synchronized(this) {
 				try {
 					wait(speed);
 				} catch(Exception e) {
 					e.printStackTrace();
 				}
-			 }	
-		   
+		    }	
+			
 		}   
 	}
 	

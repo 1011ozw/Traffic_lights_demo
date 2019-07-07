@@ -1,14 +1,15 @@
-package Controller;
-
+package Controller_T;
+//从左车道掉头
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import Controller.goRight;
 
 public class T_turn extends Thread {
 	private int speed=50;
 	private JLabel car3;
 	private boolean run;
 	private String threadName;
-	
 	private boolean cargo;
 	//private Thread t;
 	
@@ -34,7 +35,9 @@ public class T_turn extends Thread {
 		
 		while(run) {
 			
-			if(cargo) 
+			if(cargo){ 
+				
+				if(T_LightController_L.judge_l||(car3.getBounds().x>142||(car3.getBounds().x<=142&&car3.getBounds().y==200))){
 				if(car3.getBounds().x<=296&&car3.getBounds().y==277) {
 				car3.setLocation(car3.getBounds().x+1, (car3.getBounds().y));
 			
@@ -58,9 +61,12 @@ public class T_turn extends Thread {
 						car3.setBounds(car3.getBounds().x,(car3.getBounds().y),70,38); 
 					
 					
-					car3.setLocation((car3.getBounds().x-1), car3.getBounds().y);	
+					car3.setLocation((car3.getBounds().x-1), car3.getBounds().y);
+				
 					
 				}
+				}
+			}
 			synchronized(this) {
 				try {
 					wait(speed);

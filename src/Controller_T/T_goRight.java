@@ -1,9 +1,11 @@
-package Controller;
-
+package Controller_T;
+//×ö³µÓÒ×ª
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class goRight extends Thread {
+import Controller.goRight;
+
+public class T_goRight extends Thread{
 	private int speed=50;
 	private JLabel car_right;
 	private boolean run;
@@ -12,7 +14,7 @@ public class goRight extends Thread {
 	private boolean cargo;
 	//private Thread t;
 	
-	public goRight(JLabel car, String name, int sp) {
+	public T_goRight(JLabel car, String name, int sp) {
 		car_right = car;
 		threadName = name;
 		run = false;
@@ -27,7 +29,7 @@ public class goRight extends Thread {
 	
 	@Override
 	public void run()  {
-		//System.out.print(getName());
+		System.out.print(getName());
 		ImageIcon icon=new ImageIcon(goRight.class.getResource("/img/car2_down.png"));
 		
 		
@@ -63,6 +65,4 @@ public class goRight extends Thread {
 
 		cargo = state;
 	}
-	
-	
 }

@@ -1,4 +1,4 @@
-package Controller;
+package Controller_T;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -7,6 +7,7 @@ public class T_LightController_D extends Thread {
 	private boolean status;
 	private JLabel lighticon;
 	static int stage;
+	static boolean judge_d;
 	
 	public T_LightController_D(JLabel light) {
 		status = true; //for thread to keep running 
@@ -21,9 +22,12 @@ public class T_LightController_D extends Thread {
 	stage=0;
 	while(status) {
 		if(stage==0)
-			lighticon.setIcon(tlight_pass);
+			{lighticon.setIcon(tlight_pass);
+		judge_d=true;
+			}
 			else
-				lighticon.setIcon(tlight_off);
+				{lighticon.setIcon(tlight_off);
+		judge_d=false;}
 		
 		synchronized(this) {
 			try {
@@ -36,4 +40,5 @@ public class T_LightController_D extends Thread {
 		 }	
 	}
 	}
+
 }

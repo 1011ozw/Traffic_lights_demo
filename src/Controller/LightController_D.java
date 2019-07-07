@@ -3,23 +3,22 @@ package Controller;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class LightController_L extends Thread{
-	
+public class LightController_D extends Thread{
 	private JLabel lighticon;
 	private boolean status;
 	private int combo;// every two turns changes to other roads
-	private static boolean others_l;// T for cars on other roads to drive
+	private static boolean others_u;// T for cars on other roads to drive
 	
 	private static boolean go_l;
 	private static boolean go_s_r;
 	
-	public LightController_L(JLabel light) {
+	public LightController_D(JLabel light) {
 		status = true; //for thread to keep running 
 		go_l = true;
 		go_s_r = false;
 		
-		combo = 1;
-		others_l = false;
+		combo = -1;
+		others_u = true;
 		
 		lighticon = light;
 	}
@@ -33,14 +32,15 @@ public class LightController_L extends Thread{
 	}
 	
 	public static boolean getLight_others() {
-		return others_l;
+		
+		return others_u;
 	}
 	
 	@Override
 	public void run() {
-		ImageIcon light_stop = new ImageIcon(LightController_L.class.getResource("/img/light_L_off.png"));
-		ImageIcon light_L = new ImageIcon(LightController_L.class.getResource("/img/light_L_l.png"));
-		ImageIcon light_RS = new ImageIcon(LightController_L.class.getResource("/img/light_L_r+s.png"));
+		ImageIcon light_stop = new ImageIcon(LightController_U.class.getResource("/img/light_D_off.png"));
+		ImageIcon light_L = new ImageIcon(LightController_U.class.getResource("/img/light_D_l.png"));
+		ImageIcon light_RS = new ImageIcon(LightController_U.class.getResource("/img/light_D_r+s.png"));
 		
 		this.status = true;
 		
@@ -48,7 +48,7 @@ public class LightController_L extends Thread{
 			
 			//combo:  -1, 0=others drive left and straight; 1=go left; 2=go straight;
 			if(combo <= 0) {
-				others_l = true;
+				others_u = true;
 				
 				go_l = false;
 				go_s_r = false;
@@ -56,13 +56,13 @@ public class LightController_L extends Thread{
 			else if(combo == 1) {
 				go_l = true;
 				
-				others_l = false;
+				others_u = false;
 				go_s_r = false;
 			}
 			else if(combo == 2) {
 				go_s_r = true;
 				
-				others_l = false;
+				others_u = false;
 				go_l = false;
 			}
 			else {
@@ -70,7 +70,7 @@ public class LightController_L extends Thread{
 			}
 			
 			
-			if(!others_l) {//other roads is not active
+			if(!others_u) {//other roads is not active
 				
 				if(go_s_r) {
 					lighticon.setIcon(light_RS);
@@ -101,5 +101,4 @@ public class LightController_L extends Thread{
 		}
 		
 	}
-	
 }

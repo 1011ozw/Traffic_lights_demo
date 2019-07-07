@@ -1,24 +1,24 @@
-package Controller;
-
+package Controller_T;
+//从左车道直行
 import javax.swing.JLabel;
-import Controller.LightController_R;
 
-public class goStraight2 extends Thread{
+import Controller.LightController_L;
+
+public class T_goStraight extends Thread{
 	private int speed=50;
-	private JLabel car_s2;
+	private JLabel car1;
 	private boolean run;
 	private String threadName;
-	
 	private boolean cargo;
 	//private Thread t;
 	
-	public goStraight2(JLabel car, String name,int sp) {
-		car_s2 = car;
+	public T_goStraight(JLabel car, String name,int sp) {
+		
+		car1 = car;
 		threadName = name;
 		run = false;
 		cargo = true;
 		speed=sp;
-	
 	}
 
 	public void setRun(boolean run) {
@@ -27,21 +27,20 @@ public class goStraight2 extends Thread{
 	
 	@Override
 	public void run()  {
-	
+		System.out.print(getName());
+		
 		this.run = true;
 		
 		while(run) {
 			
 			if(cargo) {
-				if(car_s2.getBounds().x>=615) {
-					if(LightController_R.getLight_rs() && !LightController_R.getLight_others()) {
-						car_s2.setLocation((car_s2.getBounds().x-1), car_s2.getBounds().y);
-					}
+				if(T_LightController_L.judge_l||car1.getBounds().x>142){
+				if(LightController_L.getLight_rs()) {
+					car1.setLocation((car1.getBounds().x+1), car1.getBounds().y);
 				}
-				else {
-					car_s2.setLocation((car_s2.getBounds().x-1), car_s2.getBounds().y);
 				}
 			}
+				
 			
 			synchronized(this) {
 				try {
@@ -58,5 +57,4 @@ public class goStraight2 extends Thread{
 
 		cargo = state;
 	}
-	
 }

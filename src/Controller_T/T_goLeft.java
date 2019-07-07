@@ -1,7 +1,9 @@
-package Controller;
-
+package Controller_T;
+//车辆从下车道左转
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import Controller.goRight;
 
 public class T_goLeft extends Thread {
 	private int speed=50;
@@ -33,7 +35,8 @@ public class T_goLeft extends Thread {
 		
 		while(run) {
 			
-			if(cargo) 
+			if(cargo){ 
+				if(T_LightController_D.judge_d||car_down1.getBounds().y<583){
 				if(car_down1.getBounds().y>=200) {
 				car_down1.setLocation(car_down1.getBounds().x, (car_down1.getBounds().y-1));
 				}
@@ -46,7 +49,8 @@ public class T_goLeft extends Thread {
 					
 					car_down1.setLocation((car_down1.getBounds().x-1), car_down1.getBounds().y);	
 				}
-			
+				}
+			}
 			synchronized(this) {
 				try {
 					wait(speed);
@@ -63,15 +67,6 @@ public class T_goLeft extends Thread {
 		cargo = state;
 	}
 	
-	/*
-	public void start () {
-		/*
-	      if (t == null) {
-	         t = new Thread (this, threadName);
-	         t.start ();
-	      }
-	      
-	   }
-	*/
+
 
 }

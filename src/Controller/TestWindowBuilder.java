@@ -270,6 +270,9 @@ public class TestWindowBuilder {
 		Light_D.setBounds(463, 534, 137, 54);
 		frame.getContentPane().add(Light_D);
 		
+		//initialize PVController
+		PVController pvController = new PVController();
+		
 		//set public driving class
 		goStraight gostraight = new goStraight(car_L_s1,"car_L_s1",10);
 		goRight goright = new goRight(car_L_r1, "car_L_r1",25);

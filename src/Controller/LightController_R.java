@@ -74,6 +74,7 @@ public class LightController_R extends Thread{
 			}
 			else {
 				combo = -1;
+				others_r = true;
 			}
 			
 			

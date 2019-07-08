@@ -11,6 +11,7 @@ public class T_goLeft2 extends Thread{
 	private boolean run;
 	private String threadName;
 	static boolean already_pass=false;
+	private boolean flag=true;
 	
 	private boolean cargo;
 	//private Thread t;
@@ -31,12 +32,13 @@ public class T_goLeft2 extends Thread{
 	public void run()  {
 		ImageIcon icon=new ImageIcon(goRight.class.getResource("/img/car3_down.png"));
 		System.out.print(getName());
-		
+		PV_goLeft2.p();;
 		this.run = true;
 		
 		while(run) {
 			
 			if(cargo) {
+				if (PV_goLeft2.value==0||car_s2.getBounds().x<717) {
 				if(already_pass)T_LightController_R.judge_r=true;
 				if(T_LightController_R.judge_r||car_s2.getBounds().x<717){
 				if(car_s2.getBounds().x>=379) {
@@ -50,6 +52,10 @@ public class T_goLeft2 extends Thread{
 					
 					
 					car_s2.setLocation((car_s2.getBounds().x), car_s2.getBounds().y+1);	
+				}
+				if(car_s2.getBounds().y>555&&flag==true)
+				{PV_goLeft2.v();
+				flag=false;}
 				}
 				}
 			}

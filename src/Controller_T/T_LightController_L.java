@@ -33,7 +33,7 @@ public class T_LightController_L extends Thread {
 			try {
 				stage++;
 				stage=stage%3;
-				wait(3000);
+				wait(10000);
 			} catch(Exception e) {
 				e.printStackTrace();
 			}

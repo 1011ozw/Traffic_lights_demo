@@ -10,7 +10,7 @@ public class T_goRight2 extends Thread{
 	private JLabel car_right;
 	private boolean run;
 	private String threadName;
-	
+	private boolean flag=true;
 	private boolean cargo;
 	//private Thread t;
 	
@@ -30,13 +30,16 @@ public class T_goRight2 extends Thread{
 	public void run()  {
 		System.out.print(getName());
 		ImageIcon icon=new ImageIcon(goRight.class.getResource("/img/car3.png"));
-		
+		PV_goRight2.p();
 		
 		this.run = true;
 		
 		while(run) {
 			
 			if(cargo) {
+				if(PV_goRight2.value<-1)PV.value++;
+				if(PV_goRight2.value==0||car_right .getBounds().y<583){
+				
 				if(car_right.getBounds().y>=402) {
 					car_right.setLocation((car_right.getBounds().x), car_right.getBounds().y-1);
 				}
@@ -49,7 +52,10 @@ public class T_goRight2 extends Thread{
 					car_right.setBounds(car_right.getBounds().x,car_right.getBounds().y,70,38); 
 					car_right.setLocation((car_right.getBounds().x+1), car_right.getBounds().y);
 				}
-				
+				if(car_right.getBounds().x>701&&flag==true)
+				{PV_goRight2.v();
+				flag=false;}
+				}
 			}
 				
 			
@@ -60,7 +66,7 @@ public class T_goRight2 extends Thread{
 					e.printStackTrace();
 				}
 			 }	
-		   
+			
 		}   
 	}
 	

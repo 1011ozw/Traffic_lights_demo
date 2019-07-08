@@ -16,7 +16,9 @@ public class T_road {
 	private JFrame frame;
 	public static int free;
 	private boolean state = true;
+	static int swift_speed=6000;
 	private JLabel car_down2;
+	private final Action action = new SwingAction();
 	/**
 	 * Launch the application.
 	 */
@@ -180,6 +182,12 @@ public class T_road {
 		car_down2.setBounds(556, 583, 38, 70);
 		frame.getContentPane().add(car_down2);
 		
+		JLabel showspeed = new JLabel("");
+		showspeed.setForeground(Color.RED);
+		showspeed.setBounds(9, 25, 203, 21);
+		frame.getContentPane().add(showspeed);
+		showspeed.setText("当前切换速度："+swift_speed);
+		
 		JLabel Light_L = new JLabel("");
 		Light_L.setIcon(new ImageIcon(T_road.class.getResource("/img/light.png")));
 		Light_L.setBounds(292, 289, 60, 137);
@@ -267,7 +275,51 @@ public class T_road {
 		            }
 
 		        });
-	
+				//加快红绿灯变换速度
+				item4.addActionListener(new ActionListener(){
+
+		            @Override
+		            public void actionPerformed(ActionEvent e) {
+		            	if(swift_speed==2000){
+		            		JOptionPane.showMessageDialog(null, "已经是最快切换速度了", "提示",JOptionPane.WARNING_MESSAGE);  
+		            	}
+		            	else{
+		            	swift_speed-=2000;
+		            	T_LightController_D tld5 = new T_LightController_D(Light_D); //下方红绿灯
+		        		T_LightController_L tll5 = new T_LightController_L(Light_L); //左方红绿灯
+		        		T_LightController_R tlr5 = new T_LightController_R(Light_R); //右方红绿灯
+		        		tld5.start();
+		                tll5.start();
+		                tlr5.start();
+		                tld.stop();
+		                tll.stop();
+		                tlr.stop();
+		                showspeed.setText("当前切换速度："+swift_speed);
+		            	}
+		            }
+
+		        });
+				
+				//减慢红绿灯变换速度
+				item5.addActionListener(new ActionListener(){
+
+		            @Override
+		            public void actionPerformed(ActionEvent e) {
+		            	
+		            	swift_speed+=2000;
+		            	T_LightController_D tld6 = new T_LightController_D(Light_D); //下方红绿灯
+		        		T_LightController_L tll6 = new T_LightController_L(Light_L); //左方红绿灯
+		        		T_LightController_R tlr6 = new T_LightController_R(Light_R); //右方红绿灯
+		        		tld6.start();
+		                tll6.start();
+		                tlr6.start();
+		                tld.stop();
+		                tll.stop();
+		                tlr.stop();
+		                showspeed.setText("当前切换速度："+swift_speed);
+		            	}
+		        });
+				
 		addcar_ll.setFont(new Font("宋体", Font.BOLD, 26));
 		addcar_ll.setBounds(40, 277, 50, 50);
 		frame.getContentPane().add(addcar_ll);
@@ -417,5 +469,16 @@ public class T_road {
 		MAP.setHorizontalAlignment(SwingConstants.CENTER);
 		MAP.setIcon(new ImageIcon(T_road.class.getResource("/img/troad.png")));
 		
+		
+		
+		
+	}
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
 	}
 }

@@ -35,7 +35,7 @@ public class T_LightController_L extends Thread {
 			try {
 				stage++;
 				stage=stage%3;
-				wait(6000);
+				wait(T_road.swift_speed);
 
 			} catch(Exception e) {
 				e.printStackTrace();

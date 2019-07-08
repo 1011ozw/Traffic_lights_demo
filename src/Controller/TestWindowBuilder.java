@@ -59,69 +59,48 @@ public class TestWindowBuilder {
 	 */
 	private void initialize() throws InterruptedException {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 896, 889);
+		frame.setBounds(100, 100, 931, 931);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);		
 
 		JMenuBar menuBar=new JMenuBar();
 		menuBar.setLocation(0, 0);
-		menuBar.setSize(600, 23);
+		menuBar.setSize(187, 23);
 		menuBar.setBackground(Color.WHITE);
-		JMenu menu1=new JMenu("ÑİÊ¾");
+		JMenu menu1=new JMenu("æ¼”ç¤º");
 		menu1.setBackground(Color.LIGHT_GRAY);
 		menu1.setHorizontalAlignment(SwingConstants.CENTER);
-		JMenu menu2=new JMenu("¸Ä±äºìÂÌµÆ");
+		JMenu menu2=new JMenu("æ”¹å˜çº¢ç»¿ç¯");
 		menu2.setHorizontalAlignment(SwingConstants.LEFT);
-		JMenuItem item10=new JMenuItem("¿ªÊ¼ÑİÊ¾");
-		
-		// add car menu
-		JMenu menu3=new JMenu("¼ÓÈë³µÁ¾");
-		JMenu menu4=new JMenu("×ó³µµÀ");
-		JMenu menu5=new JMenu("ÓÒ³µµÀ");
-		JMenu menu6=new JMenu("ÉÏ³µµÀ");
-		JMenu menu7=new JMenu("ÏÂ³µµÀ");
-		JMenuItem addcar_L_l=new JMenuItem("×ó×ª");
-		JMenuItem addcar_L_s=new JMenuItem("Ö±ĞĞ");
-		JMenuItem addcar_L_r=new JMenuItem("ÓÒ×ª");
-		menu4.add(addcar_L_l);
-		menu4.add(addcar_L_s);
-		menu4.add(addcar_L_r);
+		JMenuItem item10=new JMenuItem("å¼€å§‹æ¼”ç¤º");
 		
 		
-		JMenuItem addcar_R_l=new JMenuItem("×ó×ª");
-		JMenuItem addcar_R_s=new JMenuItem("Ö±ĞĞ");
-		JMenuItem addcar_R_r=new JMenuItem("ÓÒ×ª");
-		menu5.add(addcar_R_l);
-		menu5.add(addcar_R_s);
-		menu5.add(addcar_R_r);
-		JMenuItem addcar_U_l=new JMenuItem("×ó×ª");
-		JMenuItem addcar_U_s=new JMenuItem("Ö±ĞĞ");
-		JMenuItem addcar_U_r=new JMenuItem("ÓÒ×ª");
-		menu6.add(addcar_U_l);
-		menu6.add(addcar_U_s);
-		menu6.add(addcar_U_r);
-		JMenuItem addcar_D_l=new JMenuItem("×ó×ª");
-		JMenuItem addcar_D_s=new JMenuItem("Ö±ĞĞ");
-		JMenuItem addcar_D_r=new JMenuItem("ÓÒ×ª");
-		menu7.add(addcar_D_l);
-		menu7.add(addcar_D_s);
-		menu7.add(addcar_D_r);
 		
-		JMenuItem item13=new JMenuItem("ÍË³ö");
-		JMenuItem item3=new JMenuItem("Ëæ»ú±ä»»ºìÂÌµÆ");
-		JMenuItem item21=new JMenuItem("ÉèÖÃÉÏ³µµÀÂÌµÆ");
-		JMenuItem item22=new JMenuItem("ÉèÖÃ×ó³µµÀÂÌµÆ");
-		JMenuItem item23=new JMenuItem("ÉèÖÃÏÂ³µµÀÂÌµÆ");
-		JMenuItem item24=new JMenuItem("ÉèÖÃÓÒ³µµÀÂÌµÆ");
-		JMenuItem item4=new JMenuItem("¼Ó¿ìºìÂÌµÆ±ä»»ËÙ¶È");
-		JMenuItem item5=new JMenuItem("¼õÂıºìÂÌµÆ±ä»»ËÙ¶È");
-		JMenuItem item12=new JMenuItem("Ë¢ĞÂ");
+		JMenuItem item13=new JMenuItem("é€€å‡º");
+		JMenuItem item3=new JMenuItem("éšæœºå˜æ¢çº¢ç»¿ç¯");
+		JMenuItem item21=new JMenuItem("è®¾ç½®ä¸Šè½¦é“ç»¿ç¯");
+		JMenuItem item22=new JMenuItem("è®¾ç½®å·¦è½¦é“ç»¿ç¯");
+		JMenuItem item23=new JMenuItem("è®¾ç½®ä¸‹è½¦é“ç»¿ç¯");
+		JMenuItem item24=new JMenuItem("è®¾ç½®å³è½¦é“ç»¿ç¯");
+		JMenuItem item4=new JMenuItem("åŠ å¿«çº¢ç»¿ç¯å˜æ¢é€Ÿåº¦");
+		JMenuItem item5=new JMenuItem("å‡æ…¢çº¢ç»¿ç¯å˜æ¢é€Ÿåº¦");
+		JMenuItem item12=new JMenuItem("åˆ·æ–°");
+		item12.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				TestWindowBuilder window;
+				try {
+					window = new TestWindowBuilder();
+					window.frame.setVisible(true);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		menu1.add(item10);
-		menu1.add(menu3);
-		menu3.add(menu4);
-		menu3.add(menu5);
-		menu3.add(menu6);
-		menu3.add(menu7);
+
 		menu1.add(item13);
 		menu1.add(item12);
 		menu1.addSeparator();
@@ -289,45 +268,45 @@ public class TestWindowBuilder {
 		goLeft4 goleft4 = new goLeft4(car_D_l1,"car_D_l1",15);
 		
 		//menu function
-		menu4.add(addcar_L_l);
-		addcar_L_l.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				car_L_l2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
-				car_L_l2.setBounds(65, 429, 70, 30);
-				frame.getLayeredPane().add(car_L_l2,new Integer(80));
-				frame.validate();
-				goLeft gl=new goLeft(car_L_l2,"car_L_l",15);
-				gl.start();
-				
-			}
-		});
-		menu4.add(addcar_L_s);
-		addcar_L_s.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				car_L_s2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car1.png")));
-				car_L_s2.setBounds(65, 488, 70, 30);
-				frame.getLayeredPane().add(car_L_s2,new Integer(80));
-				frame.validate();
-				goStraight gs=new goStraight(car_L_s2,"car_L_s",25);
-				gs.start();
-				
-			}
-		});
-		menu4.add(addcar_L_r);
-		addcar_L_r.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				car_L_r2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
-				frame.getLayeredPane().add(car_L_r2,new Integer(80));
-				frame.validate();
-				goRight gr=new goRight(car_L_r2,"car_L_r",25);
-				gr.start();
-				
-			}
-		});
-		
+//		menu4.add(addcar_L_l);
+//		addcar_L_l.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				car_L_l2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
+//				car_L_l2.setBounds(65, 429, 70, 30);
+//				frame.getLayeredPane().add(car_L_l2,new Integer(80));
+//				frame.validate();
+//				goLeft gl=new goLeft(car_L_l2,"car_L_l",15);
+//				gl.start();
+//				
+//			}
+//		});
+//		menu4.add(addcar_L_s);
+//		addcar_L_s.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				car_L_s2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car1.png")));
+//				car_L_s2.setBounds(65, 488, 70, 30);
+//				frame.getLayeredPane().add(car_L_s2,new Integer(80));
+//				frame.validate();
+//				goStraight gs=new goStraight(car_L_s2,"car_L_s",25);
+//				gs.start();
+//				
+//			}
+//		});
+//		menu4.add(addcar_L_r);
+//		addcar_L_r.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				car_L_r2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
+//				frame.getLayeredPane().add(car_L_r2,new Integer(80));
+//				frame.validate();
+//				goRight gr=new goRight(car_L_r2,"car_L_r",25);
+//				gr.start();
+//				
+//			}
+//		});
+//		
 		
 		//set public light class
 		LightController_L lightC_l = new LightController_L(Light_L);
@@ -364,11 +343,39 @@ public class TestWindowBuilder {
 		});
 		
 		JButton Add_L_r = new JButton("");
+		Add_L_r.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car_L_r_add = new JLabel("");
+				car_L_r_add.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
+				car_L_r_add.setBounds(65, 528, 70, 38);
+				frame.getLayeredPane().add(car_L_r_add,new Integer(80));
+				frame.validate();
+				
+				goRight goright_add= new goRight(car_L_r_add, "car_L_r_add",15);
+				goright_add.start();
+				
+			}
+		});
 		Add_L_r.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
 		Add_L_r.setBounds(0, 528, 50, 50);
 		frame.getContentPane().add(Add_L_r);
 		
 		JButton Add_L_s = new JButton("");
+		Add_L_s.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car_L_s_add = new JLabel("");
+				car_L_s_add.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car1.png")));
+				car_L_s_add.setBounds(65, 485, 70, 38);
+				frame.getLayeredPane().add(car_L_s_add,new Integer(80));
+				frame.validate();
+				
+				goStraight gosraight_add= new goStraight(car_L_s_add, "car_L_s_add",15);
+				gosraight_add.start();
+				
+			}
+		});
 		Add_L_s.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
 		Add_L_s.setBounds(0, 477, 50, 50);
 		frame.getContentPane().add(Add_L_s);
@@ -392,9 +399,178 @@ public class TestWindowBuilder {
 		Add_L_l.setBounds(0, 426, 50, 50);
 		frame.getContentPane().add(Add_L_l);
 		
+		JButton Add_R_l = new JButton("");
+		Add_R_l.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car_R_l_add = new JLabel("");
+				car_R_l_add.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car4_R_s.png")));
+				car_R_l_add.setBounds(780, 386, 70, 38);
+				frame.getLayeredPane().add(car_R_l_add,new Integer(80));
+				frame.validate();
+				
+				goLeft2 goleft2_add= new goLeft2(car_R_l_add, "car_R_l_add",15);
+				goleft2_add.start();
+				
+			}
+		});
+		Add_R_l.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
+		Add_R_l.setBounds(850, 386, 50, 50);
+		frame.getContentPane().add(Add_R_l);
 		
+		JButton Add_R_s = new JButton("");
+		Add_R_s.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car_R_s_add = new JLabel("");
+				car_R_s_add.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3_R_road.png")));
+				car_R_s_add.setBounds(780, 339, 70, 38);
+				frame.getLayeredPane().add(car_R_s_add,new Integer(80));
+				frame.validate();
+				
+				goStraight2 gostraight2_add= new goStraight2(car_R_s_add, "car_R_s_add",15);
+				gostraight2_add.start();
+				
+			}
+		});
+		Add_R_s.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
+		Add_R_s.setBounds(850, 326, 50, 50);
+		frame.getContentPane().add(Add_R_s);
 		
-		//StartBTN setting, other insert btn will automatically insert above these codes¡ı
+		JButton Add_R_r = new JButton("");
+		Add_R_r.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car_R_r_add = new JLabel("");
+				car_R_r_add.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car7_D_l.png")));
+				car_R_r_add.setBounds(780, 289, 70, 38);
+				frame.getLayeredPane().add(car_R_r_add,new Integer(80));
+				frame.validate();
+				
+				goRight2 goright2_add= new goRight2(car_R_r_add, "car_R_r_add",15);
+				goright2_add.start();
+				
+			}
+		});
+		Add_R_r.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
+		Add_R_r.setBounds(850, 276, 50, 50);
+		frame.getContentPane().add(Add_R_r);
+		
+		JButton Add_U_l = new JButton("");
+		Add_U_l.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car_U_l_add = new JLabel("");
+				car_U_l_add.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car5_U_d.png")));
+				car_U_l_add.setBounds(410, 25, 54, 70);
+				frame.getLayeredPane().add(car_U_l_add,new Integer(80));
+				frame.validate();
+				
+				goLeft3 goleft3_add= new goLeft3(car_U_l_add, "car_U_l_add",15);
+				goleft3_add.start();
+				
+			}
+		});
+		Add_U_l.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
+		Add_U_l.setBounds(410, 0, 50, 50);
+		frame.getContentPane().add(Add_U_l);
+		
+		JButton Add_U_s = new JButton("");
+		Add_U_s.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car_U_s_add = new JLabel("");
+				car_U_s_add.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car4_R_d.png")));
+				car_U_s_add.setBounds(370, 25, 54, 70);
+				frame.getLayeredPane().add(car_U_s_add,new Integer(80));
+				frame.validate();
+				
+				goStraight3 gostraight3_add= new goStraight3(car_U_s_add, "car_U_l_add",15);
+				gostraight3_add.start();
+				
+			}
+		});
+		Add_U_s.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
+		Add_U_s.setBounds(360, 0, 50, 50);
+		frame.getContentPane().add(Add_U_s);
+		
+		JButton Add_U_r = new JButton("");
+		Add_U_r.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car_U_r_add = new JLabel("");
+				car_U_r_add.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car1_U_d.png")));
+				car_U_r_add.setBounds(320, 25, 54, 70);
+				frame.getLayeredPane().add(car_U_r_add,new Integer(80));
+				frame.validate();
+				
+				goRight3 goright3_add= new goRight3(car_U_r_add, "car_U_l_add",15);
+				goright3_add.start();
+				
+			}
+		});
+		Add_U_r.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
+		Add_U_r.setBounds(315, 0, 50, 50);
+		frame.getContentPane().add(Add_U_r);
+		
+		JButton Add_D_l = new JButton("");
+		Add_D_l.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car_D_l_add = new JLabel("");
+				car_D_l_add.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car7_D_s.png")));
+				car_D_l_add.setBounds(465, 770, 54, 70);
+				frame.getLayeredPane().add(car_D_l_add,new Integer(80));
+				frame.validate();
+				
+				goLeft4 goleft4_add= new goLeft4(car_D_l_add, "car_D_l_add",15);
+				goleft4_add.start();
+				
+			}
+		});
+		Add_D_l.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
+		Add_D_l.setBounds(460, 810, 50, 50);
+		frame.getContentPane().add(Add_D_l);
+		
+		JButton Add_D_s = new JButton("");
+		Add_D_s.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car_D_s_add = new JLabel("");
+				car_D_s_add.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3_up.png")));
+				car_D_s_add.setBounds(510, 765, 54, 70);
+				frame.getLayeredPane().add(car_D_s_add,new Integer(80));
+				frame.validate();
+				
+				goStraight4 gostraight4_add= new goStraight4(car_D_s_add, "car_D_s_add",15);
+				gostraight4_add.start();
+				
+			}
+		});
+		Add_D_s.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
+		Add_D_s.setBounds(510, 810, 50, 50);
+		frame.getContentPane().add(Add_D_s);
+		
+		JButton Add_D_r = new JButton("");
+		Add_D_r.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JLabel car_D_r_add = new JLabel("");
+				car_D_r_add.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car6_D_s.png")));
+				car_D_r_add.setBounds(560, 765, 54, 70);
+				frame.getLayeredPane().add(car_D_r_add,new Integer(80));
+				frame.validate();
+				
+				goRight4 goright4_add= new goRight4(car_D_r_add, "car_D_s_add",15);
+				goright4_add.start();
+				
+			}
+		});
+		Add_D_r.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
+		Add_D_r.setBounds(560, 810, 50, 50);
+		frame.getContentPane().add(Add_D_r);
+		
+		//StartBTN setting, other insert btn will automatically insert above these codesï¿½ï¿½
 		START.setBounds(684, 707, 93, 23);
 		frame.getContentPane().add(START);
 		

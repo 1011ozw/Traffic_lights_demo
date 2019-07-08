@@ -149,17 +149,17 @@ public class T_road {
 		//initialize car Label
 		JLabel car1 = new JLabel("");
 		car1.setIcon(new ImageIcon(T_road.class.getResource("/img/car1.png")));
-		car1.setBounds(142, 342, 70, 38);
+		car1.setBounds(68, 342, 70, 38);
 		frame.getContentPane().add(car1);
 		
 		JLabel car2 = new JLabel("");
 		car2.setIcon(new ImageIcon(T_road.class.getResource("/img/car2.png")));
-		car2.setBounds(142, 402, 70, 38);
+		car2.setBounds(68, 402, 70, 38);
 		frame.getContentPane().add(car2);
 		
 		JLabel car3 = new JLabel("");
 		car3.setIcon(new ImageIcon(T_road.class.getResource("/img/car3.png")));
-		car3.setBounds(142, 277, 70, 38);
+		car3.setBounds(68, 277, 70, 38);
 		frame.getContentPane().add(car3);
 		
 		JLabel car_s2 = new JLabel("");

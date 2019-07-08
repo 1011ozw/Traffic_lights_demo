@@ -1,24 +1,24 @@
 package Controller;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import Controller.LightController_U;
 
-public class goRight extends Thread {
+public class goStraight3 extends Thread{
 	private int speed=50;
-	private JLabel car_right;
+	private JLabel car2;
 	private boolean run;
 	private String threadName;
 	
 	private boolean cargo;
 	//private Thread t;
 	
-	public goRight(JLabel car, String name, int sp) {
-		car_right = car;
+	public goStraight3(JLabel car, String name,int sp) {
+		
+		car2 = car;
 		threadName = name;
 		run = false;
 		cargo = true;
 		speed=sp;
-	
 	}
 
 	public void setRun(boolean run) {
@@ -27,28 +27,27 @@ public class goRight extends Thread {
 	
 	@Override
 	public void run()  {
-		//System.out.print(getName());
-		ImageIcon icon=new ImageIcon(goRight.class.getResource("/img/car2_down.png"));
-		
 		
 		this.run = true;
 		
 		while(run) {
 			
 			if(cargo) {
-				if(car_right.getBounds().x<=310) {
+				
+				if(car2.getBounds().y<=200) { //before the crossing
 					
-					if(LightController_L.getLight_r()) {
-						car_right.setLocation((car_right.getBounds().x+1), car_right.getBounds().y);
-					}
-					
-				}
-				else {
-					car_right.setIcon(icon);
-					car_right.setBounds(car_right.getBounds().x,car_right.getBounds().y,38,70); 
-					car_right.setLocation((car_right.getBounds().x), car_right.getBounds().y+1);
+					if(LightController_U.getLight_rs() && !LightController_U.getLight_others()) {
+						
+						car2.setLocation((car2.getBounds().x), car2.getBounds().y+1);
+						
+					}	
 				}
 				
+				else {
+					
+					car2.setLocation((car2.getBounds().x), car2.getBounds().y+1);
+					
+				}
 			}
 				
 			
@@ -67,6 +66,5 @@ public class goRight extends Thread {
 
 		cargo = state;
 	}
-	
 	
 }

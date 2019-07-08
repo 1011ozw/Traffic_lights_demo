@@ -27,7 +27,7 @@ public class goStraight extends Thread {
 	
 	@Override
 	public void run()  {
-		System.out.print(getName());
+		
 		
 		this.run = true;
 		
@@ -36,9 +36,9 @@ public class goStraight extends Thread {
 			if(cargo) {
 				
 				if(car2.getBounds().x<=300) {
-					if(LightController_L.getLight_rs()) {
+					if(LightController_L.getLight_rs() && !LightController_L.getLight_others()) {
 						car2.setLocation((car2.getBounds().x+1), car2.getBounds().y);
-					}
+					}	
 				}
 				else {
 					car2.setLocation((car2.getBounds().x+1), car2.getBounds().y);

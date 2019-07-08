@@ -26,8 +26,8 @@ public class goRight2 extends Thread{
 	
 	@Override
 	public void run()  {
-		System.out.print(getName());
-		ImageIcon icon=new ImageIcon(goRight.class.getResource("/img/car3_up.png"));
+		//System.out.print(getName());
+		ImageIcon icon=new ImageIcon(goRight2.class.getResource("/img/car7_D_s.png"));
 		
 		
 		this.run = true;
@@ -35,8 +35,13 @@ public class goRight2 extends Thread{
 		while(run) {
 			
 			if(cargo) {
-				if(car_right.getBounds().x>=560) {
-					car_right.setLocation((car_right.getBounds().x-1), car_right.getBounds().y);
+				if(car_right.getBounds().x>=565) {
+					
+					if(LightController_R.getLight_r()) {
+						car_right.setLocation((car_right.getBounds().x-1), car_right.getBounds().y);
+					}
+					
+					
 				}
 				else {
 					car_right.setIcon(icon);

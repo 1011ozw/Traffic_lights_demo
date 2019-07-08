@@ -38,6 +38,8 @@ public class T_turn extends Thread {
 			
 			if(cargo){ 
 			//	System.out.println("value:"+PV_turn.value);
+				if(car3.getBounds().x>=68&&car3.getBounds().x<142&&car3.getBounds().y==277)
+					car3.setLocation(car3.getBounds().x+1, (car3.getBounds().y));
 				if(PV_turn.value<-1)PV_turn.value++;
 				if(PV_turn.value==0||(car3.getBounds().x>142||(car3.getBounds().x<=142&&car3.getBounds().y==200))){
 				if(T_LightController_L.judge_l||(car3.getBounds().x>142||(car3.getBounds().x<=142&&car3.getBounds().y==200))){

@@ -1,5 +1,5 @@
 package Controller_T;
-//做车右转
+//左车右转
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -39,6 +39,8 @@ public class T_goRight extends Thread{
 			
 			
 			if(cargo) {
+				if(car_right.getBounds().x>=68&&car_right.getBounds().x<142&&car_right.getBounds().y==402)
+					car_right.setLocation(car_right.getBounds().x+1, (car_right.getBounds().y));
 				if(PV_goRight.value<-1)PV.value++;
 				if(PV_goRight.value==0||car_right .getBounds().x>142){
 				if(car_right.getBounds().x<=310) {

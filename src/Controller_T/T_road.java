@@ -213,7 +213,7 @@ public class T_road {
 				
 				JLabel car4 = new JLabel("");
 				car4.setIcon(new ImageIcon(T_road.class.getResource("/img/car3.png")));
-				car4.setBounds(142, 277, 70, 38);
+				car4.setBounds(68, 277, 70, 38);
 				frame.getLayeredPane().add(car4,new Integer(80));
 				frame.validate();
 				T_turn tturn2=new T_turn(car4,"car4",5);
@@ -321,7 +321,7 @@ public class T_road {
 		        });
 				
 		addcar_ll.setFont(new Font("ËÎÌו", Font.BOLD, 26));
-		addcar_ll.setBounds(40, 277, 50, 50);
+		addcar_ll.setBounds(10, 277, 50, 50);
 		frame.getContentPane().add(addcar_ll);
 		
 		JButton addcar_ls = new JButton("");
@@ -329,7 +329,7 @@ public class T_road {
 			public void actionPerformed(ActionEvent arg0) {
 				JLabel car5 = new JLabel("");
 				car5.setIcon(new ImageIcon(T_road.class.getResource("/img/car1.png")));
-				car5.setBounds(142, 342, 70, 38);
+				car5.setBounds(68, 342, 70, 38);
 				frame.getLayeredPane().add(car5,new Integer(80));
 				frame.validate();
 				T_goStraight tgs=new T_goStraight(car5,"car5",5);
@@ -340,7 +340,7 @@ public class T_road {
 		addcar_ls.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_ls.setForeground(Color.WHITE);
 		addcar_ls.setFont(new Font("ËÎÌו", Font.BOLD, 26));
-		addcar_ls.setBounds(40, 334, 50, 50);
+		addcar_ls.setBounds(10, 334, 50, 50);
 		frame.getContentPane().add(addcar_ls);
 		
 		JButton addcar_lr = new JButton("");
@@ -348,7 +348,7 @@ public class T_road {
 			public void actionPerformed(ActionEvent e) {
 				JLabel car6 = new JLabel("");
 				car6.setIcon(new ImageIcon(T_road.class.getResource("/img/car2.png")));
-				car6.setBounds(142, 402, 70, 38);
+				car6.setBounds(68, 402, 70, 38);
 				frame.getLayeredPane().add(car6,new Integer(80));
 				frame.validate();
 				T_goRight tgr=new T_goRight(car6,"car6",5);
@@ -358,7 +358,7 @@ public class T_road {
 		addcar_lr.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_lr.setForeground(Color.WHITE);
 		addcar_lr.setFont(new Font("ËÎÌו", Font.BOLD, 26));
-		addcar_lr.setBounds(40, 394, 50, 50);
+		addcar_lr.setBounds(10, 394, 50, 50);
 		frame.getContentPane().add(addcar_lr);
 		
 		JButton addcar_rs = new JButton("");

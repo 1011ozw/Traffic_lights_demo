@@ -37,7 +37,7 @@ public class T_turn extends Thread {
 		while(run) {
 			
 			if(cargo){ 
-				System.out.println("value:"+PV_turn.value);
+			//	System.out.println("value:"+PV_turn.value);
 				if(PV_turn.value<-1)PV_turn.value++;
 				if(PV_turn.value==0||(car3.getBounds().x>142||(car3.getBounds().x<=142&&car3.getBounds().y==200))){
 				if(T_LightController_L.judge_l||(car3.getBounds().x>142||(car3.getBounds().x<=142&&car3.getBounds().y==200))){

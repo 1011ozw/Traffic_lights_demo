@@ -12,6 +12,7 @@ public class T_goLeft extends Thread {
 	private String threadName;
 	
 	private boolean cargo;
+	private boolean flag=true;
 	//private Thread t;
 	
 	public T_goLeft(JLabel car, String name,int sp) {
@@ -31,11 +32,20 @@ public class T_goLeft extends Thread {
 		ImageIcon icon=new ImageIcon(goRight.class.getResource("/img/car3_R_road.png"));
 		System.out.print(getName());
 		
+		//进程的消息通信
+		
+		//进程消息通信结束
+		
 		this.run = true;
+		PV_goLeft.p();
+		
 		
 		while(run) {
 			
 			if(cargo){ 
+				if(PV_goLeft.value<-1)PV.value++;
+				if (PV_goLeft.value==0||car_down1.getBounds().y<583) {
+					
 				if(T_LightController_D.judge_d||car_down1.getBounds().y<583){
 				if(car_down1.getBounds().y>=200) {
 				car_down1.setLocation(car_down1.getBounds().x, (car_down1.getBounds().y-1));
@@ -49,7 +59,12 @@ public class T_goLeft extends Thread {
 					
 					car_down1.setLocation((car_down1.getBounds().x-1), car_down1.getBounds().y);	
 				}
+				if(car_down1.getBounds().x<142&&flag==true)
+				{PV_goLeft.v();
+				flag=false;}
 				}
+				}
+				
 			}
 			synchronized(this) {
 				try {
@@ -58,9 +73,8 @@ public class T_goLeft extends Thread {
 					e.printStackTrace();
 				}
 			 }	
-		   
+		}
 		}   
-	}
 	
 	public void runCar(boolean state) {
 

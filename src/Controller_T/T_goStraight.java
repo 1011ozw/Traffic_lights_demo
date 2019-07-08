@@ -34,8 +34,8 @@ public class T_goStraight extends Thread{
 		PV.p();
 		while(run) {
 			
-			if(cargo) {
-				
+			if(cargo) {		
+				//System.out.println("value:"+PV.value);
 			if(PV.value<-1)PV.value++;
 				if(PV.value==0||car1.getBounds().x>142){
 				if(T_LightController_L.judge_l||car1.getBounds().x>142){

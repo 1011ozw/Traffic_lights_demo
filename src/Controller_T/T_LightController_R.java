@@ -19,6 +19,7 @@ public class T_LightController_R extends Thread {
 		ImageIcon tlight_off=new ImageIcon(T_LightController_R.class.getResource("/img/tlight_R_off.png"));
 		ImageIcon tlight_pass=new ImageIcon(T_LightController_R.class.getResource("/img/tlight_R_pass.png"));	
 	this.status=true;
+	if(T_road.free==0){
 	stage=0;
 	while(status) {
 		if(stage==2)
@@ -32,11 +33,16 @@ public class T_LightController_R extends Thread {
 			try {
 				stage++;
 				stage=stage%3;
+
 				wait(6000);
+
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
 		 }	
 	}
+	}
+	else if(T_road.free==3){judge_r=true;lighticon.setIcon(tlight_pass);}
+	else {judge_r=false;lighticon.setIcon(tlight_off);}
 	}
 }

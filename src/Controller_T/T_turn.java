@@ -11,6 +11,7 @@ public class T_turn extends Thread {
 	private boolean run;
 	private String threadName;
 	private boolean cargo;
+	private boolean flag=true;
 	//private Thread t;
 	
 	public T_turn(JLabel car, String name,int sp) {
@@ -32,11 +33,13 @@ public class T_turn extends Thread {
 		System.out.print(getName());
 		
 		this.run = true;
-		
+		PV_turn.p();
 		while(run) {
 			
 			if(cargo){ 
-				
+				System.out.println("value:"+PV_turn.value);
+				if(PV_turn.value<-1)PV_turn.value++;
+				if(PV_turn.value==0||(car3.getBounds().x>142||(car3.getBounds().x<=142&&car3.getBounds().y==200))){
 				if(T_LightController_L.judge_l||(car3.getBounds().x>142||(car3.getBounds().x<=142&&car3.getBounds().y==200))){
 				if(car3.getBounds().x<=296&&car3.getBounds().y==277) {
 				car3.setLocation(car3.getBounds().x+1, (car3.getBounds().y));
@@ -66,6 +69,11 @@ public class T_turn extends Thread {
 					
 				}
 				}
+				}
+				if((car3.getBounds().x<=142&&car3.getBounds().y==200)&&flag==true)
+				{PV_turn.v();
+				flag=false;}
+				
 			}
 			synchronized(this) {
 				try {

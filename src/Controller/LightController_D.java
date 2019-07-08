@@ -102,6 +102,7 @@ public class LightController_D extends Thread{
 				try {
 					
 					wait(10000);
+					
 				} catch(Exception e) {
 					e.printStackTrace();
 				}

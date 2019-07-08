@@ -276,11 +276,11 @@ public class TestWindowBuilder {
 		//set public driving class
 		goStraight gostraight = new goStraight(car_L_s1,"car_L_s1",10);
 		goRight goright = new goRight(car_L_r1, "car_L_r1",25);
-		goLeft goleft= new goLeft(car_L_l1, "car_L_l1",15);
+		goLeft goleft= new goLeft(car_L_l1, "car_L_l1",5);
 		
 		goStraight2 gostraight2 = new goStraight2(car_R_s1,"car_R_s1",25);
 		goRight2 goright2 = new goRight2(car_R_r1, "car_R_r1",30);
-		goLeft2 goleft2 = new goLeft2(car_R_l1,"car_R_l1",17);
+		goLeft2 goleft2 = new goLeft2(car_R_l1,"car_R_l1",6);
 		
 		
 		goStraight3 gostraight3 = new goStraight3(car_U_s1,"car_U_s1",25);
@@ -386,7 +386,7 @@ public class TestWindowBuilder {
 				frame.getLayeredPane().add(car_L_l_add,new Integer(80));
 				frame.validate();
 				
-				goLeft goleft_add= new goLeft(car_L_l_add, "car_L_l_add",15);
+				goLeft goleft_add= new goLeft(car_L_l_add, "car_L_l_add",5);
 				goleft_add.start();
 				
 			}

@@ -9,6 +9,8 @@ public class goStraight2 extends Thread{
 	private boolean run;
 	private String threadName;
 	
+	private int pv;//pv
+	
 	private boolean cargo;
 	//private Thread t;
 	
@@ -18,6 +20,8 @@ public class goStraight2 extends Thread{
 		run = false;
 		cargo = true;
 		speed=sp;
+		
+		pv = PVController.getPV_R_s();//pv
 	
 	}
 
@@ -32,13 +36,32 @@ public class goStraight2 extends Thread{
 		
 		while(run) {
 			
+			pv = PVController.getPV_R_s();//pv
+			
 			if(cargo) {
-				if(car_s2.getBounds().x>=615) {
-					if(LightController_R.getLight_rs() && !LightController_R.getLight_others()) {
-						car_s2.setLocation((car_s2.getBounds().x-1), car_s2.getBounds().y);
+				if(car_s2.getBounds().x>=615 && car_s2.getBounds().x<691) {
+					
+					if(pv == 1) {
+						if(LightController_R.getLight_rs() && !LightController_R.getLight_others()) {
+							car_s2.setLocation((car_s2.getBounds().x-1), car_s2.getBounds().y);
+						}
 					}
+					
+				}
+				else if(car_s2.getBounds().x >= 691) {
+					car_s2.setLocation((car_s2.getBounds().x-1), car_s2.getBounds().y);
+				}
+				else if(car_s2.getBounds().x < 615 && car_s2.getBounds().x > 230) {
+					//进入临界值. 资源-1
+					PVController.setPV_R_s(0);
+					car_s2.setLocation((car_s2.getBounds().x-1), car_s2.getBounds().y);
 				}
 				else {
+					if(car_s2.getBounds().x == 230) {
+						//走出临界区 资源+1
+						PVController.setPV_R_s(1);
+					}
+					
 					car_s2.setLocation((car_s2.getBounds().x-1), car_s2.getBounds().y);
 				}
 			}

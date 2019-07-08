@@ -14,9 +14,11 @@ import javax.swing.*;
 public class T_road {
 
 	private JFrame frame;
-	
+	public static int free;
 	private boolean state = true;
+	static int swift_speed=6000;
 	private JLabel car_down2;
+	private final Action action = new SwingAction();
 	/**
 	 * Launch the application.
 	 */
@@ -55,6 +57,94 @@ public class T_road {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);		
 		
+		JMenuBar menuBar=new JMenuBar();
+		menuBar.setLocation(0, 0);
+		menuBar.setSize(600, 23);
+		menuBar.setBackground(Color.WHITE);
+		JMenu menu1=new JMenu("演示");
+		menu1.setBackground(Color.LIGHT_GRAY);
+		menu1.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JMenu menu2=new JMenu("改变红绿灯");
+		menu2.setHorizontalAlignment(SwingConstants.LEFT);
+		
+		JMenu menu3=new JMenu("地图");
+		menu2.setHorizontalAlignment(SwingConstants.LEFT);
+		JMenuItem item10=new JMenuItem("重置");
+		JMenuItem item11=new JMenuItem("加入车辆");
+		JMenuItem item13=new JMenuItem("退出");
+		JMenuItem item3=new JMenuItem("随机变换红绿灯");
+		JMenuItem item22=new JMenuItem("设置左车道直行掉头绿灯");
+		JMenuItem item24=new JMenuItem("设置右车道左转绿灯");
+		JMenuItem item21=new JMenuItem("设置下车道左转绿灯");
+		JMenuItem item4=new JMenuItem("加快红绿灯变换速度");
+		JMenuItem item5=new JMenuItem("减慢红绿灯变换速度");
+		
+		JMenuItem item25=new JMenuItem("切换十字路口");
+		JMenuItem item26=new JMenuItem("切换T字路口");
+		item26.setEnabled(false);
+		
+		menu1.add(item10);
+		menu1.add(item11);
+		menu1.add(item13);
+		menu1.addSeparator();
+		menu2.add(item22);
+		menu2.add(item24);
+		menu2.add(item21);
+		menu2.add(item3);
+		menu2.add(item4);
+		menu2.add(item5);
+		
+		menu3.add(item25);
+		menu3.add(item26);
+		
+		menuBar.add(menu1);
+		menuBar.add(menu2);
+		menuBar.add(menu3);
+		frame.getContentPane().add(menuBar);
+		
+		//菜单栏功能实现
+		TestWindowBuilder crossroad = new TestWindowBuilder();
+		Refresh refresh = new Refresh();
+		
+		//重置功能
+		item10.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	frame.dispose();
+            	refresh.main(null);
+            }
+
+        });
+		
+		//退出功能
+		item13.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	frame.dispose();
+            }
+
+        });
+		
+		
+		
+		
+		//跳转交叉路口
+		item25.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                crossroad.main(null);
+            }
+
+        });
+		
+		
+		
+		//菜单栏功能实现结束
+
 		
 		//initialize car Label
 		JLabel car1 = new JLabel("");
@@ -91,6 +181,12 @@ public class T_road {
 		car_down2.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_up.png")));
 		car_down2.setBounds(556, 583, 38, 70);
 		frame.getContentPane().add(car_down2);
+		
+		JLabel showspeed = new JLabel("");
+		showspeed.setForeground(Color.RED);
+		showspeed.setBounds(9, 25, 203, 21);
+		frame.getContentPane().add(showspeed);
+		showspeed.setText("当前切换速度："+swift_speed);
 		
 		JLabel Light_L = new JLabel("");
 		Light_L.setIcon(new ImageIcon(T_road.class.getResource("/img/light.png")));
@@ -146,7 +242,7 @@ public class T_road {
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
 		START.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				free=0;
 				//车辆线程启动
 				tgoleft.start();
 				tgoLeft2.start();
@@ -161,8 +257,69 @@ public class T_road {
                 tlr.start();
 			}
 		});
-		
-	
+		//设置左车道直行掉头绿灯
+				item22.addActionListener(new ActionListener(){
+
+		            @Override
+		            public void actionPerformed(ActionEvent e) {
+		            	free=1;
+		            	T_LightController_D tld1 = new T_LightController_D(Light_D); //下方红绿灯
+		        		T_LightController_L tll1 = new T_LightController_L(Light_L); //左方红绿灯
+		        		T_LightController_R tlr1 = new T_LightController_R(Light_R); //右方红绿灯
+		        		tld1.start();
+		                tll1.start();
+		                tlr1.start();
+		                tld.stop();
+		                tll.stop();
+		                tlr.stop();
+		            }
+
+		        });
+				//加快红绿灯变换速度
+				item4.addActionListener(new ActionListener(){
+
+		            @Override
+		            public void actionPerformed(ActionEvent e) {
+		            	if(swift_speed==2000){
+		            		JOptionPane.showMessageDialog(null, "已经是最快切换速度了", "提示",JOptionPane.WARNING_MESSAGE);  
+		            	}
+		            	else{
+		            	swift_speed-=2000;
+		            	T_LightController_D tld5 = new T_LightController_D(Light_D); //下方红绿灯
+		        		T_LightController_L tll5 = new T_LightController_L(Light_L); //左方红绿灯
+		        		T_LightController_R tlr5 = new T_LightController_R(Light_R); //右方红绿灯
+		        		tld5.start();
+		                tll5.start();
+		                tlr5.start();
+		                tld.stop();
+		                tll.stop();
+		                tlr.stop();
+		                showspeed.setText("当前切换速度："+swift_speed);
+		            	}
+		            }
+
+		        });
+				
+				//减慢红绿灯变换速度
+				item5.addActionListener(new ActionListener(){
+
+		            @Override
+		            public void actionPerformed(ActionEvent e) {
+		            	
+		            	swift_speed+=2000;
+		            	T_LightController_D tld6 = new T_LightController_D(Light_D); //下方红绿灯
+		        		T_LightController_L tll6 = new T_LightController_L(Light_L); //左方红绿灯
+		        		T_LightController_R tlr6 = new T_LightController_R(Light_R); //右方红绿灯
+		        		tld6.start();
+		                tll6.start();
+		                tlr6.start();
+		                tld.stop();
+		                tll.stop();
+		                tlr.stop();
+		                showspeed.setText("当前切换速度："+swift_speed);
+		            	}
+		        });
+				
 		addcar_ll.setFont(new Font("宋体", Font.BOLD, 26));
 		addcar_ll.setBounds(40, 277, 50, 50);
 		frame.getContentPane().add(addcar_ll);
@@ -312,5 +469,16 @@ public class T_road {
 		MAP.setHorizontalAlignment(SwingConstants.CENTER);
 		MAP.setIcon(new ImageIcon(T_road.class.getResource("/img/troad.png")));
 		
+		
+		
+		
+	}
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
 	}
 }

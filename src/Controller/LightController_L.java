@@ -7,7 +7,10 @@ public class LightController_L extends Thread{
 	
 	private JLabel lighticon;
 	private boolean status;
-	private int combo;// every two turns changes to other roads
+	
+	private static int combo;// every two turns changes to other roads
+	private static int speed = 10000;
+	
 	private static boolean others_l;// T for cars on other roads to drive
 	
 	private static boolean go_l;
@@ -21,10 +24,23 @@ public class LightController_L extends Thread{
 		
 		go_r = false;
 		
+		speed = 10000;
+		
 		combo = 1;
 		others_l = false;
 		
 		lighticon = light;
+	}
+	
+	public static void setSpeed(int new_speed) {
+		speed = new_speed;
+	}
+	
+	public static void setCombo(int new_combo) {
+		combo = new_combo;
+	}
+	public static int getCombo() {
+		return combo;
 	}
 	
 	public static boolean getLight_r() {
@@ -102,7 +118,7 @@ public class LightController_L extends Thread{
 			synchronized(this) {
 				try {
 					
-					wait(10000);
+					wait(speed);
 				} catch(Exception e) {
 					e.printStackTrace();
 				}

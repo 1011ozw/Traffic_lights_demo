@@ -322,7 +322,6 @@ public class TestWindowBuilder {
 		START.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				
 				gostraight.start();	
 				gostraight2.start();
 				gostraight3.start();
@@ -342,6 +341,7 @@ public class TestWindowBuilder {
 				lightC_r.start();
 				lightC_u.start();
 				lightC_d.start();
+				
 			}
 		});
 		
@@ -418,7 +418,7 @@ public class TestWindowBuilder {
 			}
 		});
 		Add_R_l.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
-		Add_R_l.setBounds(850, 386, 50, 50);
+		Add_R_l.setBounds(850, 380, 50, 50);
 		frame.getContentPane().add(Add_R_l);
 		
 		JButton Add_R_s = new JButton("");
@@ -437,7 +437,7 @@ public class TestWindowBuilder {
 			}
 		});
 		Add_R_s.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
-		Add_R_s.setBounds(850, 326, 50, 50);
+		Add_R_s.setBounds(850, 329, 50, 50);
 		frame.getContentPane().add(Add_R_s);
 		
 		JButton Add_R_r = new JButton("");
@@ -456,7 +456,7 @@ public class TestWindowBuilder {
 			}
 		});
 		Add_R_r.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
-		Add_R_r.setBounds(850, 276, 50, 50);
+		Add_R_r.setBounds(850, 278, 50, 50);
 		frame.getContentPane().add(Add_R_r);
 		
 		JButton Add_U_l = new JButton("");
@@ -572,6 +572,22 @@ public class TestWindowBuilder {
 		Add_D_r.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
 		Add_D_r.setBounds(560, 810, 50, 50);
 		frame.getContentPane().add(Add_D_r);
+		
+		JButton ChangeLight1 = new JButton("");
+		ChangeLight1.setBounds(70, 650, 80, 80);
+		frame.getContentPane().add(ChangeLight1);
+		
+		JButton button = new JButton("");
+		button.setBounds(178, 650, 80, 80);
+		frame.getContentPane().add(button);
+		
+		JButton button_1 = new JButton("");
+		button_1.setBounds(70, 760, 80, 80);
+		frame.getContentPane().add(button_1);
+		
+		JButton button_2 = new JButton("");
+		button_2.setBounds(178, 758, 80, 80);
+		frame.getContentPane().add(button_2);
 		
 		//StartBTN setting, other insert btn will automatically insert above these codes��
 		START.setBounds(684, 707, 93, 23);

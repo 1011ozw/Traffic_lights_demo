@@ -67,24 +67,24 @@ public class TestWindowBuilder {
 		menuBar.setLocation(0, 0);
 		menuBar.setSize(187, 23);
 		menuBar.setBackground(Color.WHITE);
-		JMenu menu1=new JMenu("æ¼”ç¤º");
+		JMenu menu1=new JMenu("ÑİÊ¾");
 		menu1.setBackground(Color.LIGHT_GRAY);
 		menu1.setHorizontalAlignment(SwingConstants.CENTER);
-		JMenu menu2=new JMenu("æ”¹å˜çº¢ç»¿ç¯");
+		JMenu menu2=new JMenu("¸Ä±äºìÂÌµÆ");
 		menu2.setHorizontalAlignment(SwingConstants.LEFT);
-		JMenuItem item10=new JMenuItem("å¼€å§‹æ¼”ç¤º");
+		JMenuItem item10=new JMenuItem("¿ªÊ¼ÑİÊ¾");
 		
 		
 		
-		JMenuItem item13=new JMenuItem("é€€å‡º");
-		JMenuItem item3=new JMenuItem("éšæœºå˜æ¢çº¢ç»¿ç¯");
-		JMenuItem item21=new JMenuItem("è®¾ç½®ä¸Šè½¦é“ç»¿ç¯");
-		JMenuItem item22=new JMenuItem("è®¾ç½®å·¦è½¦é“ç»¿ç¯");
-		JMenuItem item23=new JMenuItem("è®¾ç½®ä¸‹è½¦é“ç»¿ç¯");
-		JMenuItem item24=new JMenuItem("è®¾ç½®å³è½¦é“ç»¿ç¯");
-		JMenuItem item4=new JMenuItem("åŠ å¿«çº¢ç»¿ç¯å˜æ¢é€Ÿåº¦");
-		JMenuItem item5=new JMenuItem("å‡æ…¢çº¢ç»¿ç¯å˜æ¢é€Ÿåº¦");
-		JMenuItem item12=new JMenuItem("åˆ·æ–°");
+		JMenuItem item13=new JMenuItem("ÍË³ö");
+		JMenuItem item3=new JMenuItem("Ëæ»ú±ä»»ºìÂÌµÆ");
+		JMenuItem item21=new JMenuItem("ÉèÖÃÉÏ³µµÀÂÌµÆ");
+		JMenuItem item22=new JMenuItem("ÉèÖÃ×ó³µµÀÂÌµÆ");
+		JMenuItem item23=new JMenuItem("ÉèÖÃÏÂ³µµÀÂÌµÆ");
+		JMenuItem item24=new JMenuItem("ÉèÖÃÓÒ³µµÀÂÌµÆ");
+		JMenuItem item4=new JMenuItem("¼Ó¿ìºìÂÌµÆ±ä»»ËÙ¶È");
+		JMenuItem item5=new JMenuItem("¼õÂıºìÂÌµÆ±ä»»ËÙ¶È");
+		JMenuItem item12=new JMenuItem("Ë¢ĞÂ");
 		item12.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

@@ -86,33 +86,33 @@ public class PVController extends Thread{
 	}
 	
 	public static void setPV_R_l(int pv_R_l_new) {
-		pv_L_l = pv_R_l_new;
+		pv_R_l = pv_R_l_new;
 	}
 	public static void setPV_R_r(int pv_R_r_new) {
-		pv_L_r = pv_R_r_new;
+		pv_R_r = pv_R_r_new;
 	}
 	public static void setPV_R_s(int pv_R_s_new) {
-		pv_L_s = pv_R_s_new;
+		pv_R_s = pv_R_s_new;
 	}
 	
 	public static void setPV_U_l(int pv_U_l_new) {
-		pv_L_l = pv_U_l_new;
+		pv_U_l = pv_U_l_new;
 	}
 	public static void setPV_U_r(int pv_U_r_new) {
-		pv_L_r = pv_U_r_new;
+		pv_U_r = pv_U_r_new;
 	}
 	public static void setPV_U_s(int pv_U_s_new) {
-		pv_L_s = pv_U_s_new;
+		pv_U_s = pv_U_s_new;
 	}
 	
 	public static void setPV_D_l(int pv_D_l_new) {
-		pv_L_l = pv_D_l_new;
+		pv_D_l = pv_D_l_new;
 	}
 	public static void setPV_D_r(int pv_D_r_new) {
-		pv_L_r = pv_D_r_new;
+		pv_D_r = pv_D_r_new;
 	}
 	public static void setPV_D_s(int pv_D_s_new) {
-		pv_L_s = pv_D_s_new;
+		pv_D_s = pv_D_s_new;
 	}
 	
 	

@@ -10,6 +10,8 @@ public class goLeft2 extends Thread{
 	private boolean run;
 	private String threadName;
 	
+	private int pv;//pv
+	
 	private boolean cargo;
 	//private Thread t;
 	
@@ -19,6 +21,8 @@ public class goLeft2 extends Thread{
 		run = false;
 		cargo = true;
 		speed=sp;
+		
+		pv = PVController.getPV_R_l();//pv
 	}
 
 	public void setRun(boolean run) {
@@ -34,19 +38,33 @@ public class goLeft2 extends Thread{
 		
 		while(run) {
 			
+			pv = PVController.getPV_R_l();//pv
+			
 			if(cargo) {
 				if(car1.getBounds().x>=410) {
 					
 					//judge traffic light is red or not before crossing
-					if(car1.getBounds().x>=615) {
+					if(car1.getBounds().x>=615 && car1.getBounds().x < 691) {
 						
-						if(LightController_R.getLight_l() && !LightController_R.getLight_others()) {
-							car1.setLocation((car1.getBounds().x-1), car1.getBounds().y);
+						if(pv == 1) {
+							
+							if(LightController_R.getLight_l() && !LightController_R.getLight_others()) {
+								car1.setLocation((car1.getBounds().x-1), car1.getBounds().y);
+							}
+							
 						}
 						
+						
+					}
+					else if(car1.getBounds().x >= 691) {
+						car1.setLocation((car1.getBounds().x-1), car1.getBounds().y);
 					}
 					
 					else {
+						
+						//进入临界值. 资源-1
+						PVController.setPV_R_l(0);
+						
 						car1.setLocation((car1.getBounds().x-1), car1.getBounds().y);
 					}
 				
@@ -59,6 +77,15 @@ public class goLeft2 extends Thread{
 					}
 					
 					car1.setLocation((car1.getBounds().x), car1.getBounds().y+1);	
+					
+					if(car1.getBounds().y == 666) {
+						
+						//走出临界区 资源+1
+						
+						PVController.setPV_R_l(1);
+						
+						
+					}
 				}
 			}
 				

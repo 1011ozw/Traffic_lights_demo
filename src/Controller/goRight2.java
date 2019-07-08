@@ -36,7 +36,12 @@ public class goRight2 extends Thread{
 			
 			if(cargo) {
 				if(car_right.getBounds().x>=565) {
-					car_right.setLocation((car_right.getBounds().x-1), car_right.getBounds().y);
+					
+					if(LightController_R.getLight_r()) {
+						car_right.setLocation((car_right.getBounds().x-1), car_right.getBounds().y);
+					}
+					
+					
 				}
 				else {
 					car_right.setIcon(icon);

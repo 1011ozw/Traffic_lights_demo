@@ -13,11 +13,13 @@ public class LightController_R extends Thread{
 	
 	private static boolean go_l;
 	private static boolean go_s;
+	private static boolean go_r;
 	
 	public LightController_R(JLabel light) {
 		status = true; //for thread to keep running 
-		go_l = true;
+		go_l = false;
 		go_s = false;
+		go_r = false;
 		
 		combo = 1;
 		others_r = false;
@@ -33,6 +35,10 @@ public class LightController_R extends Thread{
 		return go_l;
 	}
 	
+	public static boolean getLight_r() {
+		return go_r;
+	}
+	
 	public static boolean getLight_rs() {
 		return go_s;
 	}
@@ -44,6 +50,7 @@ public class LightController_R extends Thread{
 		ImageIcon light_RS = new ImageIcon(LightController_R.class.getResource("/img/light_R_r+s.png"));
 		
 		this.status = true;
+		go_r = true;
 		
 		while(status) {
 		
@@ -67,6 +74,7 @@ public class LightController_R extends Thread{
 			}
 			else {
 				combo = -1;
+				others_r = true;
 			}
 			
 			

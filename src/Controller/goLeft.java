@@ -11,6 +11,7 @@ public class goLeft extends Thread {
 	private boolean run;
 	private String threadName;
 	
+	
 	private boolean cargo;
 	//private Thread t;
 	

@@ -339,7 +339,7 @@ public class TestWindowBuilder {
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
 		START.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
+				
 				
 				gostraight.start();	
 				gostraight2.start();
@@ -420,6 +420,8 @@ public class TestWindowBuilder {
 				gostraight4.runCar(state);
 				goright4.runCar(state);
 				goleft4.runCar(state);
+				
+				
 			}
 		});
 		STOP.setBounds(684, 771, 93, 23);

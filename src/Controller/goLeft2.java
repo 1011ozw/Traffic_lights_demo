@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 
 public class goLeft2 extends Thread{
 	
-	public int speed=50;
+	private static int speed=50;
 	private JLabel car1;
 	private boolean run;
 	private String threadName;
@@ -25,6 +25,13 @@ public class goLeft2 extends Thread{
 		pv = PVController.getPV_R_l();//pv
 	}
 
+	public static int getSpeed() {
+		return speed;
+	}
+	public static void setSpeed(int new_speed) {
+		speed = new_speed;
+	}
+	
 	public void setRun(boolean run) {
 		this.run = run;
 	}

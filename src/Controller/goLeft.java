@@ -6,7 +6,7 @@ import Controller.LightController_L;
 import javax.swing.JLabel;
 
 public class goLeft extends Thread {
-	public int speed=50;
+	private static int speed;
 	private JLabel car1;
 	private boolean run;
 	private String threadName;
@@ -16,7 +16,7 @@ public class goLeft extends Thread {
 	private boolean cargo;
 	//private Thread t;
 	
-	public goLeft(JLabel car, String name,int sp) {
+	public goLeft(JLabel car, String name, int sp) {
 		car1 = car;
 		threadName = name;
 		run = false;
@@ -25,7 +25,14 @@ public class goLeft extends Thread {
 		
 		pv = PVController.getPV_L_l();//pv
 	}
-
+	
+	public static int getSpeed() {
+		return speed;
+	}
+	public static void setSpeed(int new_speed) {
+		speed = new_speed;
+	}
+	
 	public void setRun(boolean run) {
 		this.run = run;
 	}

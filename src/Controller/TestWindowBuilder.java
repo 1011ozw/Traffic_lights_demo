@@ -265,11 +265,11 @@ public class TestWindowBuilder {
 		//set public driving class
 		goStraight gostraight = new goStraight(car_L_s1,"car_L_s1",10);
 		goRight goright = new goRight(car_L_r1, "car_L_r1",25);
-		goLeft goleft= new goLeft(car_L_l1, "car_L_l1",5);
+		goLeft goleft= new goLeft(car_L_l1, "car_L_l1",4);
 		
 		goStraight2 gostraight2 = new goStraight2(car_R_s1,"car_R_s1",25);
 		goRight2 goright2 = new goRight2(car_R_r1, "car_R_r1",30);
-		goLeft2 goleft2 = new goLeft2(car_R_l1,"car_R_l1",6);
+		goLeft2 goleft2 = new goLeft2(car_R_l1,"car_R_l1",15);
 		
 		
 		goStraight3 gostraight3 = new goStraight3(car_U_s1,"car_U_s1",25);
@@ -828,38 +828,42 @@ public class TestWindowBuilder {
 		item19.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//change speed(up)
-				goleft.speed=goleft.speed/2;
-				goleft2.speed=goleft2.speed/2;
-				goleft3.speed=goleft3.speed/2;
-				goleft4.speed=goleft4.speed/2;
-				goright.speed=goright.speed/2;
-				goright2.speed=goright2.speed/2;
-				goright3.speed=goright3.speed/2;
-				goright4.speed=goright4.speed/2;
-				gostraight.speed=gostraight.speed/2;
-				gostraight2.speed=gostraight2.speed/2;
-				gostraight3.speed=gostraight3.speed/2;
-				gostraight4.speed=gostraight4.speed/2;
+				//车道加速
+				goLeft.setSpeed(goLeft.getSpeed()/2);
+				goLeft2.setSpeed(goLeft2.getSpeed()/2);
+				goLeft3.setSpeed(goLeft3.getSpeed()/2);
+				goLeft4.setSpeed(goLeft4.getSpeed()/2);
+
+				goRight.setSpeed(goRight.getSpeed()/2);
+				goRight2.setSpeed(goRight2.getSpeed()/2);
+				goRight3.setSpeed(goRight3.getSpeed()/2);
+				goRight4.setSpeed(goRight4.getSpeed()/2);
+
+				goStraight.setSpeed(goStraight.getSpeed()/2);
+				goStraight2.setSpeed(goStraight2.getSpeed()/2);
+				goStraight3.setSpeed(goStraight3.getSpeed()/2);
+				goStraight4.setSpeed(goStraight4.getSpeed()/2);
 			}
 		});
 		JMenuItem item20=new JMenuItem("减速");
 		item20.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				goleft.speed=goleft.speed*2;
-				goleft2.speed=goleft2.speed*2;
-				goleft3.speed=goleft3.speed*2;
-				goleft4.speed=goleft4.speed*2;
-				goright.speed=goright.speed*2;
-				goright2.speed=goright2.speed*2;
-				goright3.speed=goright3.speed*2;
-				goright4.speed=goright4.speed*2;
-				gostraight.speed=gostraight.speed*2;
-				gostraight2.speed=gostraight2.speed*2;
-				gostraight3.speed=gostraight3.speed*2;
-				gostraight4.speed=gostraight4.speed*2;
+				// 车道减速
+				goLeft.setSpeed(goLeft.getSpeed()*2);
+				goLeft2.setSpeed(goLeft2.getSpeed()*2);
+				goLeft3.setSpeed(goLeft3.getSpeed()*2);
+				goLeft4.setSpeed(goLeft4.getSpeed()*2);
+
+				goRight.setSpeed(goRight.getSpeed()*2);
+				goRight2.setSpeed(goRight2.getSpeed()*2);
+				goRight3.setSpeed(goRight3.getSpeed()*2);
+				goRight4.setSpeed(goRight4.getSpeed()*2);
+
+				goStraight.setSpeed(goStraight.getSpeed()*2);
+				goStraight2.setSpeed(goStraight2.getSpeed()*2);
+				goStraight3.setSpeed(goStraight3.getSpeed()*2);
+				goStraight4.setSpeed(goStraight4.getSpeed()*2);
 			}
 		});
 		menu3.add(item19);

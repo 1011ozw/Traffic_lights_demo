@@ -52,6 +52,7 @@ public class goStraight3 extends Thread{
 					
 				}
 				else if(car2.getBounds().y <= 105) {
+					//**
 					car2.setLocation((car2.getBounds().x), car2.getBounds().y+1);
 				}
 				else if(car2.getBounds().y > 200 && car2.getBounds().y <600) {
@@ -64,7 +65,7 @@ public class goStraight3 extends Thread{
 					
 					if(car2.getBounds().y == 600) {
 						//走出临界区 资源+1
-						PVController.setPV_R_s(1);
+						PVController.setPV_U_s(1);
 					}
 					
 					car2.setLocation((car2.getBounds().x), car2.getBounds().y+1);

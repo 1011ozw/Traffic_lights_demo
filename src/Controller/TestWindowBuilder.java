@@ -22,8 +22,9 @@ import Controller.goStraight;
 public class TestWindowBuilder {
 
 	private JFrame frame;
-	
 	private boolean state = true;
+	
+	private static int free = 666;
 
 	/**
 	 * Launch the application.
@@ -71,8 +72,7 @@ public class TestWindowBuilder {
 		menu1.setBackground(Color.LIGHT_GRAY);
 		menu1.setHorizontalAlignment(SwingConstants.CENTER);
 		JMenu menu2=new JMenu("改变红绿灯");
-		menu2.setHorizontalAlignment(SwingConstants.LEFT);
-		
+		menu2.setHorizontalAlignment(SwingConstants.LEFT);	
 		
 		//menu function
 		JMenuItem item13=new JMenuItem("退出");
@@ -101,7 +101,7 @@ public class TestWindowBuilder {
 			}
 		});
 		JMenuItem item23=new JMenuItem("设置上下车道直行");
-		item21.addActionListener(new ActionListener() {			
+		item23.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -109,7 +109,7 @@ public class TestWindowBuilder {
 			}
 		});
 		JMenuItem item24=new JMenuItem("设置上下车道左转");
-		item21.addActionListener(new ActionListener() {
+		item24.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -118,6 +118,7 @@ public class TestWindowBuilder {
 			}
 		});
 		
+		JMenuItem item3=new JMenuItem("重置");
 		JMenuItem item12=new JMenuItem("刷新");
 		item12.addActionListener(new ActionListener() {
 			@Override
@@ -299,46 +300,6 @@ public class TestWindowBuilder {
 		goRight4 goright4 = new goRight4(car_D_r1,"car_D_r1",15);
 		goLeft4 goleft4 = new goLeft4(car_D_l1,"car_D_l1",15);
 		
-		//menu function
-//		menu4.add(addcar_L_l);
-//		addcar_L_l.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				car_L_l2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
-//				car_L_l2.setBounds(65, 429, 70, 30);
-//				frame.getLayeredPane().add(car_L_l2,new Integer(80));
-//				frame.validate();
-//				goLeft gl=new goLeft(car_L_l2,"car_L_l",15);
-//				gl.start();
-//				
-//			}
-//		});
-//		menu4.add(addcar_L_s);
-//		addcar_L_s.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				car_L_s2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car1.png")));
-//				car_L_s2.setBounds(65, 488, 70, 30);
-//				frame.getLayeredPane().add(car_L_s2,new Integer(80));
-//				frame.validate();
-//				goStraight gs=new goStraight(car_L_s2,"car_L_s",25);
-//				gs.start();
-//				
-//			}
-//		});
-//		menu4.add(addcar_L_r);
-//		addcar_L_r.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				car_L_r2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
-//				frame.getLayeredPane().add(car_L_r2,new Integer(80));
-//				frame.validate();
-//				goRight gr=new goRight(car_L_r2,"car_L_r",25);
-//				gr.start();
-//				
-//			}
-//		});
-//		
 		
 		//set public light class
 		LightController_L lightC_l = new LightController_L(Light_L);
@@ -350,7 +311,6 @@ public class TestWindowBuilder {
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
 		START.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				
 				gostraight.start();	
 				gostraight2.start();
@@ -371,6 +331,7 @@ public class TestWindowBuilder {
 				lightC_r.start();
 				lightC_u.start();
 				lightC_d.start();
+				
 			}
 		});
 		
@@ -447,7 +408,7 @@ public class TestWindowBuilder {
 			}
 		});
 		Add_R_l.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
-		Add_R_l.setBounds(850, 386, 50, 50);
+		Add_R_l.setBounds(850, 380, 50, 50);
 		frame.getContentPane().add(Add_R_l);
 		
 		JButton Add_R_s = new JButton("");
@@ -466,7 +427,7 @@ public class TestWindowBuilder {
 			}
 		});
 		Add_R_s.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
-		Add_R_s.setBounds(850, 326, 50, 50);
+		Add_R_s.setBounds(850, 329, 50, 50);
 		frame.getContentPane().add(Add_R_s);
 		
 		JButton Add_R_r = new JButton("");
@@ -485,7 +446,7 @@ public class TestWindowBuilder {
 			}
 		});
 		Add_R_r.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/AddBTN.jpg")));
-		Add_R_r.setBounds(850, 276, 50, 50);
+		Add_R_r.setBounds(850, 278, 50, 50);
 		frame.getContentPane().add(Add_R_r);
 		
 		JButton Add_U_l = new JButton("");
@@ -602,6 +563,113 @@ public class TestWindowBuilder {
 		Add_D_r.setBounds(560, 810, 50, 50);
 		frame.getContentPane().add(Add_D_r);
 		
+		JButton ChangeLight1 = new JButton("");
+		ChangeLight1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				//�ϱ���ת����
+				free = 00;
+				
+				LightController_L lightL_new = new LightController_L(Light_L);
+				LightController_R lightR_new = new LightController_R(Light_R);
+				LightController_U lightU_new = new LightController_U(Light_U);
+				LightController_D lightD_new = new LightController_D(Light_D);
+				
+				lightL_new.start();
+				lightR_new.start();
+				lightU_new.start();
+				lightD_new.start();
+				
+				lightC_l.stop();
+				lightC_r.stop();
+				lightC_u.stop();
+				lightC_d.stop();
+				
+			}
+		});
+		ChangeLight1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_l.jpg")));
+		ChangeLight1.setBounds(70, 650, 80, 80);
+		frame.getContentPane().add(ChangeLight1);
+		
+		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//�ϱ�ֱ������
+				free = 01;
+				
+				LightController_L lightL_new = new LightController_L(Light_L);
+				LightController_R lightR_new = new LightController_R(Light_R);
+				LightController_U lightU_new = new LightController_U(Light_U);
+				LightController_D lightD_new = new LightController_D(Light_D);
+				
+				lightL_new.start();
+				lightR_new.start();
+				lightU_new.start();
+				lightD_new.start();
+				
+				lightC_l.stop();
+				lightC_r.stop();
+				lightC_u.stop();
+				lightC_d.stop();				
+			}
+		});
+		button.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_s.jpg")));
+		button.setBounds(180, 650, 80, 80);
+		frame.getContentPane().add(button);
+		
+		JButton button_1 = new JButton("");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//������ת����
+				free = 10;
+				
+				LightController_L lightL_new = new LightController_L(Light_L);
+				LightController_R lightR_new = new LightController_R(Light_R);
+				LightController_U lightU_new = new LightController_U(Light_U);
+				LightController_D lightD_new = new LightController_D(Light_D);
+				
+				lightL_new.start();
+				lightR_new.start();
+				lightU_new.start();
+				lightD_new.start();
+				
+				lightC_l.stop();
+				lightC_r.stop();
+				lightC_u.stop();
+				lightC_d.stop();	
+			}
+		});
+		button_1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_l.jpg")));
+		button_1.setBounds(70, 760, 80, 80);
+		frame.getContentPane().add(button_1);
+		
+		JButton button_2 = new JButton("");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//����ֱ������
+				free = 11;
+				
+				LightController_L lightL_new = new LightController_L(Light_L);
+				LightController_R lightR_new = new LightController_R(Light_R);
+				LightController_U lightU_new = new LightController_U(Light_U);
+				LightController_D lightD_new = new LightController_D(Light_D);
+				
+				lightL_new.start();
+				lightR_new.start();
+				lightU_new.start();
+				lightD_new.start();
+				
+				lightC_l.stop();
+				lightC_r.stop();
+				lightC_u.stop();
+				lightC_d.stop();
+			}
+		});
+		button_2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_s.jpg")));
+		button_2.setBounds(180, 760, 80, 80);
+		frame.getContentPane().add(button_2);
+		
+		
 		//StartBTN setting, other insert btn will automatically insert above these codes��
 		START.setBounds(684, 707, 93, 23);
 		frame.getContentPane().add(START);
@@ -635,12 +703,26 @@ public class TestWindowBuilder {
 		STOP.setBounds(684, 771, 93, 23);
 		frame.getContentPane().add(STOP);
 		
+		JLabel SN = new JLabel("");
+		SN.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/logo_SN.jpg")));
+		SN.setBounds(10, 650, 50, 80);
+		frame.getContentPane().add(SN);
+		
+		JLabel WE = new JLabel("");
+		WE.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/logo_WE.jpg")));
+		WE.setBounds(10, 760, 50, 80);
+		frame.getContentPane().add(WE);
+		
+		JLabel compass = new JLabel("");
+		compass.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/compass.jpg")));
+		compass.setBounds(65, 62, 155, 155);
+		frame.getContentPane().add(compass);
+		
 		JMenuItem item4=new JMenuItem("加快红绿灯变换速度");
 		item4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				
+
 			}
 		});
 		JMenuItem item5=new JMenuItem("减慢红绿灯变换速度");
@@ -649,7 +731,6 @@ public class TestWindowBuilder {
 		menuBar.add(menu1);
 		menuBar.add(menu2);
 		frame.getContentPane().add(menuBar);
-		
 		
 		//Map background
 		JLabel MAP = new JLabel("");

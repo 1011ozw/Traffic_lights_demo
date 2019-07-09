@@ -24,6 +24,8 @@ public class TestWindowBuilder {
 	private JFrame frame;
 	
 	private boolean state = true;
+	
+	private static int free = 1;
 
 	/**
 	 * Launch the application.
@@ -270,46 +272,6 @@ public class TestWindowBuilder {
 		goRight4 goright4 = new goRight4(car_D_r1,"car_D_r1",15);
 		goLeft4 goleft4 = new goLeft4(car_D_l1,"car_D_l1",15);
 		
-		//menu function
-//		menu4.add(addcar_L_l);
-//		addcar_L_l.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				car_L_l2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car2.png")));
-//				car_L_l2.setBounds(65, 429, 70, 30);
-//				frame.getLayeredPane().add(car_L_l2,new Integer(80));
-//				frame.validate();
-//				goLeft gl=new goLeft(car_L_l2,"car_L_l",15);
-//				gl.start();
-//				
-//			}
-//		});
-//		menu4.add(addcar_L_s);
-//		addcar_L_s.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				car_L_s2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car1.png")));
-//				car_L_s2.setBounds(65, 488, 70, 30);
-//				frame.getLayeredPane().add(car_L_s2,new Integer(80));
-//				frame.validate();
-//				goStraight gs=new goStraight(car_L_s2,"car_L_s",25);
-//				gs.start();
-//				
-//			}
-//		});
-//		menu4.add(addcar_L_r);
-//		addcar_L_r.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				car_L_r2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3.png")));
-//				frame.getLayeredPane().add(car_L_r2,new Integer(80));
-//				frame.validate();
-//				goRight gr=new goRight(car_L_r2,"car_L_r",25);
-//				gr.start();
-//				
-//			}
-//		});
-//		
 		
 		//set public light class
 		LightController_L lightC_l = new LightController_L(Light_L);
@@ -574,19 +536,46 @@ public class TestWindowBuilder {
 		frame.getContentPane().add(Add_D_r);
 		
 		JButton ChangeLight1 = new JButton("");
+		ChangeLight1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				//南北朝向左转启动
+				LightController_L lightL_new = new LightController_L(Light_L);
+				LightController_R lightR_new = new LightController_R(Light_R);
+				LightController_U lightU_new = new LightController_U(Light_U);
+				LightController_D lightD_new = new LightController_D(Light_D);
+				
+				LightController_L.setCombo(1);
+				LightController_R.setCombo(1);
+				LightController_U.setCombo(-1);
+				LightController_D.setCombo(-1);
+				
+				lightL_new.start();
+				lightR_new.start();
+				lightU_new.start();
+				lightD_new.start();
+				
+				
+				
+			}
+		});
+		ChangeLight1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_l.jpg")));
 		ChangeLight1.setBounds(70, 650, 80, 80);
 		frame.getContentPane().add(ChangeLight1);
 		
 		JButton button = new JButton("");
-		button.setBounds(178, 650, 80, 80);
+		button.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_s.jpg")));
+		button.setBounds(180, 650, 80, 80);
 		frame.getContentPane().add(button);
 		
 		JButton button_1 = new JButton("");
+		button_1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_l.jpg")));
 		button_1.setBounds(70, 760, 80, 80);
 		frame.getContentPane().add(button_1);
 		
 		JButton button_2 = new JButton("");
-		button_2.setBounds(178, 758, 80, 80);
+		button_2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_s.jpg")));
+		button_2.setBounds(180, 760, 80, 80);
 		frame.getContentPane().add(button_2);
 		
 		//StartBTN setting, other insert btn will automatically insert above these codes锟斤拷
@@ -621,6 +610,21 @@ public class TestWindowBuilder {
 		});
 		STOP.setBounds(684, 771, 93, 23);
 		frame.getContentPane().add(STOP);
+		
+		JLabel SN = new JLabel("");
+		SN.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/logo_SN.jpg")));
+		SN.setBounds(10, 650, 50, 80);
+		frame.getContentPane().add(SN);
+		
+		JLabel WE = new JLabel("");
+		WE.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/logo_WE.jpg")));
+		WE.setBounds(10, 760, 50, 80);
+		frame.getContentPane().add(WE);
+		
+		JLabel compass = new JLabel("");
+		compass.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/compass.jpg")));
+		compass.setBounds(65, 62, 155, 155);
+		frame.getContentPane().add(compass);
 		
 		
 		

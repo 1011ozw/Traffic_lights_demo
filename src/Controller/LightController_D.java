@@ -64,6 +64,8 @@ public class LightController_D extends Thread{
 		this.status = true;
 		go_r = true;
 		
+		
+		
 		while(status) {
 			
 			//combo:  -1, 0=others drive left and straight; 1=go left; 2=go straight;

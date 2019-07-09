@@ -545,6 +545,7 @@ public class TestWindowBuilder {
 		
 		JButton ChangeLight1 = new JButton("");
 		ChangeLight1.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
 				
 				//南北左转启动
@@ -573,6 +574,7 @@ public class TestWindowBuilder {
 		
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
 				//南北直行启动
 				free = 01;
@@ -599,6 +601,7 @@ public class TestWindowBuilder {
 		
 		JButton button_1 = new JButton("");
 		button_1.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				//东西左转启动
 				free = 10;
@@ -625,6 +628,7 @@ public class TestWindowBuilder {
 		
 		JButton button_2 = new JButton("");
 		button_2.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				//东西直行启动
 				free = 11;
@@ -652,6 +656,7 @@ public class TestWindowBuilder {
 		//菜单栏设置路灯状态
 		JMenuItem item21=new JMenuItem("设置左右道直行");
 		item21.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				free = 01;
@@ -674,6 +679,7 @@ public class TestWindowBuilder {
 		});
 		JMenuItem item22=new JMenuItem("设置左右车道左转");
 		item22.addActionListener(new ActionListener() {	
+			@SuppressWarnings("deprecation")
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				free = 00;
@@ -696,6 +702,7 @@ public class TestWindowBuilder {
 		});
 		JMenuItem item23=new JMenuItem("设置上下车道直行");
 		item23.addActionListener(new ActionListener() {			
+			@SuppressWarnings("deprecation")
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				free = 11;
@@ -719,6 +726,7 @@ public class TestWindowBuilder {
 		JMenuItem item24=new JMenuItem("设置上下车道左转");
 		item24.addActionListener(new ActionListener() {
 			
+			@SuppressWarnings("deprecation")
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				free = 10;
@@ -797,20 +805,20 @@ public class TestWindowBuilder {
 		item4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				lightC_d.setSpeed(lightC_d.getSpeed()/2);
-				lightC_l.setSpeed(lightC_l.getSpeed()/2);
-				lightC_r.setSpeed(lightC_r.getSpeed()/2);
-				lightC_u.setSpeed(lightC_u.getSpeed()/2);
+				LightController_D.setSpeed(LightController_D.getSpeed()/2);
+				LightController_L.setSpeed(LightController_L.getSpeed()/2);
+				LightController_R.setSpeed(LightController_R.getSpeed()/2);
+				LightController_U.setSpeed(LightController_U.getSpeed()/2);
 			}
 		});
 		JMenuItem item5=new JMenuItem("减慢红绿灯变换速度");
 		item5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				lightC_d.setSpeed(lightC_d.getSpeed()*2);
-				lightC_l.setSpeed(lightC_l.getSpeed()*2);
-				lightC_r.setSpeed(lightC_r.getSpeed()*2);
-				lightC_u.setSpeed(lightC_u.getSpeed()*2);
+				LightController_D.setSpeed(LightController_D.getSpeed()*2);
+				LightController_L.setSpeed(LightController_L.getSpeed()*2);
+				LightController_R.setSpeed(LightController_R.getSpeed()*2);
+				LightController_U.setSpeed(LightController_U.getSpeed()*2);
 				
 			}
 		});

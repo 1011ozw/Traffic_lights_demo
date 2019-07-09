@@ -4,7 +4,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class goLeft4 extends Thread{
-	private int speed=50;
+	public int speed=50;
 	private JLabel car1;
 	private boolean run;
 	private String threadName;

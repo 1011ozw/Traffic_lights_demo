@@ -32,6 +32,9 @@ public class LightController_L extends Thread{
 		lighticon = light;
 	}
 	
+	public static int getSpeed() {
+		return speed;
+	}
 	public static void setSpeed(int new_speed) {
 		speed = new_speed;
 	}

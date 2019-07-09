@@ -72,18 +72,52 @@ public class TestWindowBuilder {
 		menu1.setHorizontalAlignment(SwingConstants.CENTER);
 		JMenu menu2=new JMenu("改变红绿灯");
 		menu2.setHorizontalAlignment(SwingConstants.LEFT);
-		JMenuItem item10=new JMenuItem("开始演示");
 		
 		
-		
+		//menu function
 		JMenuItem item13=new JMenuItem("退出");
-		JMenuItem item3=new JMenuItem("随机变换红绿灯");
-		JMenuItem item21=new JMenuItem("设置上车道绿灯");
-		JMenuItem item22=new JMenuItem("设置左车道绿灯");
-		JMenuItem item23=new JMenuItem("设置下车道绿灯");
-		JMenuItem item24=new JMenuItem("设置右车道绿灯");
-		JMenuItem item4=new JMenuItem("加快红绿灯变换速度");
-		JMenuItem item5=new JMenuItem("减慢红绿灯变换速度");
+		item13.addActionListener(new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				
+			}
+		});
+//		JMenuItem item3=new JMenuItem("随机变换红绿灯");
+		JMenuItem item21=new JMenuItem("设置左右道直行");
+		item21.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		JMenuItem item22=new JMenuItem("设置左车道左转");
+		item22.addActionListener(new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		JMenuItem item23=new JMenuItem("设置上下车道直行");
+		item21.addActionListener(new ActionListener() {			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		JMenuItem item24=new JMenuItem("设置上下车道左转");
+		item21.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
 		JMenuItem item12=new JMenuItem("刷新");
 		item12.addActionListener(new ActionListener() {
 			@Override
@@ -99,7 +133,6 @@ public class TestWindowBuilder {
 				}
 			}
 		});
-		menu1.add(item10);
 
 		menu1.add(item13);
 		menu1.add(item12);
@@ -108,12 +141,8 @@ public class TestWindowBuilder {
 		menu2.add(item22);
 		menu2.add(item23);
 		menu2.add(item24);
-		menu2.add(item3);
-		menu2.add(item4);
-		menu2.add(item5);
-		menuBar.add(menu1);
-		menuBar.add(menu2);
-		frame.getContentPane().add(menuBar);
+//		menu2.add(item3);
+
 		
 		//initialize car Label
 		//car left lane
@@ -606,7 +635,20 @@ public class TestWindowBuilder {
 		STOP.setBounds(684, 771, 93, 23);
 		frame.getContentPane().add(STOP);
 		
-		
+		JMenuItem item4=new JMenuItem("加快红绿灯变换速度");
+		item4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		JMenuItem item5=new JMenuItem("减慢红绿灯变换速度");
+		menu2.add(item4);
+		menu2.add(item5);
+		menuBar.add(menu1);
+		menuBar.add(menu2);
+		frame.getContentPane().add(menuBar);
 		
 		
 		//Map background

@@ -149,37 +149,37 @@ public class T_road {
 		//initialize car Label
 		JLabel car1 = new JLabel("");
 		car1.setIcon(new ImageIcon(T_road.class.getResource("/img/car1.png")));
-		car1.setBounds(68, 342, 70, 38);
+		car1.setBounds(142, 342, 70, 38);
 		frame.getContentPane().add(car1);
 		
 		JLabel car2 = new JLabel("");
 		car2.setIcon(new ImageIcon(T_road.class.getResource("/img/car2.png")));
-		car2.setBounds(68, 402, 70, 38);
+		car2.setBounds(142, 402, 70, 38);
 		frame.getContentPane().add(car2);
 		
 		JLabel car3 = new JLabel("");
 		car3.setIcon(new ImageIcon(T_road.class.getResource("/img/car3.png")));
-		car3.setBounds(68, 277, 70, 38);
+		car3.setBounds(142, 277, 70, 38);
 		frame.getContentPane().add(car3);
 		
 		JLabel car_s2 = new JLabel("");
 		car_s2.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_R_road.png")));
-		car_s2.setBounds(717, 214, 70, 38);
+		car_s2.setBounds(748, 214, 70, 38);
 		frame.getContentPane().add(car_s2);
 		
 		JLabel car_r2 = new JLabel("");
 		car_r2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/car3_R_road.png")));
-		car_r2.setBounds(717, 128, 70, 38);
+		car_r2.setBounds(748, 128, 70, 38);
 		frame.getContentPane().add(car_r2);
 		
 		JLabel car_down1 = new JLabel("");
 		car_down1.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_up.png")));
-		car_down1.setBounds(473, 583, 38, 70);
+		car_down1.setBounds(473, 680, 38, 70);
 		frame.getContentPane().add(car_down1);
 		
 		car_down2 = new JLabel("");
 		car_down2.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_up.png")));
-		car_down2.setBounds(556, 583, 38, 70);
+		car_down2.setBounds(556, 680, 38, 70);
 		frame.getContentPane().add(car_down2);
 		
 		JLabel showspeed = new JLabel("");
@@ -213,7 +213,7 @@ public class T_road {
 				
 				JLabel car4 = new JLabel("");
 				car4.setIcon(new ImageIcon(T_road.class.getResource("/img/car3.png")));
-				car4.setBounds(68, 277, 70, 38);
+				car4.setBounds(142, 277, 70, 38);
 				frame.getLayeredPane().add(car4,new Integer(80));
 				frame.validate();
 				T_turn tturn2=new T_turn(car4,"car4",5);
@@ -257,6 +257,52 @@ public class T_road {
                 tlr.start();
 			}
 		});
+		//加快红绿灯变换速度
+		
+		item4.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	if(swift_speed==2000){
+            		JOptionPane.showMessageDialog(null, "已经是最快切换速度了", "提示",JOptionPane.WARNING_MESSAGE);  
+            	}
+            	else{
+            	swift_speed-=2000;
+//            	T_LightController_D tld5 = new T_LightController_D(Light_D); //下方红绿灯
+//        		T_LightController_L tll5 = new T_LightController_L(Light_L); //左方红绿灯
+//        		T_LightController_R tlr5 = new T_LightController_R(Light_R); //右方红绿灯
+//        		tld5.start();
+//                tll5.start();
+//                tlr5.start();
+//                tld.stop();
+//                tll.stop();
+//                tlr.stop();
+                showspeed.setText("当前切换速度："+swift_speed);
+            	}
+            }
+
+        });
+		
+		//减慢红绿灯变换速度
+		
+		item5.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	
+            	swift_speed+=2000;
+//            	T_LightController_D tld6 = new T_LightController_D(Light_D); //下方红绿灯
+//        		T_LightController_L tll6 = new T_LightController_L(Light_L); //左方红绿灯
+//        		T_LightController_R tlr6 = new T_LightController_R(Light_R); //右方红绿灯
+//        		tld6.start();
+//                tll6.start();
+//                tlr6.start();
+//                tld.stop();
+//                tll.stop();
+//                tlr.stop();
+                showspeed.setText("当前切换速度："+swift_speed);
+            	}
+        });
 		//设置左车道直行掉头绿灯
 				item22.addActionListener(new ActionListener(){
 
@@ -269,59 +315,73 @@ public class T_road {
 		        		tld1.start();
 		                tll1.start();
 		                tlr1.start();
-		                tld.stop();
-		                tll.stop();
-		                tlr.stop();
+		               
 		            }
 
 		        });
-				//加快红绿灯变换速度
-				item4.addActionListener(new ActionListener(){
+	
+				//设置右车道左转绿灯
+				item24.addActionListener(new ActionListener(){
 
 		            @Override
 		            public void actionPerformed(ActionEvent e) {
-		            	if(swift_speed==2000){
-		            		JOptionPane.showMessageDialog(null, "已经是最快切换速度了", "提示",JOptionPane.WARNING_MESSAGE);  
-		            	}
-		            	else{
-		            	swift_speed-=2000;
-		            	T_LightController_D tld5 = new T_LightController_D(Light_D); //下方红绿灯
-		        		T_LightController_L tll5 = new T_LightController_L(Light_L); //左方红绿灯
-		        		T_LightController_R tlr5 = new T_LightController_R(Light_R); //右方红绿灯
-		        		tld5.start();
-		                tll5.start();
-		                tlr5.start();
+		            	free=3;
+		            	T_LightController_D tld2 = new T_LightController_D(Light_D); //下方红绿灯
+		        		T_LightController_L tll2 = new T_LightController_L(Light_L); //左方红绿灯
+		        		T_LightController_R tlr2 = new T_LightController_R(Light_R); //右方红绿灯
+		        		tld2.start();
+		                tll2.start();
+		                tlr2.start();
 		                tld.stop();
 		                tll.stop();
 		                tlr.stop();
-		                showspeed.setText("当前切换速度："+swift_speed);
-		            	}
+		              
 		            }
 
 		        });
 				
-				//减慢红绿灯变换速度
-				item5.addActionListener(new ActionListener(){
+				
+				//设置下车道左转绿灯
+				item21.addActionListener(new ActionListener(){
 
 		            @Override
 		            public void actionPerformed(ActionEvent e) {
-		            	
-		            	swift_speed+=2000;
-		            	T_LightController_D tld6 = new T_LightController_D(Light_D); //下方红绿灯
-		        		T_LightController_L tll6 = new T_LightController_L(Light_L); //左方红绿灯
-		        		T_LightController_R tlr6 = new T_LightController_R(Light_R); //右方红绿灯
-		        		tld6.start();
-		                tll6.start();
-		                tlr6.start();
+		            	free=2;
+		            	T_LightController_D tld3 = new T_LightController_D(Light_D); //下方红绿灯
+		        		T_LightController_L tll3 = new T_LightController_L(Light_L); //左方红绿灯
+		        		T_LightController_R tlr3 = new T_LightController_R(Light_R); //右方红绿灯
+		        		tld3.start();
+		                tll3.start();
+		                tlr3.start();
 		                tld.stop();
 		                tll.stop();
 		                tlr.stop();
-		                showspeed.setText("当前切换速度："+swift_speed);
-		            	}
+		              
+		            }
+
 		        });
+				//设置随机变换红绿灯
+				item3.addActionListener(new ActionListener(){
+
+		            @Override
+		            public void actionPerformed(ActionEvent e) {
+		            	free=0;
+		            	T_LightController_D tld4 = new T_LightController_D(Light_D); //下方红绿灯
+		        		T_LightController_L tll4 = new T_LightController_L(Light_L); //左方红绿灯
+		        		T_LightController_R tlr4 = new T_LightController_R(Light_R); //右方红绿灯
+		        		tld4.start();
+		                tll4.start();
+		                tlr4.start();
+		                tld.stop();
+		                tll.stop();
+		                tlr.stop();
+		          
+		            }
+				 });
+			
 				
 		addcar_ll.setFont(new Font("宋体", Font.BOLD, 26));
-		addcar_ll.setBounds(10, 277, 50, 50);
+		addcar_ll.setBounds(40, 277, 50, 50);
 		frame.getContentPane().add(addcar_ll);
 		
 		JButton addcar_ls = new JButton("");
@@ -329,7 +389,7 @@ public class T_road {
 			public void actionPerformed(ActionEvent arg0) {
 				JLabel car5 = new JLabel("");
 				car5.setIcon(new ImageIcon(T_road.class.getResource("/img/car1.png")));
-				car5.setBounds(68, 342, 70, 38);
+				car5.setBounds(142, 342, 70, 38);
 				frame.getLayeredPane().add(car5,new Integer(80));
 				frame.validate();
 				T_goStraight tgs=new T_goStraight(car5,"car5",5);
@@ -340,7 +400,7 @@ public class T_road {
 		addcar_ls.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_ls.setForeground(Color.WHITE);
 		addcar_ls.setFont(new Font("宋体", Font.BOLD, 26));
-		addcar_ls.setBounds(10, 334, 50, 50);
+		addcar_ls.setBounds(40, 334, 50, 50);
 		frame.getContentPane().add(addcar_ls);
 		
 		JButton addcar_lr = new JButton("");
@@ -348,7 +408,7 @@ public class T_road {
 			public void actionPerformed(ActionEvent e) {
 				JLabel car6 = new JLabel("");
 				car6.setIcon(new ImageIcon(T_road.class.getResource("/img/car2.png")));
-				car6.setBounds(68, 402, 70, 38);
+				car6.setBounds(142, 402, 70, 38);
 				frame.getLayeredPane().add(car6,new Integer(80));
 				frame.validate();
 				T_goRight tgr=new T_goRight(car6,"car6",5);
@@ -358,7 +418,7 @@ public class T_road {
 		addcar_lr.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_lr.setForeground(Color.WHITE);
 		addcar_lr.setFont(new Font("宋体", Font.BOLD, 26));
-		addcar_lr.setBounds(10, 394, 50, 50);
+		addcar_lr.setBounds(40, 394, 50, 50);
 		frame.getContentPane().add(addcar_lr);
 		
 		JButton addcar_rs = new JButton("");
@@ -366,7 +426,7 @@ public class T_road {
 			public void actionPerformed(ActionEvent e) {
 				JLabel car7 = new JLabel("");
 				car7.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_R_road.png")));
-				car7.setBounds(717, 128, 70, 38);
+				car7.setBounds(748, 128, 70, 38);
 				frame.getLayeredPane().add(car7,new Integer(80));
 				frame.validate();
 				T_goStraight2 tgs2=new T_goStraight2(car7,"car7",5);
@@ -376,7 +436,7 @@ public class T_road {
 		addcar_rs.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_rs.setForeground(Color.WHITE);
 		addcar_rs.setFont(new Font("宋体", Font.BOLD, 26));
-		addcar_rs.setBounds(809, 116, 50, 50);
+		addcar_rs.setBounds(828, 116, 50, 50);
 		frame.getContentPane().add(addcar_rs);
 		
 		JButton addcar_rl = new JButton("");
@@ -384,7 +444,7 @@ public class T_road {
 			public void actionPerformed(ActionEvent e) {
 				JLabel car8 = new JLabel("");
 				car8.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_R_road.png")));
-				car8.setBounds(717, 214, 70, 38);
+				car8.setBounds(748, 214, 70, 38);
 				frame.getLayeredPane().add(car8,new Integer(80));
 				frame.validate();
 				T_goLeft2 tgl2=new T_goLeft2(car8,"car8",5);
@@ -394,7 +454,7 @@ public class T_road {
 		addcar_rl.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_rl.setForeground(Color.WHITE);
 		addcar_rl.setFont(new Font("宋体", Font.BOLD, 26));
-		addcar_rl.setBounds(809, 202, 50, 50);
+		addcar_rl.setBounds(828, 202, 50, 50);
 		frame.getContentPane().add(addcar_rl);
 		
 		JButton addcar_dl = new JButton("");
@@ -402,7 +462,7 @@ public class T_road {
 			public void actionPerformed(ActionEvent e) {
 				JLabel car9 = new JLabel("");
 				car9.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_up.png")));
-				car9.setBounds(473, 583, 38, 70);
+				car9.setBounds(473, 680, 38, 70);
 				frame.getLayeredPane().add(car9,new Integer(80));
 				frame.validate();
 				T_goLeft tgl=new T_goLeft(car9,"car9",5);
@@ -412,7 +472,7 @@ public class T_road {
 		addcar_dl.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_dl.setForeground(Color.WHITE);
 		addcar_dl.setFont(new Font("宋体", Font.BOLD, 26));
-		addcar_dl.setBounds(473, 718, 50, 50);
+		addcar_dl.setBounds(473, 756, 50, 50);
 		frame.getContentPane().add(addcar_dl);
 		
 		JButton addcar_dr = new JButton("");
@@ -420,7 +480,7 @@ public class T_road {
 			public void actionPerformed(ActionEvent e) {
 				JLabel car10 = new JLabel("");
 				car10.setIcon(new ImageIcon(T_road.class.getResource("/img/car3_up.png")));
-				car10.setBounds(556, 583, 38, 70);
+				car10.setBounds(556, 680, 38, 70);
 				frame.getLayeredPane().add(car10,new Integer(80));
 				frame.validate();
 			    T_goRight2 tgr2=new T_goRight2(car10,"car10",5);
@@ -430,13 +490,13 @@ public class T_road {
 		addcar_dr.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_dr.setForeground(Color.WHITE);
 		addcar_dr.setFont(new Font("宋体", Font.BOLD, 26));
-		addcar_dr.setBounds(556, 718, 50, 50);
+		addcar_dr.setBounds(556, 756, 50, 50);
 		frame.getContentPane().add(addcar_dr);
 		
 		
 		
 		
-		START.setBounds(684, 707, 93, 23);
+		START.setBounds(723, 637, 93, 23);
 		frame.getContentPane().add(START);
 		
 		//change status button
@@ -456,10 +516,110 @@ public class T_road {
 
 			}
 		});
-		STOP.setBounds(684, 771, 93, 23);
+		STOP.setBounds(723, 711, 93, 23);
 		frame.getContentPane().add(STOP);
 		
+		JLabel tree_icon = new JLabel("");
+		tree_icon.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		tree_icon.setBounds(28, 485, 50, 70);
+		frame.getContentPane().add(tree_icon);
+		tree t=new tree(tree_icon);
+		t.start();
 		
+		JLabel t1 = new JLabel("");
+		t1.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t1.setBounds(93, 485, 50, 70);
+		frame.getContentPane().add(t1);
+		tree tree1=new tree(t1);
+		tree1.start();
+		
+		JLabel t2 = new JLabel("");
+		t2.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t2.setBounds(162, 485, 50, 70);
+		frame.getContentPane().add(t2);
+		tree tree2=new tree(t2);
+		tree2.start();
+		
+		JLabel t3 = new JLabel("");
+		t3.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t3.setBounds(228, 485, 50, 70);
+		frame.getContentPane().add(t3);
+		tree tree3=new tree(t3);
+		tree3.start();
+		
+		JLabel t4 = new JLabel("");
+		t4.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t4.setBounds(228, 561, 50, 70);
+		frame.getContentPane().add(t4);
+		tree tree4=new tree(t4);
+		tree4.start();
+		
+		JLabel t5 = new JLabel("");
+		t5.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t5.setBounds(228, 637, 50, 70);
+		frame.getContentPane().add(t5);
+		tree tree5=new tree(t5);
+		tree5.start();
+		
+		JLabel t6 = new JLabel("");
+		t6.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t6.setBounds(228, 722, 50, 70);
+		frame.getContentPane().add(t6);
+		tree tree6=new tree(t6);
+		tree6.start();
+		
+		JLabel t7 = new JLabel("");
+		t7.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t7.setBounds(809, 485, 50, 70);
+		frame.getContentPane().add(t7);
+		tree tree7=new tree(t7);
+		tree7.start();
+		
+		JLabel t8 = new JLabel("");
+		t8.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t8.setBounds(748, 485, 50, 70);
+		frame.getContentPane().add(t8);
+		tree tree8=new tree(t8);
+		tree8.start();
+		
+		JLabel t9 = new JLabel("");
+		t9.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t9.setBounds(694, 485, 50, 70);
+		frame.getContentPane().add(t9);
+		tree tree9=new tree(t9);
+		tree9.start();
+		
+		JLabel t10 = new JLabel("");
+		t10.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t10.setBounds(639, 485, 50, 70);
+		frame.getContentPane().add(t10);
+		tree tree10=new tree(t10);
+		tree10.start();
+		
+		JLabel t11 = new JLabel("");
+		t11.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t11.setBounds(639, 561, 50, 70);
+		frame.getContentPane().add(t11);
+		tree tree11=new tree(t11);
+		tree11.start();
+		
+		JLabel t12 = new JLabel("");
+		t12.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t12.setBounds(639, 638, 50, 70);
+		frame.getContentPane().add(t12);
+		tree tree12=new tree(t12);
+		tree12.start();
+		
+		JLabel t13 = new JLabel("");
+		t13.setIcon(new ImageIcon(T_road.class.getResource("/img/tree0.png")));
+		t13.setBounds(639, 722, 50, 70);
+		frame.getContentPane().add(t13);
+		tree tree13=new tree(t13);
+		tree13.start();
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(T_road.class.getResource("/img/f.jpg")));
+		lblNewLabel.setBounds(27, 600, 185, 124);
+		frame.getContentPane().add(lblNewLabel);
 		
 		
 		//Map background

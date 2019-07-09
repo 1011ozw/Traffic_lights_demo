@@ -25,7 +25,8 @@ public class TestWindowBuilder {
 	
 	private boolean state = true;
 	
-	private static int free = 1;
+	//666代表红绿灯重置，并正常启动； 00代表红绿灯转变为南北向左转； 01代表红绿灯转变为南北向直行； 10代表红绿灯转变为东西向左转； 11代表红绿灯转变为东西向直行
+	public static int free = 666; 
 
 	/**
 	 * Launch the application.
@@ -539,23 +540,23 @@ public class TestWindowBuilder {
 		ChangeLight1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				//南北朝向左转启动
+				//南北左转启动
+				free = 00;
+				
 				LightController_L lightL_new = new LightController_L(Light_L);
 				LightController_R lightR_new = new LightController_R(Light_R);
 				LightController_U lightU_new = new LightController_U(Light_U);
 				LightController_D lightD_new = new LightController_D(Light_D);
-				
-				LightController_L.setCombo(1);
-				LightController_R.setCombo(1);
-				LightController_U.setCombo(-1);
-				LightController_D.setCombo(-1);
 				
 				lightL_new.start();
 				lightR_new.start();
 				lightU_new.start();
 				lightD_new.start();
 				
-				
+				lightC_l.stop();
+				lightC_r.stop();
+				lightC_u.stop();
+				lightC_d.stop();
 				
 			}
 		});
@@ -564,16 +565,79 @@ public class TestWindowBuilder {
 		frame.getContentPane().add(ChangeLight1);
 		
 		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//南北直行启动
+				free = 01;
+				
+				LightController_L lightL_new = new LightController_L(Light_L);
+				LightController_R lightR_new = new LightController_R(Light_R);
+				LightController_U lightU_new = new LightController_U(Light_U);
+				LightController_D lightD_new = new LightController_D(Light_D);
+				
+				lightL_new.start();
+				lightR_new.start();
+				lightU_new.start();
+				lightD_new.start();
+				
+				lightC_l.stop();
+				lightC_r.stop();
+				lightC_u.stop();
+				lightC_d.stop();				
+			}
+		});
 		button.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_s.jpg")));
 		button.setBounds(180, 650, 80, 80);
 		frame.getContentPane().add(button);
 		
 		JButton button_1 = new JButton("");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//东西左转启动
+				free = 10;
+				
+				LightController_L lightL_new = new LightController_L(Light_L);
+				LightController_R lightR_new = new LightController_R(Light_R);
+				LightController_U lightU_new = new LightController_U(Light_U);
+				LightController_D lightD_new = new LightController_D(Light_D);
+				
+				lightL_new.start();
+				lightR_new.start();
+				lightU_new.start();
+				lightD_new.start();
+				
+				lightC_l.stop();
+				lightC_r.stop();
+				lightC_u.stop();
+				lightC_d.stop();	
+			}
+		});
 		button_1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_l.jpg")));
 		button_1.setBounds(70, 760, 80, 80);
 		frame.getContentPane().add(button_1);
 		
 		JButton button_2 = new JButton("");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//东西直行启动
+				free = 11;
+				
+				LightController_L lightL_new = new LightController_L(Light_L);
+				LightController_R lightR_new = new LightController_R(Light_R);
+				LightController_U lightU_new = new LightController_U(Light_U);
+				LightController_D lightD_new = new LightController_D(Light_D);
+				
+				lightL_new.start();
+				lightR_new.start();
+				lightU_new.start();
+				lightD_new.start();
+				
+				lightC_l.stop();
+				lightC_r.stop();
+				lightC_u.stop();
+				lightC_d.stop();
+			}
+		});
 		button_2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_s.jpg")));
 		button_2.setBounds(180, 760, 80, 80);
 		frame.getContentPane().add(button_2);

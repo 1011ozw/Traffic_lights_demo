@@ -19,6 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
 import Controller.goStraight;
+import Controller_T.T_road;
 
 public class TestWindowBuilder {
 
@@ -87,7 +88,6 @@ public class TestWindowBuilder {
 		});
 
 		
-		JMenuItem item3=new JMenuItem("重置");
 		JMenuItem item12=new JMenuItem("刷新");
 		item12.addActionListener(new ActionListener() {
 			@Override
@@ -103,7 +103,22 @@ public class TestWindowBuilder {
 				}
 			}
 		});
-
+		
+		JMenuItem item30=new JMenuItem("change to dingzi street");
+		item30.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				try {
+					T_road window=new T_road();
+					window.frame.setVisible(true);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		menu1.add(item30);
 		menu1.add(item13);
 		menu1.add(item12);
 		menu1.addSeparator();

@@ -13,7 +13,7 @@ import javax.swing.*;
 
 public class T_road {
 
-	private JFrame frame;
+	public JFrame frame;
 	public static int free;
 	private boolean state = true;
 	static int swift_speed=6000;
@@ -61,27 +61,27 @@ public class T_road {
 		menuBar.setLocation(0, 0);
 		menuBar.setSize(600, 23);
 		menuBar.setBackground(Color.WHITE);
-		JMenu menu1=new JMenu("ÑÝÊ¾");
+		JMenu menu1=new JMenu("ï¿½ï¿½Ê¾");
 		menu1.setBackground(Color.LIGHT_GRAY);
 		menu1.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JMenu menu2=new JMenu("¸Ä±äºìÂÌµÆ");
+		JMenu menu2=new JMenu("ï¿½Ä±ï¿½ï¿½ï¿½Ìµï¿½");
 		menu2.setHorizontalAlignment(SwingConstants.LEFT);
 		
-		JMenu menu3=new JMenu("µØÍ¼");
+		JMenu menu3=new JMenu("ï¿½ï¿½Í¼");
 		menu2.setHorizontalAlignment(SwingConstants.LEFT);
-		JMenuItem item10=new JMenuItem("ÖØÖÃ");
-		JMenuItem item11=new JMenuItem("¼ÓÈë³µÁ¾");
-		JMenuItem item13=new JMenuItem("ÍË³ö");
-		JMenuItem item3=new JMenuItem("Ëæ»ú±ä»»ºìÂÌµÆ");
-		JMenuItem item22=new JMenuItem("ÉèÖÃ×ó³µµÀÖ±ÐÐµôÍ·ÂÌµÆ");
-		JMenuItem item24=new JMenuItem("ÉèÖÃÓÒ³µµÀ×ó×ªÂÌµÆ");
-		JMenuItem item21=new JMenuItem("ÉèÖÃÏÂ³µµÀ×ó×ªÂÌµÆ");
-		JMenuItem item4=new JMenuItem("¼Ó¿ìºìÂÌµÆ±ä»»ËÙ¶È");
-		JMenuItem item5=new JMenuItem("¼õÂýºìÂÌµÆ±ä»»ËÙ¶È");
+		JMenuItem item10=new JMenuItem("ï¿½ï¿½ï¿½ï¿½");
+		JMenuItem item11=new JMenuItem("ï¿½ï¿½ï¿½ë³µï¿½ï¿½");
+		JMenuItem item13=new JMenuItem("ï¿½Ë³ï¿½");
+		JMenuItem item3=new JMenuItem("ï¿½ï¿½ï¿½ï¿½ä»»ï¿½ï¿½ï¿½Ìµï¿½");
+		JMenuItem item22=new JMenuItem("ï¿½ï¿½ï¿½ï¿½ï¿½ó³µµï¿½Ö±ï¿½Ðµï¿½Í·ï¿½Ìµï¿½");
+		JMenuItem item24=new JMenuItem("ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ìµï¿½");
+		JMenuItem item21=new JMenuItem("ï¿½ï¿½ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ìµï¿½");
+		JMenuItem item4=new JMenuItem("ï¿½Ó¿ï¿½ï¿½ï¿½ÌµÆ±ä»»ï¿½Ù¶ï¿½");
+		JMenuItem item5=new JMenuItem("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌµÆ±ä»»ï¿½Ù¶ï¿½");
 		
-		JMenuItem item25=new JMenuItem("ÇÐ»»Ê®×ÖÂ·¿Ú");
-		JMenuItem item26=new JMenuItem("ÇÐ»»T×ÖÂ·¿Ú");
+		JMenuItem item25=new JMenuItem("ï¿½Ð»ï¿½Ê®ï¿½ï¿½Â·ï¿½ï¿½");
+		JMenuItem item26=new JMenuItem("ï¿½Ð»ï¿½Tï¿½ï¿½Â·ï¿½ï¿½");
 		item26.setEnabled(false);
 		
 		menu1.add(item10);
@@ -103,11 +103,11 @@ public class T_road {
 		menuBar.add(menu3);
 		frame.getContentPane().add(menuBar);
 		
-		//²Ëµ¥À¸¹¦ÄÜÊµÏÖ
+		//ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
 		TestWindowBuilder crossroad = new TestWindowBuilder();
 		Refresh refresh = new Refresh();
 		
-		//ÖØÖÃ¹¦ÄÜ
+		//ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½
 		item10.addActionListener(new ActionListener(){
 
             @Override
@@ -118,7 +118,7 @@ public class T_road {
 
         });
 		
-		//ÍË³ö¹¦ÄÜ
+		//ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½
 		item13.addActionListener(new ActionListener(){
 
             @Override
@@ -131,7 +131,7 @@ public class T_road {
 		
 		
 		
-		//Ìø×ª½»²æÂ·¿Ú
+		//ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 		item25.addActionListener(new ActionListener(){
 
             @Override
@@ -143,7 +143,7 @@ public class T_road {
 		
 		
 		
-		//²Ëµ¥À¸¹¦ÄÜÊµÏÖ½áÊø
+		//ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö½ï¿½ï¿½ï¿½
 
 		
 		//initialize car Label
@@ -186,7 +186,7 @@ public class T_road {
 		showspeed.setForeground(Color.RED);
 		showspeed.setBounds(9, 25, 203, 21);
 		frame.getContentPane().add(showspeed);
-		showspeed.setText("µ±Ç°ÇÐ»»ËÙ¶È£º"+swift_speed);
+		showspeed.setText("ï¿½ï¿½Ç°ï¿½Ð»ï¿½ï¿½Ù¶È£ï¿½"+swift_speed);
 		
 		JLabel Light_L = new JLabel("");
 		Light_L.setIcon(new ImageIcon(T_road.class.getResource("/img/light.png")));
@@ -218,7 +218,7 @@ public class T_road {
 				frame.validate();
 				T_turn tturn2=new T_turn(car4,"car4",5);
 				
-				System.out.println("×ó±ßºìÂÌµÆµÄÅÐ¶Ï"+T_LightController_L.judge_l);
+				System.out.println("ï¿½ï¿½ßºï¿½ï¿½ÌµÆµï¿½ï¿½Ð¶ï¿½"+T_LightController_L.judge_l);
 				
 				tturn2.start();
 			
@@ -226,7 +226,7 @@ public class T_road {
 			}
 		});
 		
-		//µ÷ÓÃº¯ÊýÀà
+		//ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½
 		T_goLeft tgoleft=new T_goLeft(car_down1,"car_down1",5);
 		T_goLeft2 tgoLeft2 = new T_goLeft2(car_s2, "car_s2", 5);
 		T_goStraight tgoStraight=new T_goStraight(car1, "car1", 5);
@@ -234,16 +234,16 @@ public class T_road {
 		T_goRight  tgoRight=new T_goRight(car2, "car2", 5);
 		T_goRight2 tgoRight2 = new T_goRight2(car_down2, "car_down2", 5);
 		T_turn tturn=new T_turn(car3,"car3",5);
-		//ºìÂÌµÆµ÷ÓÃ
-		T_LightController_D tld = new T_LightController_D(Light_D); //ÏÂ·½ºìÂÌµÆ
-		T_LightController_L tll = new T_LightController_L(Light_L); //×ó·½ºìÂÌµÆ
-		T_LightController_R tlr = new T_LightController_R(Light_R); //ÓÒ·½ºìÂÌµÆ
+		//ï¿½ï¿½ï¿½ÌµÆµï¿½ï¿½ï¿½
+		T_LightController_D tld = new T_LightController_D(Light_D); //ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ìµï¿½
+		T_LightController_L tll = new T_LightController_L(Light_L); //ï¿½ó·½ºï¿½ï¿½Ìµï¿½
+		T_LightController_R tlr = new T_LightController_R(Light_R); //ï¿½Ò·ï¿½ï¿½ï¿½ï¿½Ìµï¿½
 		//Start button
 		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
 		START.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				free=0;
-				//³µÁ¾Ïß³ÌÆô¶¯
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½
 				tgoleft.start();
 				tgoLeft2.start();
 				tgoStraight.start();
@@ -251,21 +251,21 @@ public class T_road {
 				tgoRight.start();
 				tgoRight2.start();
 				tturn.start();
-				//ºìÂÌµÆÏß³ÌÆô¶¯
+				//ï¿½ï¿½ï¿½Ìµï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½
                 tld.start();
                 tll.start();
                 tlr.start();
 			}
 		});
-		//ÉèÖÃ×ó³µµÀÖ±ÐÐµôÍ·ÂÌµÆ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ó³µµï¿½Ö±ï¿½Ðµï¿½Í·ï¿½Ìµï¿½
 				item22.addActionListener(new ActionListener(){
 
 		            @Override
 		            public void actionPerformed(ActionEvent e) {
 		            	free=1;
-		            	T_LightController_D tld1 = new T_LightController_D(Light_D); //ÏÂ·½ºìÂÌµÆ
-		        		T_LightController_L tll1 = new T_LightController_L(Light_L); //×ó·½ºìÂÌµÆ
-		        		T_LightController_R tlr1 = new T_LightController_R(Light_R); //ÓÒ·½ºìÂÌµÆ
+		            	T_LightController_D tld1 = new T_LightController_D(Light_D); //ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ìµï¿½
+		        		T_LightController_L tll1 = new T_LightController_L(Light_L); //ï¿½ó·½ºï¿½ï¿½Ìµï¿½
+		        		T_LightController_R tlr1 = new T_LightController_R(Light_R); //ï¿½Ò·ï¿½ï¿½ï¿½ï¿½Ìµï¿½
 		        		tld1.start();
 		                tll1.start();
 		                tlr1.start();
@@ -275,52 +275,52 @@ public class T_road {
 		            }
 
 		        });
-				//¼Ó¿ìºìÂÌµÆ±ä»»ËÙ¶È
+				//ï¿½Ó¿ï¿½ï¿½ï¿½ÌµÆ±ä»»ï¿½Ù¶ï¿½
 				item4.addActionListener(new ActionListener(){
 
 		            @Override
 		            public void actionPerformed(ActionEvent e) {
 		            	if(swift_speed==2000){
-		            		JOptionPane.showMessageDialog(null, "ÒÑ¾­ÊÇ×î¿ìÇÐ»»ËÙ¶ÈÁË", "ÌáÊ¾",JOptionPane.WARNING_MESSAGE);  
+		            		JOptionPane.showMessageDialog(null, "ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½Ù¶ï¿½ï¿½ï¿½", "ï¿½ï¿½Ê¾",JOptionPane.WARNING_MESSAGE);  
 		            	}
 		            	else{
 		            	swift_speed-=2000;
-		            	T_LightController_D tld5 = new T_LightController_D(Light_D); //ÏÂ·½ºìÂÌµÆ
-		        		T_LightController_L tll5 = new T_LightController_L(Light_L); //×ó·½ºìÂÌµÆ
-		        		T_LightController_R tlr5 = new T_LightController_R(Light_R); //ÓÒ·½ºìÂÌµÆ
+		            	T_LightController_D tld5 = new T_LightController_D(Light_D); //ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ìµï¿½
+		        		T_LightController_L tll5 = new T_LightController_L(Light_L); //ï¿½ó·½ºï¿½ï¿½Ìµï¿½
+		        		T_LightController_R tlr5 = new T_LightController_R(Light_R); //ï¿½Ò·ï¿½ï¿½ï¿½ï¿½Ìµï¿½
 		        		tld5.start();
 		                tll5.start();
 		                tlr5.start();
 		                tld.stop();
 		                tll.stop();
 		                tlr.stop();
-		                showspeed.setText("µ±Ç°ÇÐ»»ËÙ¶È£º"+swift_speed);
+		                showspeed.setText("ï¿½ï¿½Ç°ï¿½Ð»ï¿½ï¿½Ù¶È£ï¿½"+swift_speed);
 		            	}
 		            }
 
 		        });
 				
-				//¼õÂýºìÂÌµÆ±ä»»ËÙ¶È
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌµÆ±ä»»ï¿½Ù¶ï¿½
 				item5.addActionListener(new ActionListener(){
 
 		            @Override
 		            public void actionPerformed(ActionEvent e) {
 		            	
 		            	swift_speed+=2000;
-		            	T_LightController_D tld6 = new T_LightController_D(Light_D); //ÏÂ·½ºìÂÌµÆ
-		        		T_LightController_L tll6 = new T_LightController_L(Light_L); //×ó·½ºìÂÌµÆ
-		        		T_LightController_R tlr6 = new T_LightController_R(Light_R); //ÓÒ·½ºìÂÌµÆ
+		            	T_LightController_D tld6 = new T_LightController_D(Light_D); //ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ìµï¿½
+		        		T_LightController_L tll6 = new T_LightController_L(Light_L); //ï¿½ó·½ºï¿½ï¿½Ìµï¿½
+		        		T_LightController_R tlr6 = new T_LightController_R(Light_R); //ï¿½Ò·ï¿½ï¿½ï¿½ï¿½Ìµï¿½
 		        		tld6.start();
 		                tll6.start();
 		                tlr6.start();
 		                tld.stop();
 		                tll.stop();
 		                tlr.stop();
-		                showspeed.setText("µ±Ç°ÇÐ»»ËÙ¶È£º"+swift_speed);
+		                showspeed.setText("ï¿½ï¿½Ç°ï¿½Ð»ï¿½ï¿½Ù¶È£ï¿½"+swift_speed);
 		            	}
 		        });
 				
-		addcar_ll.setFont(new Font("ËÎÌå", Font.BOLD, 26));
+		addcar_ll.setFont(new Font("ï¿½ï¿½ï¿½ï¿½", Font.BOLD, 26));
 		addcar_ll.setBounds(40, 277, 50, 50);
 		frame.getContentPane().add(addcar_ll);
 		
@@ -339,7 +339,7 @@ public class T_road {
 		});
 		addcar_ls.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_ls.setForeground(Color.WHITE);
-		addcar_ls.setFont(new Font("ËÎÌå", Font.BOLD, 26));
+		addcar_ls.setFont(new Font("ï¿½ï¿½ï¿½ï¿½", Font.BOLD, 26));
 		addcar_ls.setBounds(40, 334, 50, 50);
 		frame.getContentPane().add(addcar_ls);
 		
@@ -357,7 +357,7 @@ public class T_road {
 		});
 		addcar_lr.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_lr.setForeground(Color.WHITE);
-		addcar_lr.setFont(new Font("ËÎÌå", Font.BOLD, 26));
+		addcar_lr.setFont(new Font("ï¿½ï¿½ï¿½ï¿½", Font.BOLD, 26));
 		addcar_lr.setBounds(40, 394, 50, 50);
 		frame.getContentPane().add(addcar_lr);
 		
@@ -375,7 +375,7 @@ public class T_road {
 		});
 		addcar_rs.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_rs.setForeground(Color.WHITE);
-		addcar_rs.setFont(new Font("ËÎÌå", Font.BOLD, 26));
+		addcar_rs.setFont(new Font("ï¿½ï¿½ï¿½ï¿½", Font.BOLD, 26));
 		addcar_rs.setBounds(809, 116, 50, 50);
 		frame.getContentPane().add(addcar_rs);
 		
@@ -393,7 +393,7 @@ public class T_road {
 		});
 		addcar_rl.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_rl.setForeground(Color.WHITE);
-		addcar_rl.setFont(new Font("ËÎÌå", Font.BOLD, 26));
+		addcar_rl.setFont(new Font("ï¿½ï¿½ï¿½ï¿½", Font.BOLD, 26));
 		addcar_rl.setBounds(809, 202, 50, 50);
 		frame.getContentPane().add(addcar_rl);
 		
@@ -411,7 +411,7 @@ public class T_road {
 		});
 		addcar_dl.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_dl.setForeground(Color.WHITE);
-		addcar_dl.setFont(new Font("ËÎÌå", Font.BOLD, 26));
+		addcar_dl.setFont(new Font("ï¿½ï¿½ï¿½ï¿½", Font.BOLD, 26));
 		addcar_dl.setBounds(473, 718, 50, 50);
 		frame.getContentPane().add(addcar_dl);
 		
@@ -429,7 +429,7 @@ public class T_road {
 		});
 		addcar_dr.setIcon(new ImageIcon(T_road.class.getResource("/img/timg.jpg")));
 		addcar_dr.setForeground(Color.WHITE);
-		addcar_dr.setFont(new Font("ËÎÌå", Font.BOLD, 26));
+		addcar_dr.setFont(new Font("ï¿½ï¿½ï¿½ï¿½", Font.BOLD, 26));
 		addcar_dr.setBounds(556, 718, 50, 50);
 		frame.getContentPane().add(addcar_dr);
 		

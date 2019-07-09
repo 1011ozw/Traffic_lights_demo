@@ -4,7 +4,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class goRight extends Thread {
-	private int speed=50;
+	public int speed=50;
 	private JLabel car_right;
 	private boolean run;
 	private String threadName;
@@ -60,7 +60,7 @@ public class goRight extends Thread {
 					
 					else {
 						
-						//进入临界值. 资源-1
+						//锟斤拷锟斤拷锟劫斤拷值. 锟斤拷源-1
 						PVController.setPV_L_r(0);
 						
 						car_right.setLocation((car_right.getBounds().x+1), car_right.getBounds().y);
@@ -75,7 +75,7 @@ public class goRight extends Thread {
 					
 					if(car_right.getBounds().y == 665) {
 						
-						//走出临界区 资源+1
+						//锟竭筹拷锟劫斤拷锟斤拷 锟斤拷源+1
 						
 						PVController.setPV_L_r(1);
 						

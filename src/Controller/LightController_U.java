@@ -31,6 +31,9 @@ public class LightController_U extends Thread{
 	public static void setSpeed(int new_speed) {
 		speed = new_speed;
 	}
+	public static int getSpeed() {
+		return speed;
+	}
 	
 	public static void setCombo(int new_combo) {
 		combo = new_combo;
@@ -68,8 +71,8 @@ public class LightController_U extends Thread{
 		
 		
 		if(TestWindowBuilder.free == 666) {
-			//Õý³£Çé¿ö
-			//Õý³£Çé¿öÑ­»·¿ªÊ¼
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½Ê¼
 			while(status) {
 				
 				//combo:  -1, 0=others drive left and straight; 1=go left; 2=go straight;
@@ -126,10 +129,10 @@ public class LightController_U extends Thread{
 					}
 				 }	
 			}
-			//Õý³£Çé¿öÑ­»·½áÊø
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 		else if(TestWindowBuilder.free == 00) {
-			//ÄÏ±±Ïò×ó×ª
+			//ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½×ª
 			combo = -1;
 			others_u = true;
 			
@@ -139,7 +142,7 @@ public class LightController_U extends Thread{
 			lighticon.setIcon(light_stop);
 		}
 		else if(TestWindowBuilder.free == 01) {
-			//ÄÏ±±ÏòÖ±ÐÐ
+			//ï¿½Ï±ï¿½ï¿½ï¿½Ö±ï¿½ï¿½
 			combo = 0;
 			others_u = true;
 			
@@ -149,7 +152,7 @@ public class LightController_U extends Thread{
 			lighticon.setIcon(light_stop);
 		}
 		else if(TestWindowBuilder.free == 10) {
-			//¶«Î÷Ïò×ó×ª
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª
 			combo = 1;
 			go_l = true;
 			
@@ -159,7 +162,7 @@ public class LightController_U extends Thread{
 			lighticon.setIcon(light_L);
 		}
 		else if(TestWindowBuilder.free == 11) {
-			//¶«Î÷ÏòÖ±ÐÐ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½
 			combo = 2;
 			go_s_r = true;
 			

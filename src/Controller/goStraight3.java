@@ -4,7 +4,7 @@ import javax.swing.JLabel;
 import Controller.LightController_U;
 
 public class goStraight3 extends Thread{
-	private int speed=50;
+	public int speed=50;
 	private JLabel car2;
 	private boolean run;
 	private String threadName;
@@ -56,7 +56,7 @@ public class goStraight3 extends Thread{
 					car2.setLocation((car2.getBounds().x), car2.getBounds().y+1);
 				}
 				else if(car2.getBounds().y > 200 && car2.getBounds().y <600) {
-					//½øÈëÁÙ½çÖµ. ×ÊÔ´-1
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Ù½ï¿½Öµ. ï¿½ï¿½Ô´-1
 					PVController.setPV_U_s(0);
 					car2.setLocation((car2.getBounds().x), car2.getBounds().y+1);
 				}
@@ -64,7 +64,7 @@ public class goStraight3 extends Thread{
 				else {
 					
 					if(car2.getBounds().y == 600) {
-						//×ß³öÁÙ½çÇø ×ÊÔ´+1
+						//ï¿½ß³ï¿½ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½Ô´+1
 						PVController.setPV_U_s(1);
 					}
 					

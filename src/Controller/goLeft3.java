@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 
 public class goLeft3 extends Thread{
 
-	private int speed=50;
+	public int speed=50;
 	private JLabel car1;
 	private boolean run;
 	private String threadName;
@@ -47,7 +47,7 @@ public class goLeft3 extends Thread{
 					//judge traffic light is red or not before crossing
 					if(car1.getBounds().y<=200 && car1.getBounds().y > 105) {
 						
-						//ÔÚµÚÒ»³µÎ»Ê±,ÅÐ¶Ï×ÊÔ´ÊýÁ¿,ÊÇ·ñ¿ÉÓÃ; ¿ÉÓÃ: pv = 1
+						//ï¿½Úµï¿½Ò»ï¿½ï¿½Î»Ê±,ï¿½Ð¶ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½,ï¿½Ç·ï¿½ï¿½ï¿½ï¿½; ï¿½ï¿½ï¿½ï¿½: pv = 1
 						if(pv == 1) {
 							if(LightController_U.getLight_l() && !LightController_U.getLight_others()) {
 								car1.setLocation((car1.getBounds().x), car1.getBounds().y+1);
@@ -59,7 +59,7 @@ public class goLeft3 extends Thread{
 						car1.setLocation((car1.getBounds().x), car1.getBounds().y+1);
 					}
 					else {
-						//½øÈëÁÙ½çÖµ. ×ÊÔ´-1
+						//ï¿½ï¿½ï¿½ï¿½ï¿½Ù½ï¿½Öµ. ï¿½ï¿½Ô´-1
 						PVController.setPV_U_l(0);
 						
 						car1.setLocation((car1.getBounds().x), car1.getBounds().y+1);
@@ -77,7 +77,7 @@ public class goLeft3 extends Thread{
 					
 					if(car1.getBounds().x == 690) {
 						
-						//×ß³öÁÙ½çÇø ×ÊÔ´+1
+						//ï¿½ß³ï¿½ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½Ô´+1
 						
 						PVController.setPV_U_l(1);
 						

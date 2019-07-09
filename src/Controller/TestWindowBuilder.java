@@ -1,6 +1,7 @@
 package Controller;
 import img.*;
 import java.awt.EventQueue;
+import java.awt.MenuItem;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -24,7 +25,7 @@ public class TestWindowBuilder {
 	private JFrame frame;
 	private boolean state = true;
 	
-	private static int free = 666;
+	public static int free = 666;
 
 	/**
 	 * Launch the application.
@@ -71,7 +72,8 @@ public class TestWindowBuilder {
 		JMenu menu1=new JMenu("演示");
 		menu1.setBackground(Color.LIGHT_GRAY);
 		menu1.setHorizontalAlignment(SwingConstants.CENTER);
-		JMenu menu2=new JMenu("改变红绿灯");
+		JMenu menu2=new JMenu("红绿灯");
+		JMenu menu3=new JMenu("汽车");
 		menu2.setHorizontalAlignment(SwingConstants.LEFT);	
 		
 		//menu function
@@ -83,40 +85,7 @@ public class TestWindowBuilder {
 				
 			}
 		});
-//		JMenuItem item3=new JMenuItem("随机变换红绿灯");
-		JMenuItem item21=new JMenuItem("设置左右道直行");
-		item21.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		JMenuItem item22=new JMenuItem("设置左车道左转");
-		item22.addActionListener(new ActionListener() {	
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		JMenuItem item23=new JMenuItem("设置上下车道直行");
-		item23.addActionListener(new ActionListener() {			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		JMenuItem item24=new JMenuItem("设置上下车道左转");
-		item24.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+
 		
 		JMenuItem item3=new JMenuItem("重置");
 		JMenuItem item12=new JMenuItem("刷新");
@@ -138,10 +107,6 @@ public class TestWindowBuilder {
 		menu1.add(item13);
 		menu1.add(item12);
 		menu1.addSeparator();
-		menu2.add(item21);
-		menu2.add(item22);
-		menu2.add(item23);
-		menu2.add(item24);
 //		menu2.add(item3);
 
 		
@@ -669,6 +634,100 @@ public class TestWindowBuilder {
 		button_2.setBounds(180, 760, 80, 80);
 		frame.getContentPane().add(button_2);
 		
+		JMenuItem item21=new JMenuItem("设置左右道直行");
+		item21.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				free = 01;
+				LightController_L lightL_new = new LightController_L(Light_L);
+				LightController_R lightR_new = new LightController_R(Light_R);
+				LightController_U lightU_new = new LightController_U(Light_U);
+				LightController_D lightD_new = new LightController_D(Light_D);
+				
+				lightL_new.start();
+				lightR_new.start();
+				lightU_new.start();
+				lightD_new.start();
+				
+				lightC_l.stop();
+				lightC_r.stop();
+				lightC_u.stop();
+				lightC_d.stop();
+				
+			}
+		});
+		JMenuItem item22=new JMenuItem("设置左右车道左转");
+		item22.addActionListener(new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				free = 00;
+				LightController_L lightL_new = new LightController_L(Light_L);
+				LightController_R lightR_new = new LightController_R(Light_R);
+				LightController_U lightU_new = new LightController_U(Light_U);
+				LightController_D lightD_new = new LightController_D(Light_D);
+				
+				lightL_new.start();
+				lightR_new.start();
+				lightU_new.start();
+				lightD_new.start();
+				
+				lightC_l.stop();
+				lightC_r.stop();
+				lightC_u.stop();
+				lightC_d.stop();
+				
+			}
+		});
+		JMenuItem item23=new JMenuItem("设置上下车道直行");
+		item23.addActionListener(new ActionListener() {			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				free = 11;
+				LightController_L lightL_new = new LightController_L(Light_L);
+				LightController_R lightR_new = new LightController_R(Light_R);
+				LightController_U lightU_new = new LightController_U(Light_U);
+				LightController_D lightD_new = new LightController_D(Light_D);
+				
+				lightL_new.start();
+				lightR_new.start();
+				lightU_new.start();
+				lightD_new.start();
+				
+				lightC_l.stop();
+				lightC_r.stop();
+				lightC_u.stop();
+				lightC_d.stop();
+				
+			}
+		});
+		JMenuItem item24=new JMenuItem("设置上下车道左转");
+		item24.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				free = 10;
+				LightController_L lightL_new = new LightController_L(Light_L);
+				LightController_R lightR_new = new LightController_R(Light_R);
+				LightController_U lightU_new = new LightController_U(Light_U);
+				LightController_D lightD_new = new LightController_D(Light_D);
+				
+				lightL_new.start();
+				lightR_new.start();
+				lightU_new.start();
+				lightD_new.start();
+				
+				lightC_l.stop();
+				lightC_r.stop();
+				lightC_u.stop();
+				lightC_d.stop();	
+				
+			}
+		});
+		menu2.add(item21);
+		menu2.add(item22);
+		menu2.add(item23);
+		menu2.add(item24);
+		
 		
 		//StartBTN setting, other insert btn will automatically insert above these codes��
 		START.setBounds(684, 707, 93, 23);
@@ -722,14 +781,68 @@ public class TestWindowBuilder {
 		item4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				lightC_d.setSpeed(lightC_d.getSpeed()/2);
+				lightC_l.setSpeed(lightC_l.getSpeed()/2);
+				lightC_r.setSpeed(lightC_r.getSpeed()/2);
+				lightC_u.setSpeed(lightC_u.getSpeed()/2);
 			}
 		});
 		JMenuItem item5=new JMenuItem("减慢红绿灯变换速度");
+		item5.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				lightC_d.setSpeed(lightC_d.getSpeed()*2);
+				lightC_l.setSpeed(lightC_l.getSpeed()*2);
+				lightC_r.setSpeed(lightC_r.getSpeed()*2);
+				lightC_u.setSpeed(lightC_u.getSpeed()*2);
+				
+			}
+		});
 		menu2.add(item4);
 		menu2.add(item5);
+		JMenuItem item19=new JMenuItem("加速");
+		item19.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//change speed(up)
+				goleft.speed=goleft.speed/2;
+				goleft2.speed=goleft2.speed/2;
+				goleft3.speed=goleft3.speed/2;
+				goleft4.speed=goleft4.speed/2;
+				goright.speed=goright.speed/2;
+				goright2.speed=goright2.speed/2;
+				goright3.speed=goright3.speed/2;
+				goright4.speed=goright4.speed/2;
+				gostraight.speed=gostraight.speed/2;
+				gostraight2.speed=gostraight2.speed/2;
+				gostraight3.speed=gostraight3.speed/2;
+				gostraight4.speed=gostraight4.speed/2;
+			}
+		});
+		JMenuItem item20=new JMenuItem("减速");
+		item20.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				goleft.speed=goleft.speed*2;
+				goleft2.speed=goleft2.speed*2;
+				goleft3.speed=goleft3.speed*2;
+				goleft4.speed=goleft4.speed*2;
+				goright.speed=goright.speed*2;
+				goright2.speed=goright2.speed*2;
+				goright3.speed=goright3.speed*2;
+				goright4.speed=goright4.speed*2;
+				gostraight.speed=gostraight.speed*2;
+				gostraight2.speed=gostraight2.speed*2;
+				gostraight3.speed=gostraight3.speed*2;
+				gostraight4.speed=gostraight4.speed*2;
+			}
+		});
+		menu3.add(item19);
+		menu3.add(item20);
 		menuBar.add(menu1);
 		menuBar.add(menu2);
+		menuBar.add(menu3);
 		frame.getContentPane().add(menuBar);
 		
 		//Map background

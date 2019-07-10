@@ -64,7 +64,7 @@ public class TestWindowBuilder {
 	 */
 	private void initialize() throws InterruptedException {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 931, 931);
+		frame.setBounds(100, 100, 921, 897);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);		
 

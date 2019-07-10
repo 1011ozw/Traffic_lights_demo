@@ -42,7 +42,10 @@ public class T_goLeft extends Thread {
 		
 		while(run) {
 			
-			if(cargo){ 
+			if(cargo){
+				if (car_down1.getBounds().y<=680 && car_down1.getBounds().y>583) {
+					car_down1.setLocation(car_down1.getBounds().x, (car_down1.getBounds().y-1));
+				}
 				if(PV_goLeft.value<-1)PV.value++;
 				if (PV_goLeft.value==0||car_down1.getBounds().y<583) {
 					

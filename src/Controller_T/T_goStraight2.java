@@ -33,6 +33,9 @@ public class T_goStraight2 extends Thread{
 		while(run) {
 			
 			if(cargo) {
+				if (car_r2.getBounds().x<=748 && car_r2.getBounds().x>701) {
+					car_r2.setLocation((car_r2.getBounds().x-1), car_r2.getBounds().y);
+				}
 				if(PV_goStraight2.value<-1)PV.value++;
 			if (PV_goStraight2.value==0||car_r2.getBounds().x<701) {
 				car_r2.setLocation((car_r2.getBounds().x-1), car_r2.getBounds().y);

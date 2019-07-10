@@ -37,6 +37,9 @@ public class T_goRight2 extends Thread{
 		while(run) {
 			
 			if(cargo) {
+				if (car_right.getBounds().y<=680 && car_right.getBounds().y>583) {
+					car_right.setLocation((car_right.getBounds().x), car_right.getBounds().y-1);
+				}
 				if(PV_goRight2.value<-1)PV.value++;
 				if(PV_goRight2.value==0||car_right .getBounds().y<583){
 				

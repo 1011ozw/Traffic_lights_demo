@@ -38,6 +38,10 @@ public class T_goLeft2 extends Thread{
 		while(run) {
 			
 			if(cargo) {
+				if (car_s2.getBounds().x<=748 && car_s2.getBounds().x>717) {
+					car_s2.setLocation(car_s2.getBounds().x-1, (car_s2.getBounds().y));
+				}
+				if(PV_goLeft2.value<-1)PV_goLeft2.value++;
 				if (PV_goLeft2.value==0||car_s2.getBounds().x<717) {
 				if(already_pass)T_LightController_R.judge_r=true;
 				if(T_LightController_R.judge_r||car_s2.getBounds().x<717){

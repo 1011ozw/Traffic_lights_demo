@@ -11,7 +11,7 @@ public class goStraight extends Thread {
 	
 	private int pv;//pv
 	
-	private boolean cargo;
+	private static boolean cargo;
 	//private Thread t;
 	
 	public goStraight(JLabel car, String name,int sp) {
@@ -98,7 +98,7 @@ public class goStraight extends Thread {
 		}   
 	}
 	
-	public void runCar(boolean state) {
+	public static void runCar(boolean state) {
 
 		cargo = state;
 	}

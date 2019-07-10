@@ -290,7 +290,8 @@ public class TestWindowBuilder {
 		LightController_D lightC_d = new LightController_D(Light_D);
 		
 		//Start button
-		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
+		JButton START = new JButton("");
+		START.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/Start.png")));
 		START.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -755,51 +756,36 @@ public class TestWindowBuilder {
 		menu2.add(item24);
 		
 		//StartBTN setting, other insert btn will automatically insert above these codes��
-		START.setBounds(684, 707, 93, 23);
+		START.setBounds(662, 650, 160, 63);
 		frame.getContentPane().add(START);
 		
 		
 		//Let cars stop or continue
-		JButton STOP = new JButton("\u6682\u505C/\u7EE7\u7EED");
+		JButton STOP = new JButton("");
+		STOP.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/Pause.png")));
 		STOP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-//				state = !state;
-//				gostraight.runCar(state);
-//				goleft.runCar(state);
-//				goright.runCar(state);
-//				
-//				gostraight2.runCar(state);
-//				goright2.runCar(state);
-//				goleft2.runCar(state);
-//				
-//				gostraight3.runCar(state);
-//				goright3.runCar(state);
-//				goleft3.runCar(state);
-//				
-//				gostraight4.runCar(state);
-//				goright4.runCar(state);
-//				goleft4.runCar(state);
+				state = !state;
+				goStraight.runCar(state);
+				goLeft.runCar(state);
+				goRight.runCar(state);
 				
-				goLeft.setSpeed(100000);
-				goLeft2.setSpeed(100000);
-				goLeft3.setSpeed(100000);
-				goLeft4.setSpeed(100000);
+				goStraight2.runCar(state);
+				goRight2.runCar(state);
+				goLeft2.runCar(state);
+				
+				goStraight3.runCar(state);
+				goRight3.runCar(state);
+				goLeft3.runCar(state);
+				
+				goStraight4.runCar(state);
+				goRight4.runCar(state);
+				goLeft4.runCar(state);
 
-				goRight.setSpeed(100000);
-				goRight2.setSpeed(100000);
-				goRight3.setSpeed(100000);
-				goRight4.setSpeed(100000);
-
-				goStraight.setSpeed(100000);
-				goStraight2.setSpeed(100000);
-				goStraight3.setSpeed(100000);
-				goStraight4.setSpeed(100000);
-				
-				
 			}
 		});
-		STOP.setBounds(684, 760, 93, 23);
+		STOP.setBounds(662, 746, 160, 63);
 		frame.getContentPane().add(STOP);
 		
 		JLabel SN = new JLabel("");

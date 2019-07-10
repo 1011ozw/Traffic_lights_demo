@@ -32,6 +32,9 @@ public class LightController_R extends Thread{
 		lighticon = light;
 	}
 	
+	public static int getSpeed() {
+		return speed;
+	}
 	public static void setSpeed(int new_speed) {
 		speed = new_speed;
 	}
@@ -68,65 +71,115 @@ public class LightController_R extends Thread{
 		this.status = true;
 		go_r = true;
 		
-		while(status) {
-		
-			if(combo <= 0) {
-				others_r = true;
-				
-				go_l = false;
-				go_s = false;
-			}
-			else if(combo == 1) {
-				go_l = true;
-				
-				others_r = false;
-				go_s = false;
-			}
-			else if(combo == 2) {
-				go_s = true;
-				
-				others_r = false;
-				go_l = false;
-			}
-			else {
-				combo = -1;
-				others_r = true;
-			}
+		if(TestWindowBuilder.free == 666) {
+			//正常情况
+			//正常情况循环开始
+			while(status) {
 			
-			
-			if(!others_r) {//other roads is not active
-				
-				if(go_s) {
-					lighticon.setIcon(light_RS);
-					combo++;// 2 turns to change other roads
-				}
-				else if (go_l) {
-					lighticon.setIcon(light_L);
-					combo++;// 2 turns to change other roads
-				}
-			}
-			
-			else{//if others_l is true
-				
-				lighticon.setIcon(light_stop);
-				
-				combo++;
-
-			}
-			
-			//--------
-			synchronized(this) {
-				try {
+				if(combo <= 0) {
+					others_r = true;
 					
-					wait(10000);
-				} 
-				catch(Exception e) {
-					e.printStackTrace();
+					go_l = false;
+					go_s = false;
 				}
-			 }	
-			//------
+				else if(combo == 1) {
+					go_l = true;
+					
+					others_r = false;
+					go_s = false;
+				}
+				else if(combo == 2) {
+					go_s = true;
+					
+					others_r = false;
+					go_l = false;
+				}
+				else {
+					combo = -1;
+					others_r = true;
+				}
+				
+				
+				if(!others_r) {//other roads is not active
+					
+					if(go_s) {
+						lighticon.setIcon(light_RS);
+						combo++;// 2 turns to change other roads
+					}
+					else if (go_l) {
+						lighticon.setIcon(light_L);
+						combo++;// 2 turns to change other roads
+					}
+				}
+				
+				else{//if others_l is true
+					
+					lighticon.setIcon(light_stop);
+					
+					combo++;
+
+				}
+				
+				//--------
+				synchronized(this) {
+					try {
+						
+						wait(10000);
+					} 
+					catch(Exception e) {
+						e.printStackTrace();
+					}
+				 }	
+				//------
+				
+			}
+			//正常情况循环结束↑
 			
 		}
+		else if(TestWindowBuilder.free == 00) {
+			//南北向左转
+			combo = 1;
+			go_l = true;
+			
+			others_r = false;
+			go_s = false;
+			
+			lighticon.setIcon(light_L);
+		}
+		else if(TestWindowBuilder.free == 01) {
+			//南北向直行
+			combo = 2;
+			go_s = true;
+			
+			others_r = false;
+			go_l = false;
+			
+			lighticon.setIcon(light_RS);
+		}
+		else if(TestWindowBuilder.free == 10) {
+			//东西向左转
+			combo = -1;
+			others_r = true;
+			
+			go_l = false;
+			go_s = false;
+			
+			lighticon.setIcon(light_stop);
+		}
+		else if(TestWindowBuilder.free == 11) {
+			//东西向直行
+			combo = 0;
+			others_r = true;
+			
+			go_l = false;
+			go_s = false;
+			
+			lighticon.setIcon(light_stop);
+		}
+		
+		
+		
+		
 	}
 }
 	

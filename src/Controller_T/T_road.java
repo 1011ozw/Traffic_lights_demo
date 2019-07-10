@@ -13,7 +13,7 @@ import javax.swing.*;
 
 public class T_road {
 
-	private JFrame frame;
+	public JFrame frame;
 	public static int free;
 	private boolean state = true;
 	static int swift_speed=6000;
@@ -136,7 +136,11 @@ public class T_road {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                crossroad.main(null);
+                frame.dispose();
+            	
+            	crossroad.main(null);
+                
+                
             }
 
         });

@@ -27,6 +27,9 @@ public class LightController_D extends Thread{
 		lighticon = light;
 	}
 	
+	public static int getSpeed() {
+		return speed;
+	}
 	public static void setSpeed(int new_speed) {
 		speed = new_speed;
 	}
@@ -64,63 +67,109 @@ public class LightController_D extends Thread{
 		this.status = true;
 		go_r = true;
 		
-		while(status) {
-			
-			//combo:  -1, 0=others drive left and straight; 1=go left; 2=go straight;
-			if(combo <= 0) {
-				others_d = true;
-				
-				go_l = false;
-				go_s_r = false;
-			}
-			else if(combo == 1) {
-				go_l = true;
-				
-				others_d = false;
-				go_s_r = false;
-			}
-			else if(combo == 2) {
-				go_s_r = true;
-				
-				others_d = false;
-				go_l = false;
-			}
-			else {
-				combo = -1;
-				others_d = true;
-			}
-			
-			
-			if(!others_d) {//other roads is not active
-				
-				if(go_s_r) {
-					lighticon.setIcon(light_RS);
-					combo++;// 2 turns to change other roads
-				}
-				else if (go_l) {
-					lighticon.setIcon(light_L);
-					combo++;// 2 turns to change other roads
-				}
-			}
-			
-			else{//if others_u is true
-				
-				lighticon.setIcon(light_stop);
-				
-				combo++;
-
-			}
-			
-			synchronized(this) {
-				try {
-					
-					wait(speed);
-					
-				} catch(Exception e) {
-					e.printStackTrace();
-				}
-			 }	
-		}
 		
+		if(TestWindowBuilder.free == 666) {
+			//正常情况
+			//正常情况循环开始
+			while(status) {
+				
+				//combo:  -1, 0=others drive left and straight; 1=go left; 2=go straight;
+				if(combo <= 0) {
+					others_d = true;
+					
+					go_l = false;
+					go_s_r = false;
+				}
+				else if(combo == 1) {
+					go_l = true;
+					
+					others_d = false;
+					go_s_r = false;
+				}
+				else if(combo == 2) {
+					go_s_r = true;
+					
+					others_d = false;
+					go_l = false;
+				}
+				else {
+					combo = -1;
+					others_d = true;
+				}
+				
+				
+				if(!others_d) {//other roads is not active
+					
+					if(go_s_r) {
+						lighticon.setIcon(light_RS);
+						combo++;// 2 turns to change other roads
+					}
+					else if (go_l) {
+						lighticon.setIcon(light_L);
+						combo++;// 2 turns to change other roads
+					}
+				}
+				
+				else{//if others_u is true
+					
+					lighticon.setIcon(light_stop);
+					
+					combo++;
+
+				}
+				
+				synchronized(this) {
+					try {
+						
+						wait(speed);
+						
+					} catch(Exception e) {
+						e.printStackTrace();
+					}
+				 }	
+			}
+			//正常情况循环结束↑
+			
+		}
+		else if(TestWindowBuilder.free == 00) {
+			//南北向左转
+			combo = -1;
+			others_d = true;
+			
+			go_l = false;
+			go_s_r = false;
+			
+			lighticon.setIcon(light_stop);
+		}
+		else if(TestWindowBuilder.free == 01) {
+			//南北向直行
+			combo = 0;
+			others_d = true;
+			
+			go_l = false;
+			go_s_r = false;
+			
+			lighticon.setIcon(light_stop);
+		}
+		else if(TestWindowBuilder.free == 10) {
+			//东西向左转
+			combo = 1;
+			go_l = true;
+			
+			others_d = false;
+			go_s_r = false;
+			
+			lighticon.setIcon(light_L);
+		}
+		else if(TestWindowBuilder.free == 11) {
+			//东西向直行
+			combo = 2;
+			go_s_r = true;
+			
+			others_d = false;
+			go_l = false;
+			
+			lighticon.setIcon(light_RS);
+		}
 	}
 }

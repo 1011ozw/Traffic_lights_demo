@@ -4,7 +4,7 @@ import javax.swing.JLabel;
 import Controller.LightController_L;
 
 public class goStraight extends Thread {
-	private int speed=50;
+	private static int speed=50;
 	private JLabel car2;
 	private boolean run;
 	private String threadName;
@@ -26,6 +26,13 @@ public class goStraight extends Thread {
 		
 	}
 
+	public static int getSpeed() {
+		return speed;
+	}
+	public static void setSpeed(int new_speed) {
+		speed = new_speed;
+	}
+	
 	public void setRun(boolean run) {
 		this.run = run;
 	}

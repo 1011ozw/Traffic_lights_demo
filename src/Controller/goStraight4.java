@@ -3,7 +3,7 @@ package Controller;
 import javax.swing.JLabel;
 
 public class goStraight4 extends Thread{
-	private int speed=50;
+	private static int speed=50;
 	private JLabel car2;
 	private boolean run;
 	private String threadName;
@@ -24,6 +24,13 @@ public class goStraight4 extends Thread{
 		pv = PVController.getPV_D_s();//pv
 	}
 
+	public static int getSpeed() {
+		return speed;
+	}
+	public static void setSpeed(int new_speed) {
+		speed = new_speed;
+	}
+	
 	public void setRun(boolean run) {
 		this.run = run;
 	}

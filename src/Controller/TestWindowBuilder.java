@@ -575,8 +575,8 @@ public class TestWindowBuilder {
 		ChangeLight1.setBounds(70, 650, 80, 80);
 		frame.getContentPane().add(ChangeLight1);
 		
-		JButton button = new JButton("");
-		button.addActionListener(new ActionListener() {
+		JButton ChangeLight2 = new JButton("");
+		ChangeLight2.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
 				//南北直行启动
@@ -598,12 +598,12 @@ public class TestWindowBuilder {
 				lightC_d.stop();				
 			}
 		});
-		button.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_s.jpg")));
-		button.setBounds(180, 650, 80, 80);
-		frame.getContentPane().add(button);
+		ChangeLight2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_s.jpg")));
+		ChangeLight2.setBounds(180, 650, 80, 80);
+		frame.getContentPane().add(ChangeLight2);
 		
-		JButton button_1 = new JButton("");
-		button_1.addActionListener(new ActionListener() {
+		JButton ChangeLight3 = new JButton("");
+		ChangeLight3.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				//东西左转启动
@@ -625,12 +625,12 @@ public class TestWindowBuilder {
 				lightC_d.stop();	
 			}
 		});
-		button_1.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_l.jpg")));
-		button_1.setBounds(70, 760, 80, 80);
-		frame.getContentPane().add(button_1);
+		ChangeLight3.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_l.jpg")));
+		ChangeLight3.setBounds(70, 760, 80, 80);
+		frame.getContentPane().add(ChangeLight3);
 		
-		JButton button_2 = new JButton("");
-		button_2.addActionListener(new ActionListener() {
+		JButton ChangeLight4 = new JButton("");
+		ChangeLight4.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				//东西直行启动
@@ -652,9 +652,9 @@ public class TestWindowBuilder {
 				lightC_d.stop();
 			}
 		});
-		button_2.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_s.jpg")));
-		button_2.setBounds(180, 760, 80, 80);
-		frame.getContentPane().add(button_2);
+		ChangeLight4.setIcon(new ImageIcon(TestWindowBuilder.class.getResource("/img/btn_s.jpg")));
+		ChangeLight4.setBounds(180, 760, 80, 80);
+		frame.getContentPane().add(ChangeLight4);
 		
 		//菜单栏设置路灯状态
 		JMenuItem item21=new JMenuItem("设置左右道直行");

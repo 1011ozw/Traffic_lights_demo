@@ -506,6 +506,7 @@ public class T_road {
 		
 		//change status button
 		JButton STOP = new JButton("");
+		STOP.setIcon(new ImageIcon(T_road.class.getResource("/img/pause_t.png")));
 		STOP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				

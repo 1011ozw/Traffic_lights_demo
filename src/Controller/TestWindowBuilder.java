@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -94,6 +95,7 @@ public class TestWindowBuilder {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+				frame.dispose();
 				TestWindowBuilder window;
 				try {
 					window = new TestWindowBuilder();
@@ -263,22 +265,22 @@ public class TestWindowBuilder {
 		PVController pvController = new PVController();
 		
 		//set public driving class
-		goStraight gostraight = new goStraight(car_L_s1,"car_L_s1",10);
-		goRight goright = new goRight(car_L_r1, "car_L_r1",25);
-		goLeft goleft= new goLeft(car_L_l1, "car_L_l1",4);
+		goStraight gostraight = new goStraight(car_L_s1,"car_L_s1",20);
+		goRight goright = new goRight(car_L_r1, "car_L_r1",20);
+		goLeft goleft= new goLeft(car_L_l1, "car_L_l1",20);
 		
-		goStraight2 gostraight2 = new goStraight2(car_R_s1,"car_R_s1",25);
-		goRight2 goright2 = new goRight2(car_R_r1, "car_R_r1",30);
-		goLeft2 goleft2 = new goLeft2(car_R_l1,"car_R_l1",15);
+		goStraight2 gostraight2 = new goStraight2(car_R_s1,"car_R_s1",20);
+		goRight2 goright2 = new goRight2(car_R_r1, "car_R_r1",20);
+		goLeft2 goleft2 = new goLeft2(car_R_l1,"car_R_l1",20);
 		
 		
-		goStraight3 gostraight3 = new goStraight3(car_U_s1,"car_U_s1",25);
-		goRight3 goright3 = new goRight3(car_U_r1,"car_U_r1",15);
-		goLeft3 goleft3 = new goLeft3(car_U_l1,"car_U_l1",15);
+		goStraight3 gostraight3 = new goStraight3(car_U_s1,"car_U_s1",20);
+		goRight3 goright3 = new goRight3(car_U_r1,"car_U_r1",20);
+		goLeft3 goleft3 = new goLeft3(car_U_l1,"car_U_l1",20);
 		
-		goStraight4 gostraight4 = new goStraight4(car_D_s1,"car_D_s1",15);
-		goRight4 goright4 = new goRight4(car_D_r1,"car_D_r1",15);
-		goLeft4 goleft4 = new goLeft4(car_D_l1,"car_D_l1",15);
+		goStraight4 gostraight4 = new goStraight4(car_D_s1,"car_D_s1",20);
+		goRight4 goright4 = new goRight4(car_D_r1,"car_D_r1",20);
+		goLeft4 goleft4 = new goLeft4(car_D_l1,"car_D_l1",20);
 		
 		
 		//set public light class
@@ -363,7 +365,7 @@ public class TestWindowBuilder {
 				frame.getLayeredPane().add(car_L_l_add,new Integer(80));
 				frame.validate();
 				
-				goLeft goleft_add= new goLeft(car_L_l_add, "car_L_l_add",5);
+				goLeft goleft_add= new goLeft(car_L_l_add, "car_L_l_add",12);
 				goleft_add.start();
 				
 			}
@@ -757,32 +759,47 @@ public class TestWindowBuilder {
 		frame.getContentPane().add(START);
 		
 		
-		//change status button
-		JButton STOP = new JButton("\u6682\u505C/\u542F\u52A8");
+		//Let cars stop or continue
+		JButton STOP = new JButton("\u6682\u505C/\u7EE7\u7EED");
 		STOP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				state = !state;
-				gostraight.runCar(state);
-				goleft.runCar(state);
-				goright.runCar(state);
+//				state = !state;
+//				gostraight.runCar(state);
+//				goleft.runCar(state);
+//				goright.runCar(state);
+//				
+//				gostraight2.runCar(state);
+//				goright2.runCar(state);
+//				goleft2.runCar(state);
+//				
+//				gostraight3.runCar(state);
+//				goright3.runCar(state);
+//				goleft3.runCar(state);
+//				
+//				gostraight4.runCar(state);
+//				goright4.runCar(state);
+//				goleft4.runCar(state);
 				
-				gostraight2.runCar(state);
-				goright2.runCar(state);
-				goleft2.runCar(state);
-				
-				gostraight3.runCar(state);
-				goright3.runCar(state);
-				goleft3.runCar(state);
-				
-				gostraight4.runCar(state);
-				goright4.runCar(state);
-				goleft4.runCar(state);
+				goLeft.setSpeed(100000);
+				goLeft2.setSpeed(100000);
+				goLeft3.setSpeed(100000);
+				goLeft4.setSpeed(100000);
+
+				goRight.setSpeed(100000);
+				goRight2.setSpeed(100000);
+				goRight3.setSpeed(100000);
+				goRight4.setSpeed(100000);
+
+				goStraight.setSpeed(100000);
+				goStraight2.setSpeed(100000);
+				goStraight3.setSpeed(100000);
+				goStraight4.setSpeed(100000);
 				
 				
 			}
 		});
-		STOP.setBounds(684, 771, 93, 23);
+		STOP.setBounds(684, 760, 93, 23);
 		frame.getContentPane().add(STOP);
 		
 		JLabel SN = new JLabel("");
@@ -829,20 +846,27 @@ public class TestWindowBuilder {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//车道加速
-				goLeft.setSpeed(goLeft.getSpeed()/2);
-				goLeft2.setSpeed(goLeft2.getSpeed()/2);
-				goLeft3.setSpeed(goLeft3.getSpeed()/2);
-				goLeft4.setSpeed(goLeft4.getSpeed()/2);
+				if(goLeft.getSpeed()>=2) {
+					goLeft.setSpeed(goLeft.getSpeed()/2);
+					goLeft2.setSpeed(goLeft2.getSpeed()/2);
+					goLeft3.setSpeed(goLeft3.getSpeed()/2);
+					goLeft4.setSpeed(goLeft4.getSpeed()/2);
 
-				goRight.setSpeed(goRight.getSpeed()/2);
-				goRight2.setSpeed(goRight2.getSpeed()/2);
-				goRight3.setSpeed(goRight3.getSpeed()/2);
-				goRight4.setSpeed(goRight4.getSpeed()/2);
+					goRight.setSpeed(goRight.getSpeed()/2);
+					goRight2.setSpeed(goRight2.getSpeed()/2);
+					goRight3.setSpeed(goRight3.getSpeed()/2);
+					goRight4.setSpeed(goRight4.getSpeed()/2);
 
-				goStraight.setSpeed(goStraight.getSpeed()/2);
-				goStraight2.setSpeed(goStraight2.getSpeed()/2);
-				goStraight3.setSpeed(goStraight3.getSpeed()/2);
-				goStraight4.setSpeed(goStraight4.getSpeed()/2);
+					goStraight.setSpeed(goStraight.getSpeed()/2);
+					goStraight2.setSpeed(goStraight2.getSpeed()/2);
+					goStraight3.setSpeed(goStraight3.getSpeed()/2);
+					goStraight4.setSpeed(goStraight4.getSpeed()/2);
+					
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "已经是最快速度了", "提示",JOptionPane.WARNING_MESSAGE); 
+				}
+				
 			}
 		});
 		JMenuItem item20=new JMenuItem("减速");
@@ -850,20 +874,25 @@ public class TestWindowBuilder {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 车道减速
-				goLeft.setSpeed(goLeft.getSpeed()*2);
-				goLeft2.setSpeed(goLeft2.getSpeed()*2);
-				goLeft3.setSpeed(goLeft3.getSpeed()*2);
-				goLeft4.setSpeed(goLeft4.getSpeed()*2);
+				if(goLeft.getSpeed()<=50) {
+					goLeft.setSpeed(goLeft.getSpeed()*2);
+					goLeft2.setSpeed(goLeft2.getSpeed()*2);
+					goLeft3.setSpeed(goLeft3.getSpeed()*2);
+					goLeft4.setSpeed(goLeft4.getSpeed()*2);
 
-				goRight.setSpeed(goRight.getSpeed()*2);
-				goRight2.setSpeed(goRight2.getSpeed()*2);
-				goRight3.setSpeed(goRight3.getSpeed()*2);
-				goRight4.setSpeed(goRight4.getSpeed()*2);
+					goRight.setSpeed(goRight.getSpeed()*2);
+					goRight2.setSpeed(goRight2.getSpeed()*2);
+					goRight3.setSpeed(goRight3.getSpeed()*2);
+					goRight4.setSpeed(goRight4.getSpeed()*2);
 
-				goStraight.setSpeed(goStraight.getSpeed()*2);
-				goStraight2.setSpeed(goStraight2.getSpeed()*2);
-				goStraight3.setSpeed(goStraight3.getSpeed()*2);
-				goStraight4.setSpeed(goStraight4.getSpeed()*2);
+					goStraight.setSpeed(goStraight.getSpeed()*2);
+					goStraight2.setSpeed(goStraight2.getSpeed()*2);
+					goStraight3.setSpeed(goStraight3.getSpeed()*2);
+					goStraight4.setSpeed(goStraight4.getSpeed()*2);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "已经是最慢速度了", "提示",JOptionPane.WARNING_MESSAGE); 
+				}
 			}
 		});
 		menu3.add(item19);

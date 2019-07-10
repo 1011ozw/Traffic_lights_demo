@@ -243,7 +243,8 @@ public class T_road {
 		T_LightController_L tll = new T_LightController_L(Light_L); //×ó·½ºìÂÌµÆ
 		T_LightController_R tlr = new T_LightController_R(Light_R); //ÓÒ·½ºìÂÌµÆ
 		//Start button
-		JButton START = new JButton("\u5F00\u59CB\u8FD0\u884C");
+		JButton START = new JButton("");
+		START.setIcon(new ImageIcon(T_road.class.getResource("/img/start_t.png")));
 		START.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				free=0;
@@ -500,11 +501,11 @@ public class T_road {
 		
 		
 		
-		START.setBounds(723, 637, 93, 23);
+		START.setBounds(723, 561, 85, 85);
 		frame.getContentPane().add(START);
 		
 		//change status button
-		JButton STOP = new JButton("\u505C\u6B62\u8FD0\u884C");
+		JButton STOP = new JButton("");
 		STOP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -520,7 +521,7 @@ public class T_road {
 
 			}
 		});
-		STOP.setBounds(723, 711, 93, 23);
+		STOP.setBounds(723, 693, 85, 85);
 		frame.getContentPane().add(STOP);
 		
 		JLabel tree_icon = new JLabel("");

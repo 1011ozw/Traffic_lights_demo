@@ -53,7 +53,7 @@ public class T_road {
 	 */
 	private void initialize() throws InterruptedException {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 896, 896);
+		frame.setBounds(100, 100, 896, 866);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);		
 		
@@ -217,7 +217,7 @@ public class T_road {
 				
 				JLabel car4 = new JLabel("");
 				car4.setIcon(new ImageIcon(T_road.class.getResource("/img/car3.png")));
-				car4.setBounds(142, 277, 70, 38);
+				car4.setBounds(68, 277, 70, 38);
 				frame.getLayeredPane().add(car4,new Integer(80));
 				frame.validate();
 				T_turn tturn2=new T_turn(car4,"car4",10);
@@ -393,7 +393,7 @@ public class T_road {
 			public void actionPerformed(ActionEvent arg0) {
 				JLabel car5 = new JLabel("");
 				car5.setIcon(new ImageIcon(T_road.class.getResource("/img/car1.png")));
-				car5.setBounds(142, 342, 70, 38);
+				car5.setBounds(68, 342, 70, 38);
 				frame.getLayeredPane().add(car5,new Integer(80));
 				frame.validate();
 				T_goStraight tgs=new T_goStraight(car5,"car5",10);
@@ -412,7 +412,7 @@ public class T_road {
 			public void actionPerformed(ActionEvent e) {
 				JLabel car6 = new JLabel("");
 				car6.setIcon(new ImageIcon(T_road.class.getResource("/img/car2.png")));
-				car6.setBounds(142, 402, 70, 38);
+				car6.setBounds(68, 402, 70, 38);
 				frame.getLayeredPane().add(car6,new Integer(80));
 				frame.validate();
 				T_goRight tgr=new T_goRight(car6,"car6",10);

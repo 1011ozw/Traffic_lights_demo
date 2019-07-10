@@ -13,7 +13,7 @@ public class goLeft extends Thread {
 	
 	private int pv;//pv
 	
-	private boolean cargo;
+	private static boolean cargo;
 	//private Thread t;
 	
 	public goLeft(JLabel car, String name, int sp) {
@@ -112,7 +112,7 @@ public class goLeft extends Thread {
 		}   
 	}
 	
-	public void runCar(boolean state) {
+	public static void runCar(boolean state) {
 
 		cargo = state;
 	}
